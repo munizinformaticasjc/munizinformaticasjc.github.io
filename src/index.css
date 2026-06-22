@@ -1,1 +1,59 @@
 @import "tailwindcss";
+
+:root {
+  --ink: #24262b;
+  --paper: #f3f4f3;
+  --paper-deep: #e8eae9;
+  --steel: #2c6692;
+  --steel-deep: #1c4259;
+  --steel-soft: #e4edf2;
+  --hero-blue: #d5e7f1;
+  --hero-blue-deep: #c5ddea;
+  --hero-blue-border: #b6d2e1;
+  --signal: #c8682e;
+  --signal-soft: #f6e6da;
+  --line: #d7dad7;
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  background-color: var(--paper);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Foco visível e acessível em qualquer elemento navegável por teclado */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--steel);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Respeita a preferência do usuário por menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Superfície azul do Hero, derivada do azul principal do logotipo. */
+.hero-surface {
+  background:
+    radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.72), transparent 34%),
+    linear-gradient(135deg, var(--hero-blue) 0%, #e7f0f5 52%, var(--hero-blue-deep) 100%);
+}
