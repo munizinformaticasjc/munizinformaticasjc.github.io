@@ -32,7 +32,7 @@ function createSchema(service) {
         name: 'Muniz Informática & Tecnologia',
         url: siteUrl,
         image: `${siteUrl}/logo.png`,
-        telephone: '+5512997900535',
+        telephone: '+5512991069682',
         email: 'muniztecnologia.sjc@gmail.com',
         areaServed: [
           { '@type': 'City', name: 'São José dos Campos' },

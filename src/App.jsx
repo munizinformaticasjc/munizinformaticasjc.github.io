@@ -7,7 +7,7 @@ import {
   MapPin, Wifi,
 } from 'lucide-react';
 
-const WHATSAPP_NUMBER = '5512997900535';
+const WHATSAPP_NUMBER = '5512991069682';
 const DEFAULT_MESSAGE = 'Olá, encontrei o site da Muniz Informática e gostaria de solicitar uma avaliação para meu computador ou notebook.';
 
 function waLink(message = DEFAULT_MESSAGE) {
@@ -725,7 +725,7 @@ export default function App() {
                       rel="noopener noreferrer"
                       className="text-3xl font-display font-semibold tracking-tight hover:text-[var(--steel)] transition-colors block"
                     >
-                      (12) 99790-0535
+                      (12) 99106-9682
                     </a>
                   </div>
                   <div>
@@ -792,8 +792,8 @@ export default function App() {
               <div>
                 <div className="font-display font-semibold text-white tracking-widest text-xs mb-3.5">CONTATO</div>
                 <div className="space-y-2">
-                  <a href="tel:+5512997900535" className="block hover:text-white transition-colors">
-                    (12) 99790-0535
+                  <a href="tel:+5512991069682" className="block hover:text-white transition-colors">
+                    (12) 99106-9682
                   </a>
                   <a href="mailto:muniztecnologia.sjc@gmail.com" className="block hover:text-white transition-colors break-all">
                     muniztecnologia.sjc@gmail.com

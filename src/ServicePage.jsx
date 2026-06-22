@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 import { serviceBySlug, servicePages } from './serviceData.js';
 
-const WHATSAPP_NUMBER = '5512997900535';
+const WHATSAPP_NUMBER = '5512991069682';
 const SITE_URL = 'https://munizinformatica.com.br';
 
 function waLink(message) {
@@ -102,7 +102,7 @@ function Footer() {
         <div>
           <h2 className="mb-4 font-display text-xs font-semibold tracking-[2px] text-white">CONTATO</h2>
           <div className="space-y-2 text-sm">
-            <a href="tel:+5512997900535" className="block hover:text-white">(12) 99790-0535</a>
+            <a href="tel:+5512991069682" className="block hover:text-white">(12) 99106-9682</a>
             <a href="mailto:muniztecnologia.sjc@gmail.com" className="block break-all hover:text-white">muniztecnologia.sjc@gmail.com</a>
             <p>São José dos Campos e região</p>
           </div>
