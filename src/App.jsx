@@ -307,7 +307,7 @@ export default function App() {
                 alt="Muniz Informática & Tecnologia"
                 width="271"
                 height="129"
-                className="w-[122px] sm:w-[142px] lg:w-[160px] h-auto object-contain"
+                className="w-[98px] sm:w-[114px] lg:w-[128px] h-auto object-contain"
               />
             </a>
 
@@ -369,7 +369,7 @@ export default function App() {
                 alt="Muniz Informática & Tecnologia"
                 width="271"
                 height="129"
-                className="w-[138px] h-auto object-contain"
+                className="w-[110px] h-auto object-contain"
               />
               <button
                 type="button"
@@ -769,7 +769,7 @@ export default function App() {
                 <img
                   src="/logo.png"
                   alt="Muniz Informática"
-                  className="w-[180px] h-auto object-contain brightness-0 invert"
+                  className="w-[144px] h-auto object-contain brightness-0 invert"
                 />
               </div>
               <p className="text-sm max-w-xs mx-auto lg:mx-0">
