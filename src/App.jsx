@@ -758,6 +758,48 @@ export default function App() {
             </div>
           </div>
         </Section>
+
+        {/* LOCALIZAÇÃO */}
+        <Section id="localizacao" className="bg-white py-20 md:py-24 border-t border-[var(--line)]">
+          <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div className="mb-10 text-center">
+              <Eyebrow>Localização</Eyebrow>
+              <h2 className="font-display text-3xl md:text-5xl font-semibold tracking-tight">
+                Muniz Informática em São José dos Campos
+              </h2>
+              <p className="mt-4 mx-auto max-w-2xl text-lg text-[var(--ink)]/65 leading-relaxed">
+                Consulte nossa localização no Google Maps, confira as informações do perfil e trace a melhor rota para atendimento.
+              </p>
+            </div>
+
+            <div className="overflow-hidden rounded-3xl border border-[var(--line)] shadow-[0_20px_55px_-35px_rgba(28,66,89,0.45)]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.7799799091517!2d-45.8808338!3d-23.178228999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e5189f23f699dcf%3A0x35830ce9f362d9f0!2sMuniz%20Inform%C3%A1tica%20e%20Tecnologia!5e0!3m2!1spt-BR!2sbr!4v1782175338102!5m2!1spt-BR!2sbr"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localização da Muniz Informática e Tecnologia no Google Maps"
+                className="block min-h-[360px] w-full"
+              />
+            </div>
+
+            <div className="mt-7 flex justify-center">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Muniz%20Inform%C3%A1tica%20e%20Tecnologia%2C%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%20-%20SP"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-[var(--steel)] px-6 py-3.5 font-semibold text-white transition-all hover:bg-[var(--steel-deep)] active:scale-[0.98]"
+                aria-label="Abrir o perfil da Muniz Informática no Google Maps"
+              >
+                <MapPin size={19} />
+                Abrir no Google Maps
+              </a>
+            </div>
+          </div>
+        </Section>
       </main>
 
       {/* FOOTER */}

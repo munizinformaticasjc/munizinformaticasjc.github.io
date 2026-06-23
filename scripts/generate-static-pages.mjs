@@ -34,6 +34,15 @@ function createSchema(service) {
         image: `${siteUrl}/logo.png`,
         telephone: '+5512991069682',
         email: 'muniztecnologia.sjc@gmail.com',
+        hasMap: 'https://www.google.com/maps/search/?api=1&query=Muniz%20Inform%C3%A1tica%20e%20Tecnologia%2C%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%20-%20SP',
+        sameAs: [
+          'https://www.google.com/maps/search/?api=1&query=Muniz%20Inform%C3%A1tica%20e%20Tecnologia%2C%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%20-%20SP'
+        ],
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: -23.178229,
+          longitude: -45.8808338
+        },
         areaServed: [
           { '@type': 'City', name: 'São José dos Campos' },
           { '@type': 'City', name: 'Jacareí' }
