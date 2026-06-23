@@ -7,9 +7,9 @@
   --steel: #2c6692;
   --steel-deep: #1c4259;
   --steel-soft: #e4edf2;
-  --hero-blue: #d5e7f1;
-  --hero-blue-deep: #c5ddea;
-  --hero-blue-border: #b6d2e1;
+  --hero-blue: #aab9c1;
+  --hero-blue-deep: #9eb1bb;
+  --hero-blue-border: #92a8b4;
   --signal: #c8682e;
   --signal-soft: #f6e6da;
   --line: #d7dad7;
@@ -55,5 +55,5 @@ summary:focus-visible {
 .hero-surface {
   background:
     radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.72), transparent 34%),
-    linear-gradient(135deg, var(--hero-blue) 0%, #e7f0f5 52%, var(--hero-blue-deep) 100%);
+    linear-gradient(135deg, var(--hero-blue) 0%, #b8c0c4 52%, var(--hero-blue-deep) 100%);
 }

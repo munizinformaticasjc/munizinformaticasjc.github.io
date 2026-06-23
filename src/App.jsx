@@ -292,7 +292,7 @@ export default function App() {
         className={`fixed inset-x-0 top-0 w-full backdrop-blur-xl border-b z-50 transition-[background-color,border-color,box-shadow] duration-300 ${
           isScrolled
             ? 'bg-[var(--hero-blue)]/95 border-[var(--hero-blue-border)] shadow-[0_8px_28px_-22px_rgba(28,66,89,0.65)]'
-            : 'bg-[var(--paper)]/95 border-[var(--line)]'
+            : 'bg-[var(--hero-blue)]/95 border-[var(--hero-blue-border)]'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -303,11 +303,11 @@ export default function App() {
               aria-label="Muniz Informática & Tecnologia — início"
             >
               <img
-                src="/logo-header.png"
+                src="/logo.png"
                 alt="Muniz Informática & Tecnologia"
                 width="271"
                 height="129"
-                className="w-[114px] sm:w-[128px] lg:w-[144px] h-auto object-contain"
+                className="w-[158px] sm:w-[176px] lg:w-[196px] h-auto object-contain"
               />
             </a>
 
@@ -365,11 +365,11 @@ export default function App() {
           >
             <div className="flex min-h-[84px] items-center justify-between border-b border-[var(--line)] px-5">
               <img
-                src="/logo-header.png"
+                src="/logo.png"
                 alt="Muniz Informática & Tecnologia"
                 width="271"
                 height="129"
-                className="w-[128px] h-auto object-contain"
+                className="w-[172px] h-auto object-contain"
               />
               <button
                 type="button"
@@ -765,13 +765,13 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:flex-row lg:justify-between gap-y-10">
             <div className="lg:w-1/3">
-              <img
-                src="/logo-header.png"
-                alt="Muniz Informática & Tecnologia"
-                width="271"
-                height="129"
-                className="w-[185px] h-auto mx-auto lg:mx-0 brightness-0 invert opacity-90 mb-4"
-              />
+              <div className="mb-4 inline-flex rounded-xl bg-white px-4 py-3 shadow-sm">
+                <img
+                  src="/logo.png"
+                  alt="Muniz Informática"
+                  className="w-[205px] h-auto object-contain"
+                />
+              </div>
               <p className="text-sm max-w-xs mx-auto lg:mx-0">
                 Assistência técnica para computadores e notebooks em São José dos Campos e região.
               </p>
