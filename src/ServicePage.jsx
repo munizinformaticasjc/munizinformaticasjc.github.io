@@ -44,9 +44,9 @@ function Header({ onMenuChange }) {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--hero-blue-border)] bg-[var(--hero-blue)]/95 backdrop-blur-xl">
-        <div className="mx-auto flex h-[84px] max-w-7xl items-center justify-between px-4 sm:px-6 md:h-[96px] lg:px-8">
+        <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 md:h-[84px] lg:px-8">
           <a href="/" aria-label="Muniz Informática — página inicial">
-            <img src="/logo.png" alt="Muniz Informática & Tecnologia" width="271" height="129" className="h-auto w-[158px] sm:w-[176px] lg:w-[196px]" />
+            <img src="/logo.png" alt="Muniz Informática & Tecnologia" width="271" height="129" className="h-auto w-[122px] sm:w-[142px] lg:w-[160px]" />
           </a>
           <nav className="hidden items-center gap-7 text-sm md:flex" aria-label="Navegação principal">
             <a href="/" className="font-medium hover:text-[var(--steel)]">Início</a>
@@ -65,7 +65,7 @@ function Header({ onMenuChange }) {
           <button className="absolute inset-0 bg-black/60" onClick={() => setMenu(false)} aria-label="Fechar menu" />
           <aside className="absolute inset-y-0 right-0 flex h-[100dvh] w-[88vw] max-w-[340px] flex-col bg-[var(--paper)] shadow-2xl">
             <div className="flex min-h-[84px] items-center justify-between border-b border-[var(--line)] px-5">
-              <img src="/logo.png" alt="Muniz Informática & Tecnologia" className="h-auto w-[172px]" />
+              <img src="/logo.png" alt="Muniz Informática & Tecnologia" className="h-auto w-[138px]" />
               <button onClick={() => setMenu(false)} className="p-2" aria-label="Fechar menu"><X size={25} /></button>
             </div>
             <nav className="flex-1 space-y-1 overflow-y-auto p-4">
@@ -90,7 +90,7 @@ function Footer() {
     <footer className="border-t border-white/10 bg-[var(--ink)] pb-8 pt-14 text-white/60">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-6 md:grid-cols-3 lg:px-8">
         <div>
-          <div className="mb-4 inline-flex rounded-xl bg-white px-4 py-3 shadow-sm"><img src="/logo.png" alt="Muniz Informática" className="h-auto w-[205px]" /></div>
+          <div className="mb-4 inline-flex"><img src="/logo.png" alt="Muniz Informática" className="h-auto w-[180px] brightness-0 invert" /></div>
           <p className="max-w-sm text-sm">Assistência técnica para computadores e notebooks em São José dos Campos e região.</p>
         </div>
         <div>

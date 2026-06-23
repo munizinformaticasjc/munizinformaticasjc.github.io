@@ -296,7 +296,7 @@ export default function App() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-[84px] md:h-[96px]">
+          <div className="flex justify-between items-center h-[72px] md:h-[84px]">
             <a
               href="#inicio"
               className="flex-shrink-0 flex items-center"
@@ -307,7 +307,7 @@ export default function App() {
                 alt="Muniz Informática & Tecnologia"
                 width="271"
                 height="129"
-                className="w-[158px] sm:w-[176px] lg:w-[196px] h-auto object-contain"
+                className="w-[122px] sm:w-[142px] lg:w-[160px] h-auto object-contain"
               />
             </a>
 
@@ -369,7 +369,7 @@ export default function App() {
                 alt="Muniz Informática & Tecnologia"
                 width="271"
                 height="129"
-                className="w-[172px] h-auto object-contain"
+                className="w-[138px] h-auto object-contain"
               />
               <button
                 type="button"
@@ -765,11 +765,11 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:flex-row lg:justify-between gap-y-10">
             <div className="lg:w-1/3">
-              <div className="mb-4 inline-flex rounded-xl bg-white px-4 py-3 shadow-sm">
+              <div className="mb-4 inline-flex">
                 <img
                   src="/logo.png"
                   alt="Muniz Informática"
-                  className="w-[205px] h-auto object-contain"
+                  className="w-[180px] h-auto object-contain brightness-0 invert"
                 />
               </div>
               <p className="text-sm max-w-xs mx-auto lg:mx-0">
