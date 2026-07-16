@@ -1,0 +1,23 @@
+{
+  "name": "Muniz Informática & Tecnologia",
+  "short_name": "Muniz Informática",
+  "description": "Assistência técnica para computadores e notebooks em São José dos Campos, Jacareí e região.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f3f4f3",
+  "theme_color": "#2c6692",
+  "icons": [
+    {
+      "src": "/munizlogo.png",
+      "sizes": "500x500",
+      "type": "image/png"
+    },
+    {
+      "src": "/munizlog.png",
+      "sizes": "250x250",
+      "type": "image/png"
+    }
+  ]
+}

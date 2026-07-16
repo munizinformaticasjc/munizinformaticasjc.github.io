@@ -20,6 +20,7 @@ function updateMeta(service) {
     ['meta[property="og:title"]', 'content', service.seoTitle],
     ['meta[property="og:description"]', 'content', service.description],
     ['meta[property="og:url"]', 'content', `${SITE_URL}/${service.slug}/`],
+    ['meta[property="og:type"]', 'content', 'article'],
     ['meta[name="twitter:title"]', 'content', service.seoTitle],
     ['meta[name="twitter:description"]', 'content', service.description],
   ];
@@ -53,6 +54,7 @@ function Header({ onMenuChange }) {
             <a href="/#servicos" className="font-medium hover:text-[var(--steel)]">Serviços</a>
             <a href="/#como-funciona" className="font-medium hover:text-[var(--steel)]">Como funciona</a>
             <a href="/#duvidas" className="font-medium hover:text-[var(--steel)]">Dúvidas</a>
+            <a href="/sobre/" className="font-medium hover:text-[var(--steel)]">Sobre</a>
           </nav>
           <a href={waLink('Olá! Encontrei o site da Muniz Informática e gostaria de solicitar uma avaliação.')} target="_blank" rel="noopener noreferrer" className="hidden items-center gap-2 rounded-lg bg-[var(--steel)] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[var(--steel-deep)] md:inline-flex">
             <MessageCircle size={17} /> Chamar no WhatsApp
@@ -69,7 +71,7 @@ function Header({ onMenuChange }) {
               <button onClick={() => setMenu(false)} className="p-2" aria-label="Fechar menu"><X size={25} /></button>
             </div>
             <nav className="flex-1 space-y-1 overflow-y-auto p-4">
-              {[['Início', '/'], ['Serviços', '/#servicos'], ['Como funciona', '/#como-funciona'], ['Dúvidas', '/#duvidas'], ['Contato', '/#contato']].map(([name, href]) => (
+              {[['Início', '/'], ['Serviços', '/#servicos'], ['Como funciona', '/#como-funciona'], ['Dúvidas', '/#duvidas'], ['Sobre', '/sobre/'], ['Contato', '/#contato']].map(([name, href]) => (
                 <a key={name} href={href} onClick={() => setMenu(false)} className="block rounded-xl px-4 py-3 font-medium hover:bg-[var(--steel-soft)]">{name}</a>
               ))}
             </nav>
@@ -91,12 +93,12 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-6 md:grid-cols-3 lg:px-8">
         <div>
           <div className="mb-4 inline-flex"><img src="/logo.png" alt="Muniz Informática" className="h-auto w-[144px] brightness-0 invert" /></div>
-          <p className="max-w-sm text-sm">Assistência técnica para computadores e notebooks em São José dos Campos e região.</p>
+          <p className="max-w-sm text-sm">Assistência técnica para computadores e notebooks em São José dos Campos, Jacareí e região.</p>
         </div>
         <div>
           <h2 className="mb-4 font-display text-xs font-semibold tracking-[2px] text-white">SERVIÇOS</h2>
           <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
-            {servicePages.slice(0, 8).map((service) => <a key={service.slug} href={`/${service.slug}/`} className="hover:text-white">{service.shortTitle}</a>)}
+            {servicePages.map((service) => <a key={service.slug} href={`/${service.slug}/`} className="hover:text-white">{service.shortTitle}</a>)}
           </div>
         </div>
         <div>
@@ -104,7 +106,7 @@ function Footer() {
           <div className="space-y-2 text-sm">
             <a href="tel:+5512991069682" className="block hover:text-white">(12) 99106-9682</a>
             <a href="mailto:muniztecnologia.sjc@gmail.com" className="block break-all hover:text-white">muniztecnologia.sjc@gmail.com</a>
-            <p>São José dos Campos e região</p>
+            <p>São José dos Campos, Jacareí e região</p>
           </div>
         </div>
       </div>
@@ -157,7 +159,7 @@ export function ServicePage({ slug }) {
                   <ul className="space-y-3">
                     {service.highlights.map((item) => <li key={item} className="flex items-start gap-3 text-sm text-[var(--ink)]/70"><Check className="mt-0.5 shrink-0 text-[var(--steel)]" size={17} />{item}</li>)}
                   </ul>
-                  <div className="mt-6 border-t border-[var(--line)] pt-5 text-sm text-[var(--ink)]/60"><MapPin className="mr-2 inline text-[var(--steel)]" size={16} />São José dos Campos e região</div>
+                  <div className="mt-6 border-t border-[var(--line)] pt-5 text-sm text-[var(--ink)]/60"><MapPin className="mr-2 inline text-[var(--steel)]" size={16} />São José dos Campos, Jacareí e região</div>
                 </div>
               </div>
             </div>
@@ -255,7 +257,7 @@ export function NotFoundPage() {
   useEffect(() => { document.title = 'Página não encontrada | Muniz Informática'; }, []);
   return (
     <div className="flex min-h-screen items-center justify-center bg-[var(--paper)] px-5 text-center">
-      <div><img src="/logo.png" alt="Muniz Informática" className="mx-auto mb-8 h-auto w-[176px]" /><div className="mb-3 font-display text-sm font-semibold tracking-[3px] text-[var(--steel)]">ERRO 404</div><h1 className="mb-4 font-display text-4xl font-semibold">Página não encontrada</h1><p className="mb-8 text-[var(--ink)]/65">O endereço acessado não existe ou foi alterado.</p><a href="/" className="inline-flex items-center gap-2 rounded-xl bg-[var(--steel)] px-6 py-4 font-semibold text-white">Voltar para o início <ArrowRight size={17} /></a></div>
+            <div><img src="/logo.png" alt="Muniz Informática" className="mx-auto mb-8 h-auto w-[176px]" /><div className="mb-3 font-display text-sm font-semibold tracking-[3px] text-[var(--steel)]">ERRO 404</div><h1 className="mb-4 font-display text-4xl font-semibold">Página não encontrada</h1><p className="mb-8 text-[var(--ink)]/65">O endereço acessado não existe ou foi alterado.</p><a href="/" className="inline-flex items-center gap-2 rounded-xl bg-[var(--steel)] px-6 py-4 font-semibold text-white">Voltar para o início <ArrowRight size={17} /></a></div>
     </div>
   );
 }

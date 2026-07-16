@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://munizinformaticasjc.github.io/",
+  "homepage": "https://munizinformatica.com.br/",
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/generate-static-pages.mjs",

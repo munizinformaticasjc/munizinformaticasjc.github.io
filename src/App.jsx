@@ -19,6 +19,7 @@ const navLinks = [
   { name: 'Serviços', href: '#servicos' },
   { name: 'Como funciona', href: '#como-funciona' },
   { name: 'Dúvidas', href: '#duvidas' },
+  { name: 'Sobre', href: '/sobre/' },
   { name: 'Contato', href: '#contato' },
 ];
 
@@ -81,9 +82,13 @@ const serviceCategories = [
     ],
     links: [
       ['Computador lento', '/computador-lento/'],
+      ['Computador travando', '/computador-travando/'],
+      ['Notebook esquentando', '/notebook-esquentando/'],
+      ['Notebook demora para ligar', '/notebook-demora-para-ligar/'],
       ['Limpeza de notebook', '/limpeza-de-notebook/'],
       ['Manutenção de computadores', '/manutencao-de-computadores/'],
       ['Upgrade para SSD', '/upgrade-ssd/'],
+      ['Upgrade de memória RAM', '/upgrade-memoria-ram/'],
     ],
   },
   {
@@ -100,6 +105,8 @@ const serviceCategories = [
     links: [
       ['Formatação de notebook', '/formatacao-de-notebook/'],
       ['Instalação do Windows', '/instalacao-do-windows/'],
+      ['Assistência técnica notebook', '/assistencia-tecnica-notebook/'],
+      ['Assistência técnica computador', '/assistencia-tecnica-computador/'],
     ],
   },
   {
@@ -138,7 +145,9 @@ const serviceCategories = [
     ],
     links: [
       ['Suporte remoto', '/suporte-remoto/'],
+      ['Suporte para pequenas empresas', '/suporte-informatica-pequenas-empresas/'],
       ['Assistência técnica em SJC', '/assistencia-tecnica-em-sao-jose-dos-campos/'],
+      ['Sobre a Muniz Informática', '/sobre/'],
     ],
   },
 ];
@@ -427,12 +436,10 @@ export default function App() {
               <div className="lg:col-span-7">
                 <Eyebrow>Assistência técnica para computadores e notebooks · SJC, Jacareí e Região</Eyebrow>
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-[58px] font-semibold leading-[1.05] tracking-tight mb-6">
-                  Computador lento, travando ou abrindo propagandas?
-                  <span className="text-[var(--steel)]"> A Muniz Informática pode ajudar.</span>
+                  Assistência técnica de computadores e notebooks em São José dos Campos e Jacareí
                 </h1>
                 <p className="text-lg md:text-xl text-[var(--ink)]/70 max-w-xl mb-9 leading-relaxed">
-                  Atendimento técnico direto e personalizado para avaliar o problema e indicar a solução mais adequada.
-                  Atendimento presencial em São José dos Campos, Jacareí e Região, além de suporte remoto conforme o tipo de serviço.
+                  Formatação, limpeza, upgrade de SSD e memória RAM, remoção de vírus e suporte técnico presencial ou remoto para clientes residenciais e pequenas empresas.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3">
@@ -455,7 +462,7 @@ export default function App() {
                 </div>
 
                 <p className="mt-6 text-sm text-[var(--ink)]/55">
-                  Avaliação e orçamento antes da execução do serviço · Atendimento de segunda a sexta
+                  Avaliação e orçamento antes da execução do serviço · SJC, Jacareí e Vale do Paraíba
                 </p>
                 <div ref={heroRef} aria-hidden="true" />
               </div>
@@ -538,7 +545,7 @@ export default function App() {
                 Serviços para computadores e notebooks
               </h2>
               <p className="text-lg text-[var(--ink)]/65">
-                Atendimento para manutenção, configuração, segurança, backup e suporte. A modalidade presencial ou remota é definida de acordo com o tipo de problema.
+                Atendimento para manutenção, configuração, segurança, backup, upgrade de SSD, upgrade de memória RAM e suporte. A modalidade presencial ou remota é definida de acordo com o tipo de problema.
               </p>
             </div>
 
@@ -649,7 +656,7 @@ export default function App() {
             <div className="max-w-2xl mb-12">
               <Eyebrow>Área de atendimento</Eyebrow>
               <h2 className="font-display text-3xl md:text-5xl font-semibold tracking-tight">
-                Atendimento presencial em São José dos Campos, com suporte remoto quando possível.
+                Atendimento em São José dos Campos, Jacareí e Vale do Paraíba, com suporte remoto quando possível.
               </h2>
             </div>
 
@@ -660,7 +667,7 @@ export default function App() {
                 </div>
                 <h3 className="font-display text-xl font-semibold mb-2.5">Atendimento presencial</h3>
                 <p className="text-[var(--ink)]/65 leading-relaxed">
-                  Indicado para limpeza interna, manutenção física, avaliação de aquecimento e problemas relacionados ao hardware.
+                  Indicado para limpeza interna, manutenção física, upgrade de SSD ou memória, avaliação de aquecimento e problemas relacionados ao hardware, conforme disponibilidade na região.
                 </p>
               </div>
               <div className="bg-white border border-[var(--line)] rounded-2xl p-8">
@@ -740,7 +747,7 @@ export default function App() {
                   <div>
                     <div className="text-white/45 text-xs font-semibold tracking-[2px] uppercase mb-1.5">Atendimento</div>
                     <div className="text-lg leading-relaxed">
-                      São José dos Campos e região · Suporte remoto conforme o tipo de serviço
+                  São José dos Campos, Jacareí e região · Suporte remoto conforme o tipo de serviço
                     </div>
                   </div>
                 </div>
@@ -765,10 +772,10 @@ export default function App() {
             <div className="mb-10 text-center">
               <Eyebrow>Localização</Eyebrow>
               <h2 className="font-display text-3xl md:text-5xl font-semibold tracking-tight">
-                Muniz Informática em São José dos Campos
+                Muniz Informática em São José dos Campos e Jacareí
               </h2>
               <p className="mt-4 mx-auto max-w-2xl text-lg text-[var(--ink)]/65 leading-relaxed">
-                Consulte nossa localização no Google Maps, confira as informações do perfil e trace a melhor rota para atendimento.
+                Consulte as informações da Muniz Informática no Google Maps e confirme pelo WhatsApp a melhor modalidade de atendimento para São José dos Campos, Jacareí ou suporte remoto.
               </p>
             </div>
 
@@ -815,7 +822,7 @@ export default function App() {
                 />
               </div>
               <p className="text-sm max-w-xs mx-auto lg:mx-0">
-                Assistência técnica para computadores e notebooks em São José dos Campos e região.
+                Assistência técnica para computadores e notebooks em São José dos Campos, Jacareí e região.
               </p>
             </div>
 
@@ -846,7 +853,7 @@ export default function App() {
               <div className="col-span-2 sm:col-span-1">
                 <div className="font-display font-semibold text-white tracking-widest text-xs mb-3.5">ATENDIMENTO</div>
                 <div className="leading-relaxed">
-                  São José dos Campos e região<br />
+                  São José dos Campos, Jacareí e região<br />
                   Suporte remoto conforme o tipo de serviço<br />
                   Segunda a sexta — horário comercial
                 </div>

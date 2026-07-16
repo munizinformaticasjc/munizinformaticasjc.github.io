@@ -2,9 +2,9 @@ export const servicePages = [
   {
     slug: 'formatacao-de-notebook',
     shortTitle: 'Formatação de notebook',
-    title: 'Formatação de notebook em São José dos Campos',
-    seoTitle: 'Formatação de Notebook em São José dos Campos | Muniz Informática',
-    description: 'Formatação de notebook em São José dos Campos com instalação do Windows, drivers, programas essenciais e opção de backup. Solicite uma avaliação.',
+    title: 'Formatação de notebook e computador em São José dos Campos e Jacareí',
+    seoTitle: 'Formatação de Notebook e Computador em SJC e Jacareí',
+    description: 'Formatação de notebook e computador em São José dos Campos e Jacareí, com Windows, drivers, programas essenciais e opção de backup.',
     eyebrow: 'Formatação e reinstalação do sistema',
     intro: 'Quando o notebook está muito lento, apresenta erros frequentes ou acumula programas indesejados, uma reinstalação bem planejada pode devolver estabilidade e organização ao equipamento. Antes de formatar, o caso é avaliado para confirmar se essa é realmente a solução adequada.',
     highlights: ['Avaliação antes da formatação', 'Instalação limpa do Windows', 'Drivers e atualizações', 'Opção de backup dos arquivos'],
@@ -42,9 +42,9 @@ export const servicePages = [
   {
     slug: 'computador-lento',
     shortTitle: 'Computador lento',
-    title: 'Solução para computador ou notebook lento em São José dos Campos',
-    seoTitle: 'Computador Lento em São José dos Campos | Avaliação e Otimização',
-    description: 'Seu computador ou notebook está lento? Avaliação de sistema, armazenamento, inicialização, aquecimento e possíveis upgrades em São José dos Campos.',
+    title: 'Computador ou notebook lento em São José dos Campos e Jacareí',
+    seoTitle: 'Computador ou Notebook Lento em SJC e Jacareí | Avaliação',
+    description: 'Computador ou notebook lento em São José dos Campos e Jacareí? Avaliação de Windows, HD, SSD, memória, inicialização e aquecimento.',
     eyebrow: 'Diagnóstico de lentidão e desempenho',
     intro: 'Um computador lento pode ter várias causas: excesso de programas na inicialização, pouco espaço livre, falhas no armazenamento, aquecimento, vírus, pouca memória ou um sistema desorganizado. A solução correta começa pela identificação da origem do problema.',
     highlights: ['Análise dos principais gargalos', 'Otimização do sistema', 'Avaliação de HD, SSD e memória', 'Orientação clara sobre melhorias'],
@@ -76,15 +76,15 @@ export const servicePages = [
       ['A lentidão pode ser vírus?', 'Pode. Vírus e programas indesejados são algumas das causas possíveis, mas não são as únicas.'],
       ['Atende notebook e computador de mesa?', 'Sim. A avaliação pode ser feita em notebooks e desktops de uso residencial, profissional ou de pequenos negócios.']
     ],
-    relatedSlugs: ['upgrade-ssd', 'manutencao-de-computadores', 'remocao-de-virus'],
+    relatedSlugs: ['upgrade-ssd', 'upgrade-memoria-ram', 'formatacao-de-notebook'],
     whatsappMessage: 'Olá! Meu computador/notebook está muito lento e gostaria de solicitar uma avaliação.'
   },
   {
     slug: 'limpeza-de-notebook',
     shortTitle: 'Limpeza de notebook',
-    title: 'Limpeza interna de notebook em São José dos Campos',
-    seoTitle: 'Limpeza de Notebook em São José dos Campos | Manutenção Preventiva',
-    description: 'Limpeza interna de notebook, avaliação de aquecimento e sistema de refrigeração em São José dos Campos. Manutenção preventiva com cuidado técnico.',
+    title: 'Limpeza interna de notebook em São José dos Campos e Jacareí',
+    seoTitle: 'Limpeza de Notebook em SJC e Jacareí | Manutenção Preventiva',
+    description: 'Limpeza interna de notebook e avaliação de aquecimento em São José dos Campos e Jacareí. Manutenção preventiva com cuidado técnico.',
     eyebrow: 'Limpeza interna e refrigeração',
     intro: 'Poeira acumulada nas entradas de ar, ventoinha e dissipador dificulta a refrigeração e pode causar aumento de temperatura, ruído, perda de desempenho e desligamentos. A limpeza interna deve ser feita com desmontagem cuidadosa e ferramentas adequadas.',
     highlights: ['Remoção segura de poeira', 'Verificação da ventoinha', 'Avaliação de temperaturas', 'Manutenção preventiva'],
@@ -122,9 +122,9 @@ export const servicePages = [
   {
     slug: 'remocao-de-virus',
     shortTitle: 'Remoção de vírus',
-    title: 'Remoção de vírus e programas indesejados em São José dos Campos',
-    seoTitle: 'Remoção de Vírus em São José dos Campos | Muniz Informática',
-    description: 'Remoção de vírus, propagandas, extensões e programas indesejados em computadores e notebooks. Atendimento em São José dos Campos e suporte remoto conforme o caso.',
+    title: 'Remoção de vírus e programas indesejados em São José dos Campos e Jacareí',
+    seoTitle: 'Remoção de Vírus em SJC e Jacareí | Muniz Informática',
+    description: 'Remoção de vírus, propagandas, extensões e programas indesejados em computadores e notebooks em SJC, Jacareí e por suporte remoto.',
     eyebrow: 'Segurança e limpeza do sistema',
     intro: 'Propagandas aparecendo sozinhas, navegador alterado, programas desconhecidos e lentidão repentina podem indicar a presença de aplicativos indesejados ou ameaças. É importante agir com cuidado para reduzir riscos aos arquivos e às contas utilizadas no computador.',
     highlights: ['Análise de sintomas suspeitos', 'Remoção de programas indesejados', 'Revisão do navegador', 'Orientações de segurança'],
@@ -162,9 +162,9 @@ export const servicePages = [
   {
     slug: 'upgrade-ssd',
     shortTitle: 'Upgrade para SSD',
-    title: 'Upgrade de SSD para computador e notebook em São José dos Campos',
-    seoTitle: 'Upgrade de SSD em São José dos Campos | Computador Mais Rápido',
-    description: 'Instalação e upgrade de SSD em notebooks e computadores em São José dos Campos. Avaliação de compatibilidade, instalação do sistema e migração conforme o caso.',
+    title: 'Upgrade de SSD para notebook e computador em São José dos Campos e Jacareí',
+    seoTitle: 'Upgrade de SSD em SJC e Jacareí | Computador Mais Rápido',
+    description: 'Instalação e upgrade de SSD em notebooks e computadores em São José dos Campos e Jacareí, com avaliação de compatibilidade e sistema.',
     eyebrow: 'Melhoria de desempenho com SSD',
     intro: 'Trocar um HD mecânico por SSD costuma ser uma das melhorias mais perceptíveis em computadores compatíveis. O sistema inicia mais rápido, programas abrem com menor espera e o equipamento responde melhor às tarefas do dia a dia.',
     highlights: ['Avaliação de compatibilidade', 'Orientação sobre capacidade', 'Instalação física cuidadosa', 'Sistema novo ou migração avaliada'],
@@ -196,15 +196,55 @@ export const servicePages = [
       ['Posso manter o HD junto com o SSD?', 'Em alguns computadores, sim. Isso depende de espaço interno, conexões disponíveis e configuração do modelo.'],
       ['O upgrade vale a pena em notebook antigo?', 'Muitas vezes, sim, desde que o restante do hardware esteja em bom estado e atenda ao uso pretendido.']
     ],
-    relatedSlugs: ['computador-lento', 'instalacao-do-windows', 'backup-de-arquivos'],
+    relatedSlugs: ['computador-lento', 'upgrade-memoria-ram', 'instalacao-do-windows'],
     whatsappMessage: 'Olá! Gostaria de verificar a compatibilidade e solicitar orçamento para instalar SSD no meu computador/notebook.'
+  },
+  {
+    slug: 'upgrade-memoria-ram',
+    shortTitle: 'Upgrade de memória RAM',
+    title: 'Upgrade de memória RAM para notebook e computador em São José dos Campos e Jacareí',
+    seoTitle: 'Upgrade de Memória RAM em SJC e Jacareí | Muniz Informática',
+    description: 'Upgrade de memória RAM para notebook e computador em São José dos Campos e Jacareí. Avaliação de compatibilidade, uso e desempenho.',
+    eyebrow: 'Mais memória para multitarefa',
+    intro: 'Quando o computador trava ao abrir muitas abas, programas de trabalho, chamadas de vídeo ou arquivos pesados, a memória RAM pode estar limitando o desempenho. Antes de trocar peças, é importante verificar a quantidade instalada, o tipo aceito pela placa e o uso real do equipamento.',
+    highlights: ['Avaliação de compatibilidade', 'Orientação sobre capacidade ideal', 'Instalação cuidadosa', 'Teste após o upgrade'],
+    problemTitle: 'Quando aumentar a memória RAM pode ajudar?',
+    problems: [
+      'O notebook fica lento com várias abas do navegador abertas.',
+      'Programas de trabalho travam quando usados ao mesmo tempo.',
+      'O sistema mostra uso de memória sempre muito alto.',
+      'Chamadas de vídeo, planilhas ou sistemas ficam instáveis durante o uso.',
+      'O computador já possui SSD, mas ainda apresenta lentidão em multitarefa.',
+      'Você precisa preparar o equipamento para uma rotina de estudo, trabalho ou pequeno negócio.'
+    ],
+    explanationTitle: 'Memória RAM não resolve todos os tipos de lentidão',
+    explanation: [
+      'A RAM ajuda quando o gargalo está na execução simultânea de programas. Se o problema estiver no HD, no Windows, em vírus ou no aquecimento, apenas aumentar a memória pode não trazer o resultado esperado.',
+      'Por isso, a avaliação considera o uso do computador, a capacidade atual, os slots disponíveis, a frequência compatível e o limite suportado pelo equipamento. A recomendação busca evitar compra de memória incompatível ou desnecessária.'
+    ],
+    process: [
+      ['Análise do uso', 'Verificação dos sintomas, programas utilizados e quantidade de memória instalada.'],
+      ['Compatibilidade', 'Identificação do tipo de memória, limite do equipamento e possibilidade de expansão.'],
+      ['Instalação', 'Colocação do módulo compatível com cuidado físico e conferência no sistema.'],
+      ['Testes', 'Validação de reconhecimento, estabilidade e comportamento em tarefas comuns.']
+    ],
+    benefits: ['Melhor multitarefa', 'Menos travamentos por falta de memória', 'Mais conforto para estudo e trabalho', 'Decisão técnica antes de comprar peças'],
+    faqs: [
+      ['Como saber se meu notebook aceita mais memória?', 'É necessário verificar o modelo, os slots disponíveis, o tipo de memória e o limite suportado pela placa.'],
+      ['RAM deixa o computador mais rápido que SSD?', 'São melhorias diferentes. SSD costuma melhorar inicialização e abertura de programas; RAM ajuda principalmente quando há muitos programas abertos.'],
+      ['Preciso trocar ou adicionar memória?', 'Depende da configuração atual. Alguns equipamentos permitem adicionar outro módulo, enquanto outros exigem substituição.'],
+      ['Memória incompatível pode dar problema?', 'Sim. Tipo, frequência, capacidade e formato precisam ser compatíveis para evitar falhas ou não reconhecimento.'],
+      ['Atende pequenas empresas?', 'Sim. O upgrade pode ser avaliado para computadores de uso residencial, profissional e pequenos negócios em São José dos Campos, Jacareí e região.']
+    ],
+    relatedSlugs: ['computador-lento', 'upgrade-ssd', 'manutencao-de-computadores'],
+    whatsappMessage: 'Olá! Gostaria de avaliar um upgrade de memória RAM para meu computador/notebook.'
   },
   {
     slug: 'backup-de-arquivos',
     shortTitle: 'Backup de arquivos',
-    title: 'Backup e transferência de arquivos em São José dos Campos',
-    seoTitle: 'Backup de Arquivos em São José dos Campos | Fotos e Documentos',
-    description: 'Backup, transferência e organização de fotos, documentos e arquivos antes de formatação ou troca de computador em São José dos Campos.',
+    title: 'Backup e transferência de arquivos em São José dos Campos e Jacareí',
+    seoTitle: 'Backup de Arquivos em SJC e Jacareí | Fotos e Documentos',
+    description: 'Backup, transferência e organização de fotos, documentos e arquivos antes de formatação, troca de computador ou upgrade em SJC e Jacareí.',
     eyebrow: 'Proteção e organização de dados',
     intro: 'Fotos, documentos de trabalho e arquivos pessoais podem ser difíceis ou impossíveis de substituir. Um backup bem planejado reduz o risco de perda por falha do computador, exclusão acidental, vírus ou necessidade de formatação.',
     highlights: ['Cópia antes de formatação', 'Transferência para outro computador', 'Organização de pastas', 'Orientação sobre rotina de backup'],
@@ -242,9 +282,9 @@ export const servicePages = [
   {
     slug: 'instalacao-do-windows',
     shortTitle: 'Instalação do Windows',
-    title: 'Instalação do Windows em São José dos Campos',
-    seoTitle: 'Instalação do Windows em São José dos Campos | Drivers e Atualizações',
-    description: 'Instalação e configuração do Windows em computadores e notebooks em São José dos Campos, com drivers, atualizações e programas essenciais.',
+    title: 'Instalação do Windows em São José dos Campos e Jacareí',
+    seoTitle: 'Instalação do Windows em SJC e Jacareí | Drivers e Atualizações',
+    description: 'Instalação e configuração do Windows em computadores e notebooks em São José dos Campos e Jacareí, com drivers e atualizações.',
     eyebrow: 'Sistema, drivers e configuração',
     intro: 'Uma instalação correta do Windows envolve mais do que avançar as telas do instalador. É preciso verificar compatibilidade, ativação, drivers, atualizações, segurança e as necessidades reais de quem utiliza o computador.',
     highlights: ['Instalação compatível', 'Drivers corretos', 'Atualizações do sistema', 'Configuração inicial'],
@@ -282,9 +322,9 @@ export const servicePages = [
   {
     slug: 'suporte-remoto',
     shortTitle: 'Suporte remoto',
-    title: 'Suporte remoto para computadores em São José dos Campos',
-    seoTitle: 'Suporte Remoto de Informática em São José dos Campos | Muniz',
-    description: 'Suporte remoto para configurações, programas, erros e orientações em computadores. Atendimento seguro conforme o tipo de problema.',
+    title: 'Suporte remoto de informática para São José dos Campos, Jacareí e região',
+    seoTitle: 'Suporte Remoto de Informática em SJC e Jacareí | Muniz',
+    description: 'Suporte remoto de informática para configurações, programas, erros e orientações em computadores de SJC, Jacareí e outras localidades.',
     eyebrow: 'Ajuda técnica sem deslocamento',
     intro: 'Alguns problemas podem ser resolvidos à distância por meio de uma conexão temporária e autorizada. O suporte remoto é indicado para configurações, instalação de programas, correções de software e orientação ao usuário quando o computador ainda inicia e possui internet.',
     highlights: ['Conexão somente com autorização', 'Atendimento acompanhado', 'Configurações e correções', 'Orientação durante o serviço'],
@@ -322,9 +362,9 @@ export const servicePages = [
   {
     slug: 'manutencao-de-computadores',
     shortTitle: 'Manutenção de computadores',
-    title: 'Manutenção de computadores em São José dos Campos',
-    seoTitle: 'Manutenção de Computadores em São José dos Campos | Muniz',
-    description: 'Manutenção de computadores e notebooks em São José dos Campos: lentidão, travamentos, limpeza, Windows, SSD, backup e suporte técnico.',
+    title: 'Manutenção de computadores e notebooks em São José dos Campos e Jacareí',
+    seoTitle: 'Manutenção de Computadores em SJC e Jacareí | Muniz',
+    description: 'Manutenção de computadores e notebooks em São José dos Campos e Jacareí: lentidão, travamentos, limpeza, Windows, SSD, backup e suporte.',
     eyebrow: 'Manutenção preventiva e corretiva',
     intro: 'Computadores podem apresentar problemas de sistema, armazenamento, refrigeração, memória, programas ou periféricos. A manutenção começa com uma avaliação para separar sintomas de software e hardware e indicar uma solução coerente.',
     highlights: ['Avaliação técnica', 'Manutenção preventiva', 'Correções de sistema', 'Orientação antes do serviço'],
@@ -362,12 +402,12 @@ export const servicePages = [
   {
     slug: 'assistencia-tecnica-em-sao-jose-dos-campos',
     shortTitle: 'Assistência técnica em SJC',
-    title: 'Assistência técnica de informática em São José dos Campos',
-    seoTitle: 'Assistência Técnica de Informática em São José dos Campos | Muniz',
-    description: 'Assistência técnica para computadores e notebooks em São José dos Campos. Formatação, manutenção, SSD, remoção de vírus, backup e suporte remoto.',
+    title: 'Assistência técnica de informática em São José dos Campos e Jacareí',
+    seoTitle: 'Assistência Técnica de Informática em SJC e Jacareí | Muniz',
+    description: 'Assistência técnica para computadores e notebooks em São José dos Campos e Jacareí. Formatação, manutenção, SSD, vírus, backup e suporte remoto.',
     eyebrow: 'Atendimento local e personalizado',
-    intro: 'A Muniz Informática oferece atendimento técnico para computadores e notebooks de usuários residenciais, profissionais autônomos e pequenos negócios em São José dos Campos e região. O objetivo é entender o problema, explicar as opções e executar somente o serviço aprovado.',
-    highlights: ['Atendimento em São José dos Campos', 'Contato direto pelo WhatsApp', 'Orçamento antes da execução', 'Suporte remoto ou presencial'],
+    intro: 'A Muniz Informática oferece atendimento técnico para computadores e notebooks de usuários residenciais, profissionais autônomos e pequenos negócios em São José dos Campos, Jacareí e região do Vale do Paraíba. O objetivo é entender o problema, explicar as opções e executar somente o serviço aprovado.',
+    highlights: ['Atendimento em São José dos Campos e Jacareí', 'Contato direto pelo WhatsApp', 'Orçamento antes da execução', 'Suporte remoto ou presencial'],
     problemTitle: 'Principais serviços de informática',
     problems: [
       'Formatação e instalação do Windows com drivers e atualizações.',
@@ -390,7 +430,7 @@ export const servicePages = [
     ],
     benefits: ['Atendimento próximo e direto', 'Soluções para diferentes necessidades', 'Sem execução sem aprovação', 'Orientação para evitar novos problemas'],
     faqs: [
-      ['Qual região vocês atendem?', 'O atendimento principal é em São José dos Campos e região. A disponibilidade presencial é confirmada pelo WhatsApp.'],
+      ['Qual região vocês atendem?', 'O atendimento principal é em São José dos Campos, Jacareí e região. A disponibilidade presencial é confirmada pelo WhatsApp.'],
       ['O orçamento é gratuito?', 'A forma de avaliação e possíveis custos são informados no contato inicial, pois dependem do tipo de problema e deslocamento.'],
       ['Atende aos finais de semana?', 'O atendimento regular ocorre de segunda a sexta, em horário comercial. Outras disponibilidades precisam ser consultadas.'],
       ['Posso enviar fotos do erro?', 'Sim. Fotos da tela, mensagens de erro e informações do modelo ajudam na triagem inicial.'],
@@ -398,6 +438,286 @@ export const servicePages = [
     ],
     relatedSlugs: ['manutencao-de-computadores', 'formatacao-de-notebook', 'suporte-remoto'],
     whatsappMessage: 'Olá! Encontrei a Muniz Informática e gostaria de solicitar atendimento técnico em São José dos Campos.'
+  },
+  {
+    slug: 'assistencia-tecnica-notebook',
+    shortTitle: 'Assistência técnica notebook',
+    title: 'Assistência técnica de notebook em São José dos Campos e Jacareí',
+    seoTitle: 'Assistência Técnica de Notebook em SJC e Jacareí | Muniz',
+    description: 'Assistência técnica de notebook em São José dos Campos e Jacareí: lentidão, aquecimento, formatação, SSD, memória, vírus e backup.',
+    eyebrow: 'Notebooks residenciais e profissionais',
+    intro: 'Notebooks concentram tela, teclado, bateria, armazenamento, memória e refrigeração em pouco espaço. Por isso, sintomas como lentidão, aquecimento, travamentos ou falhas no Windows precisam ser avaliados com cuidado antes de indicar formatação, limpeza, upgrade ou outro serviço.',
+    highlights: ['Diagnóstico de notebook lento', 'Avaliação de aquecimento', 'SSD, memória e Windows', 'Atendimento para pessoas físicas e pequenas empresas'],
+    problemTitle: 'Problemas comuns em notebooks atendidos',
+    problems: [
+      'Notebook muito lento para ligar, abrir programas ou navegar.',
+      'Aquecimento, ventoinha barulhenta ou desligamento durante o uso.',
+      'Windows com erros, travamentos ou falhas de atualização.',
+      'Pouca memória, HD antigo ou armazenamento quase cheio.',
+      'Propagandas, programas indesejados ou suspeita de vírus.',
+      'Necessidade de backup, formatação ou configuração para trabalho e estudo.'
+    ],
+    explanationTitle: 'O foco é manter o notebook funcional para a rotina do cliente',
+    explanation: [
+      'A experiência prática com diversos equipamentos em São José dos Campos e Jacareí mostra que nem sempre a solução mais cara é a melhor. O atendimento busca entender o uso real do notebook e indicar uma intervenção proporcional ao problema.',
+      'Em muitos casos, limpeza interna, SSD, memória RAM, organização do Windows ou remoção de programas indesejados recuperam a usabilidade. Quando há limitação física ou risco aos arquivos, isso é explicado antes da execução.'
+    ],
+    process: [
+      ['Triagem inicial', 'Você informa modelo, sintomas, tempo do problema e se usa o notebook para estudo, trabalho ou empresa.'],
+      ['Avaliação técnica', 'São verificados sistema, armazenamento, memória, temperaturas e sinais físicos quando aplicável.'],
+      ['Recomendação', 'A solução indicada é explicada com orçamento antes de executar qualquer serviço.'],
+      ['Testes de uso', 'Após o atendimento, são feitos testes básicos para confirmar inicialização, desempenho e estabilidade.']
+    ],
+    benefits: ['Diagnóstico antes de formatar ou trocar peças', 'Atendimento voltado ao uso real do cliente', 'Cuidados com arquivos importantes', 'Orientação para preservar o equipamento'],
+    faqs: [
+      ['Atende notebook de qualquer marca?', 'Diversos modelos podem ser avaliados. A viabilidade depende do tipo de defeito, disponibilidade de peças e acesso interno do equipamento.'],
+      ['Notebook lento sempre precisa de SSD?', 'Não sempre. SSD costuma ajudar muito quando ainda existe HD, mas vírus, Windows desorganizado, pouca memória e aquecimento também podem causar lentidão.'],
+      ['Faz limpeza interna de notebook?', 'Sim, a limpeza interna pode ser indicada quando há aquecimento, poeira, ruído ou perda de desempenho por temperatura.'],
+      ['Posso pedir atendimento para notebook da empresa?', 'Sim. Pequenas empresas e profissionais autônomos podem solicitar avaliação para notebooks usados no trabalho.'],
+      ['Atende Jacareí?', 'Sim, a disponibilidade de atendimento presencial em Jacareí e região é confirmada pelo WhatsApp conforme o tipo de serviço.']
+    ],
+    relatedSlugs: ['notebook-esquentando', 'notebook-demora-para-ligar', 'limpeza-de-notebook'],
+    whatsappMessage: 'Olá! Preciso de assistência técnica para meu notebook e gostaria de solicitar uma avaliação.'
+  },
+  {
+    slug: 'assistencia-tecnica-computador',
+    shortTitle: 'Assistência técnica computador',
+    title: 'Assistência técnica de computador em São José dos Campos e Jacareí',
+    seoTitle: 'Assistência Técnica de Computador em SJC e Jacareí | Muniz',
+    description: 'Assistência técnica de computador desktop em São José dos Campos e Jacareí: travamentos, Windows, SSD, memória, limpeza, backup e vírus.',
+    eyebrow: 'Computadores desktop e PCs de trabalho',
+    intro: 'Computadores de mesa podem apresentar problemas de sistema, armazenamento, memória, fonte, cabos, periféricos ou acúmulo de poeira. A avaliação ajuda a separar falhas de software e hardware para manter o computador funcional no dia a dia.',
+    highlights: ['Diagnóstico de PC travando', 'Windows e programas', 'Upgrade de SSD e memória', 'Suporte para residências e pequenos negócios'],
+    problemTitle: 'Quando procurar assistência para computador?',
+    problems: [
+      'O computador liga, mas demora muito para iniciar ou abrir programas.',
+      'O PC trava, reinicia ou apresenta telas de erro durante o uso.',
+      'O Windows está corrompido, desatualizado ou com falhas recorrentes.',
+      'Há suspeita de vírus, propagandas ou programas desconhecidos.',
+      'O computador precisa de SSD, mais memória ou reorganização dos arquivos.',
+      'Equipamentos de pequeno negócio precisam voltar a funcionar com estabilidade.'
+    ],
+    explanationTitle: 'Computador funcional é mais importante que trocar peças sem critério',
+    explanation: [
+      'O objetivo do atendimento é entender o que impede o computador de cumprir sua função: trabalho, estudo, emissão de documentos, atendimento ao cliente ou uso familiar. A recomendação considera custo, idade do equipamento e necessidade real.',
+      'Quando uma limpeza, ajuste no sistema ou upgrade simples resolve o gargalo, isso é priorizado. Quando há limitação do hardware ou risco de falha, o cliente recebe uma explicação clara antes de decidir.'
+    ],
+    process: [
+      ['Levantamento do problema', 'Identificação dos sintomas, uso principal, programas importantes e histórico recente do computador.'],
+      ['Diagnóstico', 'Análise de Windows, disco, memória, inicialização, temperatura e componentes relacionados ao sintoma.'],
+      ['Orçamento', 'Explicação do serviço recomendado, alternativas e limitações antes da execução.'],
+      ['Entrega orientada', 'Testes finais e orientação sobre cuidados para evitar recorrência do problema.']
+    ],
+    benefits: ['Menos tempo parado', 'Melhor aproveitamento do computador atual', 'Suporte claro para pequenas empresas', 'Decisões técnicas antes de investir em peças'],
+    faqs: [
+      ['Atende computador de empresa?', 'Sim. Pequenas empresas podem solicitar suporte para computadores usados em rotinas administrativas e operacionais.'],
+      ['Computador travando é problema de hardware?', 'Pode ser hardware, mas também pode ser Windows, disco, memória, vírus, aquecimento ou programas em conflito.'],
+      ['Vocês montam ou configuram computadores?', 'Configurações, instalação de sistema e ajustes podem ser avaliados conforme a necessidade.'],
+      ['Dá para melhorar computador antigo?', 'Muitas vezes, sim, especialmente com SSD, memória e organização do sistema. A avaliação indica se vale a pena.'],
+      ['Atende São José dos Campos e Jacareí?', 'Sim. A disponibilidade presencial é confirmada pelo WhatsApp e alguns casos podem ter suporte remoto.']
+    ],
+    relatedSlugs: ['computador-travando', 'upgrade-ssd', 'suporte-informatica-pequenas-empresas'],
+    whatsappMessage: 'Olá! Preciso de assistência técnica para meu computador e gostaria de solicitar uma avaliação.'
+  },
+  {
+    slug: 'notebook-esquentando',
+    shortTitle: 'Notebook esquentando',
+    title: 'Notebook esquentando ou desligando sozinho em São José dos Campos e Jacareí',
+    seoTitle: 'Notebook Esquentando em SJC e Jacareí | Avaliação Técnica',
+    description: 'Notebook esquentando, barulhento ou desligando sozinho? Avaliação de refrigeração, poeira, ventoinha e desempenho em SJC e Jacareí.',
+    eyebrow: 'Aquecimento e refrigeração',
+    intro: 'Notebook esquentando muito pode perder desempenho, travar ou desligar sozinho para se proteger. Poeira, ventoinha obstruída, pasta térmica ressecada, uso inadequado ou falhas de software podem contribuir para o problema.',
+    highlights: ['Avaliação de temperatura', 'Verificação de ventoinha', 'Limpeza interna quando indicada', 'Orientação de uso e prevenção'],
+    problemTitle: 'Sinais de superaquecimento no notebook',
+    problems: [
+      'O notebook esquenta muito mesmo em tarefas simples.',
+      'A ventoinha fica acelerada, barulhenta ou quase não ventila.',
+      'O equipamento perde desempenho depois de alguns minutos ligado.',
+      'O notebook desliga sozinho durante videochamadas, aulas, jogos ou trabalho.',
+      'A parte inferior fica muito quente ao toque.',
+      'A limpeza interna nunca foi feita ou está há muito tempo sem manutenção.'
+    ],
+    explanationTitle: 'Superaquecimento não deve ser ignorado',
+    explanation: [
+      'Temperatura alta pode reduzir desempenho e aumentar o risco de falhas. Ainda assim, é importante avaliar a causa antes de abrir o equipamento ou trocar componentes, porque nem todo aquecimento vem apenas de poeira.',
+      'A manutenção considera o modelo do notebook, o estado das entradas de ar, a ventoinha, o dissipador e o comportamento do sistema. A intervenção é explicada antes, principalmente quando envolve desmontagem.'
+    ],
+    process: [
+      ['Relato dos sintomas', 'Identificação de quando o aquecimento ocorre e quais tarefas provocam o problema.'],
+      ['Avaliação térmica', 'Observação de ruído, fluxo de ar, temperatura e comportamento do sistema.'],
+      ['Manutenção indicada', 'Limpeza interna ou outras correções são alinhadas conforme o estado encontrado.'],
+      ['Teste final', 'O notebook é testado após a intervenção para verificar estabilidade e funcionamento básico.']
+    ],
+    benefits: ['Menor risco de desligamentos por temperatura', 'Possível redução de ruído', 'Melhor estabilidade no uso diário', 'Mais cuidado com a vida útil do notebook'],
+    faqs: [
+      ['Notebook esquentando precisa trocar pasta térmica?', 'Depende do modelo e do estado encontrado. A troca pode ser recomendada, mas não deve ser feita sem avaliação.'],
+      ['Usar suporte com cooler resolve?', 'Pode ajudar em alguns casos, mas não substitui limpeza interna quando há poeira ou obstrução.'],
+      ['Aquecimento deixa o notebook lento?', 'Sim. Muitos equipamentos reduzem desempenho quando atingem temperaturas altas.'],
+      ['É perigoso continuar usando?', 'Se o notebook desliga sozinho ou esquenta muito, é melhor solicitar avaliação para evitar piora do problema.'],
+      ['Esse serviço atende Jacareí?', 'Sim, a disponibilidade para Jacareí e região é confirmada pelo WhatsApp conforme agenda e tipo de atendimento.']
+    ],
+    relatedSlugs: ['limpeza-de-notebook', 'assistencia-tecnica-notebook', 'computador-lento'],
+    whatsappMessage: 'Olá! Meu notebook está esquentando muito ou desligando sozinho e gostaria de uma avaliação.'
+  },
+  {
+    slug: 'notebook-demora-para-ligar',
+    shortTitle: 'Notebook demora para ligar',
+    title: 'Notebook demora para ligar em São José dos Campos e Jacareí',
+    seoTitle: 'Notebook Demora para Ligar em SJC e Jacareí | Diagnóstico',
+    description: 'Notebook demorando para ligar? Diagnóstico de HD, SSD, Windows, inicialização, memória e vírus em São José dos Campos e Jacareí.',
+    eyebrow: 'Inicialização lenta',
+    intro: 'Quando o notebook demora para ligar, o problema pode estar no HD, no Windows, em programas carregando junto com o sistema, pouca memória, atualizações travadas ou até malware. O diagnóstico evita formatação ou troca de peça sem necessidade.',
+    highlights: ['Análise da inicialização', 'Verificação de HD e SSD', 'Otimização do Windows', 'Orientação sobre upgrade quando fizer sentido'],
+    problemTitle: 'Sintomas de inicialização lenta',
+    problems: [
+      'O notebook fica muitos minutos na tela de carregamento.',
+      'A área de trabalho aparece, mas o sistema demora para responder.',
+      'Programas abrem sozinhos e deixam tudo travado no início.',
+      'O disco fica em uso alto por muito tempo após ligar.',
+      'Atualizações ou erros aparecem com frequência na inicialização.',
+      'O notebook melhorou pouco mesmo depois de tentativas de limpeza do sistema.'
+    ],
+    explanationTitle: 'A causa pode ser armazenamento, sistema ou configuração',
+    explanation: [
+      'HD mecânico antigo é uma causa comum de inicialização lenta, mas não é a única. Windows desorganizado, pouca memória, vírus, programas de inicialização e falhas de disco também podem provocar demora para ligar.',
+      'A avaliação identifica o gargalo e direciona para a solução mais coerente: otimização, remoção de programas, instalação limpa do Windows, backup, SSD ou memória RAM quando houver compatibilidade.'
+    ],
+    process: [
+      ['Medição dos sintomas', 'Entendimento de quanto tempo o notebook demora e em qual etapa ele trava.'],
+      ['Análise do sistema', 'Verificação de inicialização, programas, atualizações, disco, memória e possíveis ameaças.'],
+      ['Plano de correção', 'Explicação das alternativas e do orçamento antes de aplicar mudanças relevantes.'],
+      ['Validação', 'Teste de inicialização e abertura de programas após o serviço aprovado.']
+    ],
+    benefits: ['Inicialização mais previsível', 'Menos programas carregando sem necessidade', 'Indicação técnica sobre SSD ou formatação', 'Cuidados com backup antes de mudanças importantes'],
+    faqs: [
+      ['Formatar resolve notebook que demora para ligar?', 'Pode resolver quando o problema é software, mas não quando a causa é HD desgastado, pouca memória ou aquecimento.'],
+      ['SSD ajuda nesse caso?', 'Na maioria dos notebooks que ainda usam HD, SSD melhora bastante a inicialização, desde que o restante do equipamento esteja em condições adequadas.'],
+      ['Dá para resolver sem perder arquivos?', 'Muitas correções não exigem apagar arquivos. Quando há risco, o backup é alinhado antes.'],
+      ['Programas de inicialização atrapalham?', 'Sim. Muitos programas abrindo junto com o Windows podem deixar o início do sistema muito lento.'],
+      ['Atende presencial e remoto?', 'Algumas análises de sistema podem ser remotas. Troca de SSD, limpeza e avaliação física precisam de atendimento presencial.']
+    ],
+    relatedSlugs: ['upgrade-ssd', 'formatacao-de-notebook', 'backup-de-arquivos'],
+    whatsappMessage: 'Olá! Meu notebook demora para ligar e gostaria de solicitar uma avaliação.'
+  },
+  {
+    slug: 'computador-travando',
+    shortTitle: 'Computador travando',
+    title: 'Computador travando muito em São José dos Campos e Jacareí',
+    seoTitle: 'Computador Travando em SJC e Jacareí | Diagnóstico Técnico',
+    description: 'Computador travando, reiniciando ou congelando em São José dos Campos e Jacareí. Avaliação de Windows, memória, disco, vírus e aquecimento.',
+    eyebrow: 'Travamentos e instabilidade',
+    intro: 'Computador travando muito pode indicar falha no Windows, disco com problemas, pouca memória, aquecimento, vírus, programas em conflito ou componente instável. O importante é identificar quando o travamento acontece e quais tarefas são afetadas.',
+    highlights: ['Diagnóstico de travamentos', 'Verificação de memória e disco', 'Análise de vírus e Windows', 'Correções conforme o problema real'],
+    problemTitle: 'Quando o travamento merece avaliação?',
+    problems: [
+      'O computador congela e só volta depois de reiniciar.',
+      'Programas fecham sozinhos ou param de responder com frequência.',
+      'O PC reinicia durante trabalho, estudo, jogos ou navegação.',
+      'Aparecem telas azuis, mensagens de erro ou falhas de atualização.',
+      'O travamento começou depois de instalar programas ou atualizar o Windows.',
+      'O equipamento é usado em empresa e não pode ficar parando durante a rotina.'
+    ],
+    explanationTitle: 'Travamento é sintoma, não diagnóstico',
+    explanation: [
+      'Dois computadores podem travar pelo mesmo motivo aparente e ter causas completamente diferentes. Um pode estar com HD falhando; outro, com memória insuficiente, aquecimento ou Windows corrompido.',
+      'O atendimento busca reduzir tentativa e erro. Primeiro são avaliados sintomas, histórico e componentes mais prováveis. Depois, o cliente recebe uma recomendação com as limitações e custos antes da execução.'
+    ],
+    process: [
+      ['Mapeamento do travamento', 'Identificação de quando ocorre, quais programas estavam abertos e se há mensagens de erro.'],
+      ['Diagnóstico técnico', 'Análise de sistema, disco, memória, temperaturas, vírus e atualizações.'],
+      ['Correção aprovada', 'Aplicação do serviço combinado, que pode envolver limpeza, Windows, backup, SSD ou memória.'],
+      ['Teste de estabilidade', 'Uso básico após o serviço para verificar se o comportamento melhorou.']
+    ],
+    benefits: ['Menos paradas inesperadas', 'Maior confiabilidade para trabalho e estudo', 'Diagnóstico antes de trocar peças', 'Orientação clara sobre o que foi encontrado'],
+    faqs: [
+      ['Computador travando pode ser vírus?', 'Pode, mas também pode ser disco, memória, temperatura, Windows ou conflito de programas.'],
+      ['Tela azul é grave?', 'Depende do erro e da frequência. Ela indica uma falha que precisa ser investigada, principalmente se acontece repetidamente.'],
+      ['Travamento pode indicar HD com defeito?', 'Sim. HD com falhas pode causar lentidão extrema, congelamentos e risco aos arquivos.'],
+      ['Dá para atender empresa pequena?', 'Sim. Computadores usados por pequenos negócios podem ser avaliados para reduzir paradas na rotina.'],
+      ['O orçamento é feito antes?', 'Sim. A recomendação e o valor são informados antes da execução do serviço.']
+    ],
+    relatedSlugs: ['assistencia-tecnica-computador', 'computador-lento', 'remocao-de-virus'],
+    whatsappMessage: 'Olá! Meu computador está travando muito e gostaria de solicitar um diagnóstico.'
+  },
+  {
+    slug: 'suporte-informatica-pequenas-empresas',
+    shortTitle: 'Suporte para empresas',
+    title: 'Suporte de informática para pequenas empresas em São José dos Campos e Jacareí',
+    seoTitle: 'Suporte de Informática para Pequenas Empresas em SJC e Jacareí',
+    description: 'Suporte de informática para pequenas empresas em São José dos Campos e Jacareí: computadores, Windows, backup, manutenção e atendimento remoto.',
+    eyebrow: 'Informática para pequenos negócios',
+    intro: 'Pequenas empresas dependem de computadores funcionando para emitir documentos, atender clientes, acessar sistemas, organizar arquivos e manter a rotina. O suporte da Muniz Informática busca resolver problemas práticos e reduzir paradas sem complicar a operação.',
+    highlights: ['Suporte para computadores de trabalho', 'Atendimento remoto quando possível', 'Backup e organização', 'Manutenção sob demanda'],
+    problemTitle: 'Demandas comuns em pequenas empresas',
+    problems: [
+      'Computadores lentos atrapalhando atendimento e tarefas administrativas.',
+      'Erros no Windows, programas ou sistemas usados no dia a dia.',
+      'Necessidade de configurar novos computadores para funcionários.',
+      'Arquivos importantes sem rotina de backup ou organização.',
+      'Vírus, propagandas ou comportamento suspeito em máquinas de trabalho.',
+      'Equipamentos parados aguardando diagnóstico ou manutenção.'
+    ],
+    explanationTitle: 'Suporte técnico com foco na continuidade da rotina',
+    explanation: [
+      'O objetivo é manter o computador funcional para o cliente e para a operação da empresa. Em vez de aplicar soluções genéricas, o atendimento considera quais máquinas são críticas, quais programas são usados e qual intervenção causa menos impacto.',
+      'Alguns ajustes podem ser remotos; outros exigem avaliação presencial. Quando há risco a arquivos, backup ou parada maior, os passos são combinados antes para evitar surpresa.'
+    ],
+    process: [
+      ['Contato e prioridade', 'A empresa informa quantos computadores foram afetados e qual impacto o problema causa na rotina.'],
+      ['Triagem', 'É definido se o atendimento pode ser remoto ou se precisa de avaliação presencial.'],
+      ['Execução aprovada', 'O serviço é realizado após orçamento e alinhamento dos cuidados com arquivos e sistemas.'],
+      ['Orientação preventiva', 'São indicados cuidados simples com backup, atualizações e uso para reduzir recorrências.']
+    ],
+    benefits: ['Menos interrupções na rotina', 'Atendimento direto com técnico experiente', 'Soluções proporcionais ao porte da empresa', 'Suporte para computadores essenciais ao trabalho'],
+    faqs: [
+      ['Vocês fazem contrato mensal?', 'O atendimento pode ser conversado conforme a demanda. A página foca suporte sob demanda para pequenas empresas.'],
+      ['Atende comércio e escritório?', 'Sim. Pequenos negócios, profissionais autônomos e escritórios podem solicitar avaliação.'],
+      ['O suporte remoto serve para empresa?', 'Serve para problemas de sistema, configuração e orientação quando o computador está acessível e com internet.'],
+      ['Vocês mexem em servidor?', 'Demandas simples podem ser avaliadas, mas estruturas complexas podem exigir especialista dedicado.'],
+      ['Atende São José dos Campos e Jacareí?', 'Sim. A disponibilidade presencial e a modalidade de atendimento são confirmadas pelo WhatsApp.']
+    ],
+    relatedSlugs: ['assistencia-tecnica-computador', 'suporte-remoto', 'backup-de-arquivos'],
+    whatsappMessage: 'Olá! Preciso de suporte de informática para uma pequena empresa e gostaria de solicitar uma avaliação.'
+  },
+  {
+    slug: 'sobre',
+    shortTitle: 'Sobre a Muniz',
+    title: 'Sobre a Muniz Informática e o atendimento técnico em São José dos Campos e Jacareí',
+    seoTitle: 'Sobre a Muniz Informática | Técnico em Informática em SJC',
+    description: 'Conheça a Muniz Informática: técnico em informática com longos anos de experiência em São José dos Campos e Jacareí, atendendo pessoas e empresas.',
+    eyebrow: 'Experiência, clareza e manutenção funcional',
+    intro: 'A Muniz Informática é conduzida por técnico em informática com longos anos de experiência atuando em São José dos Campos e Jacareí, atendendo pessoas físicas e empresas. O foco do atendimento é manter o computador funcional para o cliente, com orientação clara e serviços proporcionais ao problema.',
+    highlights: ['Experiência prática em diversos equipamentos', 'Atendimento para pessoas físicas e empresas', 'Foco em computador funcional', 'Comunicação simples pelo WhatsApp'],
+    problemTitle: 'Como a Muniz Informática trabalha',
+    problems: [
+      'O atendimento começa ouvindo o problema real do cliente e a importância daquele computador na rotina.',
+      'A avaliação considera sistema, peças, arquivos, uso diário e custo-benefício antes de recomendar uma solução.',
+      'Formatação, upgrades e manutenção são indicados quando fazem sentido, sem prometer solução absoluta.',
+      'Clientes residenciais recebem orientação em linguagem simples, sem depender de termos técnicos.',
+      'Pequenas empresas recebem suporte com foco em reduzir paradas e manter equipamentos produtivos.',
+      'São José dos Campos, Jacareí e região são tratados como área principal de atuação.'
+    ],
+    explanationTitle: 'Experiência aplicada ao uso real do computador',
+    explanation: [
+      'Ao longo dos anos, o atendimento a diferentes notebooks e computadores mostrou que o melhor serviço nem sempre é o mais complexo. Muitas vezes, o cliente precisa de um equipamento estável, com arquivos preservados, programas funcionando e explicação honesta sobre limites e possibilidades.',
+      'Por isso, a Muniz Informática prioriza diagnóstico, transparência e manutenção funcional. Quando um equipamento antigo ainda pode atender bem com SSD, memória ou organização do sistema, isso é avaliado. Quando não vale o investimento, o cliente também recebe essa orientação.'
+    ],
+    process: [
+      ['Escuta do problema', 'O cliente explica o que está acontecendo e como o problema atrapalha sua rotina.'],
+      ['Avaliação responsável', 'O equipamento é analisado para separar causas de software, hardware, uso e configuração.'],
+      ['Recomendação clara', 'O serviço, o valor e as limitações são informados antes da execução.'],
+      ['Entrega com orientação', 'Após os testes, o cliente entende o que foi feito e recebe cuidados para o uso diário.']
+    ],
+    benefits: ['Atendimento direto com técnico experiente', 'Foco em resolver o que afeta a rotina', 'Respeito aos arquivos e ao orçamento', 'Suporte para residências, autônomos e pequenas empresas'],
+    faqs: [
+      ['Quem realiza o atendimento?', 'O atendimento é feito por técnico em informática com longos anos de experiência em São José dos Campos e Jacareí.'],
+      ['Qual é o foco da Muniz Informática?', 'O foco é manter computadores e notebooks funcionais para o cliente, com diagnóstico, manutenção e orientação clara.'],
+      ['Atende pessoas físicas?', 'Sim. Usuários residenciais podem solicitar ajuda para notebook lento, formatação, backup, vírus, SSD, memória e outros problemas.'],
+      ['Atende empresas?', 'Sim. Pequenas empresas e profissionais autônomos podem solicitar suporte para computadores usados no trabalho.'],
+      ['Vocês prometem resolver qualquer problema?', 'Não. Cada caso precisa ser avaliado, e limitações técnicas são explicadas antes da execução do serviço.']
+    ],
+    relatedSlugs: ['assistencia-tecnica-em-sao-jose-dos-campos', 'suporte-informatica-pequenas-empresas', 'manutencao-de-computadores'],
+    whatsappMessage: 'Olá! Conheci a Muniz Informática pelo site e gostaria de solicitar atendimento técnico.'
   }
 ];
 
