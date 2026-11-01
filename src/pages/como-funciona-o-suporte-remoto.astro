@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../config/site';
+
+const crumbs = [{ name: 'Início', href: '/' }, { name: 'Como funciona o suporte remoto', href: '/como-funciona-o-suporte-remoto/' }];
+
+const etapas = [
+  { icon: 'MessageCircle', t: 'Você descreve o problema', d: 'Pelo WhatsApp, com suas palavras. Prints de mensagens de erro ajudam a entender o caso mais rápido.' },
+  { icon: 'ClipboardCheck', t: 'Recebe a orientação e o valor', d: 'Você fica sabendo se o caso pode ser resolvido a distância, o que deve ser feito e quanto custa. Nada começa sem a sua aprovação.' },
+  { icon: 'CalendarClock', t: 'O horário é agendado', d: 'O horário é combinado pelo WhatsApp, entre 9h e 22h, todos os dias, inclusive fins de semana e feriados, conforme disponibilidade e confirmação prévia.' },
+  { icon: 'MousePointerClick', t: 'Você abre a conexão', d: 'No horário marcado, você recebe o passo a passo para abrir a ferramenta segura de acesso remoto e autorizar a conexão. Sem a sua autorização, a conexão não acontece.' },
+  { icon: 'Eye', t: 'Acompanha tudo na tela', d: 'Você vê cada clique e pode fazer perguntas durante o atendimento. Se quiser parar, basta fechar a conexão.' },
+  { icon: 'BadgeCheck', t: 'Recebe a explicação', d: 'Ao final, você entende o que foi encontrado, o que foi feito e o que fazer para não voltar a acontecer.' },
+];
+
+const seguranca = [
+  { t: 'Só com a sua autorização', d: 'A conexão só é aberta quando você autoriza, no horário combinado.' },
+  { t: 'Você vê tudo', d: 'A tela do seu computador mostra exatamente o que está sendo feito.' },
+  { t: 'Pode encerrar a qualquer momento', d: 'Fechar o programa ou a janela de conexão interrompe o acesso na hora.' },
+  { t: 'Sessão encerrada no final', d: 'Terminado o atendimento, a sessão é encerrada. Um novo atendimento exige uma nova autorização sua.' },
+];
+
+const faqs: [string, string][] = [
+  ['Preciso instalar algum programa?', 'O atendimento usa uma ferramenta segura de acesso remoto. As instruções para abrir a conexão são enviadas no horário marcado.'],
+  ['E se eu não souber fazer a conexão?', 'Você é orientado pelo WhatsApp, passo a passo. É mais simples do que parece.'],
+  ['Alguém pode acessar meu computador depois?', 'Não. Cada atendimento depende de uma nova autorização sua, no horário combinado.'],
+  ['Quando posso agendar?', site.service.schedule],
+  ['Como funciona o pagamento?', 'As condições de pagamento são informadas durante o orçamento, antes de qualquer atendimento.'],
+  ['Posso usar o computador enquanto isso?', 'Durante o atendimento, o ideal é deixar o computador livre e acompanhar pela tela.'],
+  ['O que não dá para resolver pelo remoto?', 'Problemas físicos, como peças com defeito, aquecimento ou computador que não liga. Esses casos são atendidos com entrega do equipamento em São José dos Campos.'],
+  ['Em quais cidades funciona?', 'Em qualquer cidade do Brasil, desde que o computador ligue e tenha internet.'],
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+---
+<BaseLayout
+  title="Como Funciona o Suporte Remoto (e Por Que é Seguro) | Muniz"
+  description="Entenda como funciona o suporte técnico remoto: agendamento, autorização da conexão, segurança e o que dá para resolver a distância. Atendimento para todo o Brasil."
+  breadcrumbs={crumbs}
+  schema={[faqSchema]}
+>
+  <section class="grid-bg-light border-b border-mist-200">
+    <div class="container-site grid items-center gap-12 py-12 md:py-16 lg:grid-cols-[1.2fr_1fr] lg:py-20">
+      <div>
+        <Breadcrumbs items={crumbs} />
+        <p class="eyebrow mb-4">Suporte remoto · todo o Brasil</p>
+        <h1 class="font-display text-[2.2rem] font-extrabold leading-[1.05] sm:text-[3rem]">Como funciona o suporte remoto, e por que ele é seguro</h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-body sm:text-xl">
+          Suporte remoto é quando o técnico acessa o seu computador pela internet, com a sua permissão, para resolver o problema sem que você precise levar o equipamento a lugar nenhum. Você acompanha tudo pela tela.
+        </p>
+        <div class="mt-8"><WhatsAppButton ref="hero-remoto" message="Olá! Gostaria de agendar um suporte remoto." label="Agendar suporte remoto" /></div>
+      </div>
+      <!-- Ilustração: sessão remota com indicadores de controle do usuário -->
+      <div class="relative mx-auto w-full max-w-md" aria-hidden="true">
+        <div class="overflow-hidden rounded-2xl border border-mist-200 bg-white shadow-[0_40px_80px_-40px_#0a254080]">
+          <div class="flex items-center justify-between bg-navy-900 px-4 py-2.5">
+            <span class="font-mono text-xs text-signal">sessão remota · ativa</span>
+            <span class="flex items-center gap-1.5 font-mono text-xs text-white/70"><span class="h-2 w-2 animate-pulse rounded-full bg-ok"></span>você está vendo</span>
+          </div>
+          <div class="space-y-3 p-5">
+            {['Verificando inicialização', 'Removendo programas indesejados', 'Aplicando atualizações'].map((t, i) => (
+              <div class="flex items-center justify-between rounded-lg bg-mist-50 px-3 py-2.5 text-sm">
+                <span class="text-body">{t}</span>
+                <span class:list={['font-mono text-xs', i < 2 ? 'text-ok-deep' : 'text-link']}>{i < 2 ? 'ok' : 'em andamento'}</span>
+              </div>
+            ))}
+            <div class="mt-2 flex items-center justify-between rounded-lg border border-dashed border-mist-200 px-3 py-2.5 text-sm">
+              <span class="text-muted">Encerrar conexão</span>
+              <span class="rounded-md bg-red-600 px-2 py-0.5 font-mono text-xs text-white">fechar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-site py-16 md:py-20" data-reveal>
+    <SectionHeading eyebrow="Passo a passo" title="Do WhatsApp ao fim do atendimento" />
+    <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {etapas.map((e, i) => (
+        <li class="card p-6" data-reveal-item>
+          <div class="flex items-center gap-3">
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-navy-900 text-signal"><Icon name={e.icon} size={21} /></span>
+            <span class="font-mono text-xs text-link">{String(i + 1).padStart(2, '0')}</span>
+          </div>
+          <h3 class="mt-4 font-display text-lg font-bold">{e.t}</h3>
+          <p class="mt-2 leading-relaxed text-muted">{e.d}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="on-dark grid-bg bg-navy-900 py-16 md:py-20">
+    <div class="container-site" data-reveal>
+      <SectionHeading dark eyebrow="Segurança" title="Você no controle do começo ao fim" />
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {seguranca.map((s) => (
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-6" data-reveal-item>
+            <Icon name="LockKeyhole" size={22} class="text-signal" />
+            <h3 class="mt-4 font-display text-lg font-bold !text-white">{s.t}</h3>
+            <p class="mt-2 leading-relaxed text-white/70">{s.d}</p>
+          </div>
+        ))}
+      </div>
+      <p class="mt-8 max-w-3xl leading-relaxed text-white/70">
+        Cuidado com golpes: nenhum técnico sério liga do nada oferecendo acesso remoto ou pedindo para instalar programas. Na Muniz Informática, o atendimento só acontece quando <strong class="text-white">você</strong> entra em contato e agenda.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-site py-16 md:py-20" data-reveal>
+    <div class="grid gap-5 lg:grid-cols-2">
+      <div class="card p-7">
+        <h2 class="font-display text-xl font-bold">O que dá para resolver a distância</h2>
+        <ul class="mt-5 space-y-3">
+          {['Lentidão e otimização do Windows', 'Vírus, propagandas e programas indesejados', 'Erros e atualizações do sistema', 'Instalação e configuração de programas', 'Impressoras, e-mail e contas', 'Backup e organização de arquivos'].map((t) => (
+            <li class="flex items-start gap-3"><Icon name="Check" size={19} class="mt-0.5 shrink-0 text-ok-deep" />{t}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="card p-7">
+        <h2 class="font-display text-xl font-bold">O que precisa do equipamento em mãos</h2>
+        <ul class="mt-5 space-y-3">
+          {['Computador que não liga ou não acessa a internet', 'Upgrade de SSD ou memória', 'Limpeza interna e aquecimento', 'Peças com defeito'].map((t) => (
+            <li class="flex items-start gap-3"><Icon name="MapPin" size={19} class="mt-0.5 shrink-0 text-link" />{t}</li>
+          ))}
+        </ul>
+        <p class="mt-5 text-muted">Esses serviços são feitos com entrega agendada em São José dos Campos. <a href="/assistencia-tecnica-em-sao-jose-dos-campos/" class="link-arrow">Saiba como <Icon name="ArrowRight" size={16} /></a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-mist-200 bg-white py-16 md:py-20">
+    <div class="container-site grid gap-10 lg:grid-cols-[0.8fr_1.2fr]" data-reveal>
+      <SectionHeading eyebrow="Dúvidas" title="Perguntas sobre o suporte remoto" />
+      <FaqList faqs={faqs} />
+    </div>
+  </section>
+
+  <CtaBand waRef="cta-final-remoto" message="Olá! Gostaria de agendar um suporte remoto." />
+</BaseLayout>

@@ -1,0 +1,30 @@
+{
+  "name": "site-muniz-informatica",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "homepage": "https://munizinformatica.com.br/",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist --dotfiles"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource-variable/atkinson-hyperlegible-next": "^5.3.0",
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@lucide/astro": "^1.66.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.4.4",
+    "motion": "^14.9.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "gh-pages": "^6.3.0",
+    "typescript": "^6.0.3"
+  }
+}

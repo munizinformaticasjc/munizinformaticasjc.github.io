@@ -1,0 +1,248 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Diagnostico from '../components/Diagnostico.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import Reviews from '../components/Reviews.astro';
+import { serviceBySlug, byGroup } from '../data/services';
+import { site } from '../config/site';
+
+const destaque = ['suporte-remoto', 'computador-lento', 'remocao-de-virus', 'formatacao-de-notebook', 'suporte-tecnico-windows', 'backup-de-arquivos'].map((s) => serviceBySlug[s]);
+const hardware = byGroup('hardware');
+const empresas = byGroup('empresas');
+
+const passos = [
+  { icon: 'MessageCircle', title: 'Você conta o problema', text: 'Pelo WhatsApp, com suas palavras. Fotos de mensagens de erro ajudam.' },
+  { icon: 'ClipboardCheck', title: 'Recebe orientação e valor', text: 'Você fica sabendo o que deve ser feito e quanto custa antes de começar.' },
+  { icon: 'CalendarClock', title: 'Marca o horário', text: 'Entre 9h e 22h, inclusive fins de semana e feriados, conforme disponibilidade e confirmação.' },
+  { icon: 'Eye', title: 'Acompanha o atendimento', text: 'No remoto, você autoriza a conexão e vê cada passo na tela. Ao final, recebe a explicação do que foi feito.' },
+];
+
+const principios = [
+  { icon: 'ScanSearch', title: 'Diagnóstico antes da solução', text: 'Formatar ou trocar peça só quando resolve. Muitas vezes, não é preciso.' },
+  { icon: 'BadgeCheck', title: 'Orçamento antes de começar', text: 'O caso é avaliado e o orçamento é informado antes. Nada é feito sem o seu ok.' },
+  { icon: 'FolderLock', title: 'Seus arquivos em primeiro lugar', text: 'Antes de qualquer mudança importante, fica combinado o que precisa ser preservado.' },
+  { icon: 'MessagesSquare', title: 'Explicação sem tecniquês', text: 'Você entende o que tinha, o que foi feito e como evitar que volte.' },
+];
+
+const faqs: [string, string][] = [
+  ['O suporte remoto é seguro?', 'A conexão só acontece com a sua autorização, no horário combinado. Você vê tudo na tela e pode encerrar quando quiser. Depois do atendimento, o acesso não fica liberado.'],
+  ['Atendem em qualquer cidade?', 'Por suporte remoto, sim, quando o tipo de problema permite: qualquer cidade do Brasil. Manutenção física é feita apenas em São José dos Campos.'],
+  ['Preciso levar o computador a algum lugar?', 'Só quando o serviço exige manutenção física, como upgrade de SSD ou limpeza interna. Nesse caso, o equipamento é entregue em local combinado em São José dos Campos, mediante agendamento. Não há loja aberta ao público nem atendimento em domicílio.'],
+  ['Como sei quanto vai custar?', 'Cada caso é avaliado antes do orçamento, conforme o problema e o serviço necessário. O valor e as condições de pagamento são informados antes de começar, e o atendimento só acontece depois da sua aprovação.'],
+  ['Quando posso ser atendido?', `${site.service.schedule} O dia e o horário são confirmados pelo WhatsApp.`],
+  ['Atendem empresas?', 'Sim. Pequenas empresas de todo o Brasil têm suporte remoto. Empresas em São José dos Campos também podem solicitar atendimento presencial no próprio estabelecimento, conforme disponibilidade.'],
+];
+
+const faqSchema = {
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+<BaseLayout
+  title="Suporte Técnico Remoto e em São José dos Campos | Muniz"
+  description="Computador lento, vírus ou erro no Windows? Suporte remoto em todo o Brasil, conforme o problema, e manutenção em São José dos Campos. Agende das 9h às 22h."
+  schema={[faqSchema]}
+  waRef="barra-mobile-home"
+>
+  <!-- HERO -->
+  <section class="grid-bg-light relative overflow-hidden border-b border-mist-200">
+    <svg aria-hidden="true" data-draw class="pointer-events-none absolute -left-10 top-24 hidden h-[420px] w-[520px] text-link/25 xl:block" viewBox="0 0 520 420" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M0 60 H140 L180 100 H300" />
+      <path d="M0 140 H90 L130 180 H240 L270 210" />
+      <path d="M0 300 H160 L200 260 H330" />
+    </svg>
+    <div class="container-site relative grid items-center gap-12 py-14 md:py-20 lg:grid-cols-[1.08fr_1fr] lg:gap-16 lg:py-24">
+      <div>
+        <p class="eyebrow mb-5">Suporte técnico · remoto e em São José dos Campos</p>
+        <h1 class="font-display text-[2.15rem] min-[400px]:text-[2.45rem] font-extrabold leading-[1.02] sm:text-[3.4rem] lg:text-[3.9rem]">
+          Suporte técnico para o seu computador, <span class="relative whitespace-nowrap text-link">com hora marcada<svg aria-hidden="true" class="absolute -bottom-2 left-0 h-3 w-full text-signal" viewBox="0 0 300 12" preserveAspectRatio="none" fill="none"><path d="M2 9 C 80 2, 220 2, 298 7" stroke="currentColor" stroke-width="4" stroke-linecap="round" /></svg></span>.
+        </h1>
+        <p class="mt-7 max-w-xl text-lg leading-relaxed text-body sm:text-xl">
+          Lentidão, vírus e erros no Windows muitas vezes podem ser resolvidos pela internet, de qualquer cidade do Brasil. Quando é preciso manutenção física, o equipamento é entregue em local combinado em São José dos Campos. Empresas da cidade também podem pedir atendimento no local.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <WhatsAppButton ref="hero" label="Chamar no WhatsApp" />
+          <a href="/como-funciona-o-suporte-remoto/" class="btn btn-ghost">Como funciona o remoto</a>
+        </div>
+        <p class="mt-4 flex items-start gap-2 text-[0.95rem] text-muted"><Icon name="CalendarClock" size={18} class="shrink-0 text-link" /><span><strong class="text-ink">Das 9h às 22h, todos os dias</strong>, inclusive fins de semana e feriados, conforme disponibilidade.</span></p>
+        <ul class="mt-7 grid gap-3 text-[0.97rem] text-body sm:grid-cols-3 sm:gap-4">
+          <li class="flex items-center gap-2"><Icon name="BadgeCheck" size={19} class="shrink-0 text-ok-deep" />Orçamento antes de começar</li>
+          <li class="flex items-center gap-2"><Icon name="Eye" size={19} class="shrink-0 text-ok-deep" />No remoto, você acompanha na tela</li>
+          <li class="flex items-center gap-2"><Icon name="FolderLock" size={19} class="shrink-0 text-ok-deep" />Backup combinado antes de formatar</li>
+        </ul>
+      </div>
+      <div class="relative mx-auto w-full max-w-[480px] lg:mr-0">
+        <div aria-hidden="true" class="absolute -inset-6 -z-0 rounded-[2rem] bg-signal/10 blur-2xl"></div>
+        <Diagnostico />
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS PF -->
+  <section class="container-site py-20 md:py-24" data-reveal>
+    <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+      <SectionHeading
+        eyebrow="Para você"
+        title="Muitos problemas podem ser resolvidos a distância"
+        lead="Problemas de sistema e de programas muitas vezes podem ser tratados pela internet, de qualquer cidade. A viabilidade é confirmada na conversa inicial."
+      />
+      <a href="/servicos/" class="link-arrow shrink-0">Ver todos os serviços <Icon name="ArrowRight" size={17} /></a>
+    </div>
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {destaque.map((s) => <ServiceCard service={s} />)}
+    </div>
+
+    <div class="mt-6 flex flex-col gap-5 rounded-[1.25rem] border border-dashed border-link/35 bg-white p-6 md:flex-row md:items-center md:justify-between" data-reveal-item>
+      <div class="flex items-start gap-4">
+        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-mist-100 text-link"><Icon name="MapPin" size={21} /></span>
+        <div>
+          <p class="font-display text-lg font-bold text-ink">Upgrade e hardware em São José dos Campos</p>
+          <p class="text-muted">Com entrega do equipamento combinada na cidade, com agendamento.</p>
+        </div>
+      </div>
+      <ul class="flex flex-wrap gap-2">
+        {hardware.map((s) => (
+          <li><a href={`/${s.slug}/`} class="inline-flex items-center gap-1.5 rounded-full border border-mist-200 px-3.5 py-2 text-[0.93rem] font-semibold text-ink transition-colors hover:border-link hover:text-link"><Icon name={s.icon} size={16} />{s.navLabel}</a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="on-dark grid-bg relative overflow-hidden bg-navy-900 py-20 md:py-28">
+    <div aria-hidden="true" class="pointer-events-none absolute -left-40 top-10 h-96 w-96 rounded-full bg-signal/15 blur-3xl"></div>
+    <div class="container-site relative" data-reveal>
+      <SectionHeading
+        dark
+        eyebrow="Como funciona"
+        title="Do primeiro contato ao atendimento, em quatro passos"
+        lead="Sem fila de loja. O caso é avaliado, o orçamento e o horário são combinados antes, e você acompanha cada etapa."
+      />
+      <div class="relative mt-14">
+        <svg aria-hidden="true" data-draw class="absolute left-0 right-0 top-7 hidden h-4 w-full text-signal/50 lg:block" viewBox="0 0 1000 16" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="1">
+          <path d="M40 8 H960" />
+        </svg>
+        <ol class="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          {passos.map((p, i) => (
+            <li data-reveal-item>
+              <div class="flex h-14 w-14 items-center justify-center rounded-2xl border border-signal/40 bg-navy-950 text-signal shadow-[0_0_0_6px_#0a2540]">
+                <Icon name={p.icon} size={24} />
+              </div>
+              <p class="mt-5 font-mono text-xs text-signal">passo {String(i + 1).padStart(2, '0')}</p>
+              <h3 class="mt-1 font-display text-xl font-bold !text-white">{p.title}</h3>
+              <p class="mt-2 leading-relaxed text-white/70">{p.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div class="mt-14 flex flex-col gap-3 sm:flex-row">
+        <WhatsAppButton variant="signal" ref="como-funciona-home" label="Começar pelo WhatsApp" />
+        <a href="/como-funciona-o-suporte-remoto/" class="btn btn-ghost">Entender o suporte remoto</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REMOTO x SJC -->
+  <section class="container-site py-20 md:py-24" data-reveal>
+    <SectionHeading
+      eyebrow="Onde é o atendimento"
+      title="Remoto para todo o Brasil. Físico só em São José dos Campos."
+      lead="Para não haver surpresa, veja o que é feito a distância e o que precisa do equipamento em mãos."
+    />
+    <div class="mt-12 grid gap-5 lg:grid-cols-2">
+      <div class="card p-7 sm:p-8" data-reveal-item>
+        <div class="flex items-center gap-3">
+          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-navy-900 text-signal"><Icon name="MonitorSmartphone" size={21} /></span>
+          <div>
+            <h3 class="font-display text-xl font-bold">Suporte remoto</h3>
+            <p class="font-mono text-xs text-muted">qualquer cidade do Brasil</p>
+          </div>
+        </div>
+        <ul class="mt-6 space-y-3">
+          {['Lentidão e otimização do sistema', 'Remoção de vírus e propagandas', 'Erros e atualizações do Windows', 'Formatação, quando o Windows ainda inicia', 'Programas, impressoras e e-mail', 'Backup e organização de arquivos'].map((t) => (
+            <li class="flex items-start gap-3"><Icon name="Check" size={19} class="mt-0.5 shrink-0 text-ok-deep" />{t}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="card p-7 sm:p-8" data-reveal-item>
+        <div class="flex items-center gap-3">
+          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-mist-100 text-link"><Icon name="MapPin" size={21} /></span>
+          <div>
+            <h3 class="font-display text-xl font-bold">São José dos Campos</h3>
+            <p class="font-mono text-xs text-muted">com agendamento</p>
+          </div>
+        </div>
+        <ul class="mt-6 space-y-3">
+          {['Upgrade de SSD e memória RAM', 'Limpeza interna e aquecimento', 'Computador que não liga ou não inicia', 'Atendimento no estabelecimento para empresas'].map((t) => (
+            <li class="flex items-start gap-3"><Icon name="Check" size={19} class="mt-0.5 shrink-0 text-ok-deep" />{t}</li>
+          ))}
+        </ul>
+        <p class="mt-6 rounded-xl bg-mist-50 p-4 text-[0.95rem] leading-relaxed text-muted">
+          Para pessoas físicas, o equipamento é entregue em um local combinado na cidade. Não há loja aberta ao público nem atendimento em domicílio.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCÍPIOS -->
+  <section class="border-y border-mist-200 bg-white py-20 md:py-24">
+    <div class="container-site grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16" data-reveal>
+      <SectionHeading
+        eyebrow="Como o trabalho é feito"
+        title="Atendimento técnico que você consegue entender"
+        lead="Computador é ferramenta de trabalho, de estudo e de memórias. Por isso, cada atendimento segue os mesmos cuidados."
+      />
+      <div class="grid gap-4 sm:grid-cols-2">
+        {principios.map((p) => (
+          <div class="rounded-[1.25rem] bg-mist-50 p-6" data-reveal-item>
+            <Icon name={p.icon} size={24} class="text-link" />
+            <h3 class="mt-4 font-display text-lg font-bold">{p.title}</h3>
+            <p class="mt-2 leading-relaxed text-muted">{p.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Reviews />
+
+  <!-- EMPRESAS -->
+  <section class="container-site py-20 md:py-24" data-reveal>
+    <div class="grid overflow-hidden rounded-[1.75rem] border border-mist-200 bg-white lg:grid-cols-[1fr_1.1fr]">
+      <div class="p-8 sm:p-12">
+        <p class="eyebrow mb-4">Para empresas</p>
+        <h2 class="font-display text-[2rem] font-bold leading-tight sm:text-[2.4rem]">TI organizada para a sua empresa não parar</h2>
+        <p class="mt-4 text-lg leading-relaxed text-muted">
+          Suporte, redes, segurança e infraestrutura para pequenas empresas. Remoto em todo o Brasil e, exclusivamente em São José dos Campos, atendimento no próprio estabelecimento, conforme disponibilidade.
+        </p>
+        <a href="/empresas/" class="btn btn-primary mt-8">Conhecer o atendimento a empresas <Icon name="ArrowRight" size={18} class="btn-arrow" /></a>
+      </div>
+      <ul class="grid content-center gap-px bg-mist-200 sm:grid-cols-2">
+        {empresas.map((s) => (
+          <li class="bg-mist-50">
+            <a href={`/${s.slug}/`} class="group flex h-full flex-col gap-3 p-7 transition-colors hover:bg-white">
+              <Icon name={s.icon} size={24} class="text-link" />
+              <span class="font-display text-lg font-bold text-ink group-hover:text-link">{s.navLabel}</span>
+              <span class="text-[0.95rem] leading-relaxed text-muted">{s.cardText}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="border-t border-mist-200 bg-white py-20 md:py-24">
+    <div class="container-site grid gap-12 lg:grid-cols-[0.8fr_1.2fr]" data-reveal>
+      <SectionHeading eyebrow="Dúvidas frequentes" title="Antes de chamar, talvez você queira saber" />
+      <FaqList faqs={faqs} />
+    </div>
+  </section>
+
+  <CtaBand waRef="cta-final-home" />
+</BaseLayout>

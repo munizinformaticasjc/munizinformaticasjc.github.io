@@ -1,0 +1,18 @@
+---
+import Icon from './Icon.astro';
+import ModalityBadge from './ModalityBadge.astro';
+import type { ServicePage } from '../data/services';
+interface Props { service: ServicePage }
+const { service: s } = Astro.props;
+---
+<a href={`/${s.slug}/`} class="card group relative flex flex-col p-6 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-link/40 hover:shadow-[0_24px_50px_-30px_#0a254080]" data-reveal-item>
+  <div class="mb-5 flex items-start justify-between gap-3">
+    <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-navy-900 text-signal transition-transform duration-300 group-hover:scale-105">
+      <Icon name={s.icon} size={22} />
+    </span>
+    <ModalityBadge modality={s.modality} />
+  </div>
+  <h3 class="font-display text-xl font-bold text-ink">{s.navLabel}</h3>
+  <p class="mt-2 flex-1 leading-relaxed text-muted">{s.cardText}</p>
+  <span class="link-arrow mt-5 text-[0.95rem]">Saiba mais <Icon name="ArrowRight" size={16} class="transition-transform group-hover:translate-x-1" /></span>
+</a>

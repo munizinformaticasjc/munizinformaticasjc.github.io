@@ -1,0 +1,16 @@
+---
+import Icon from './Icon.astro';
+import type { Crumb } from '../layouts/BaseLayout.astro';
+interface Props { items: Crumb[] }
+const { items } = Astro.props;
+---
+<nav aria-label="Você está em" class="mb-6 text-sm">
+  <ol class="flex flex-wrap items-center gap-1.5 text-muted">
+    {items.map((c, i) => (
+      <li class="flex items-center gap-1.5">
+        {i > 0 && <Icon name="ChevronRight" size={14} />}
+        {i === items.length - 1 ? <span aria-current="page" class="font-semibold text-ink">{c.name}</span> : <a href={c.href} class="hover:text-link hover:underline">{c.name}</a>}
+      </li>
+    ))}
+  </ol>
+</nav>

@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+---
+<BaseLayout title="Página não encontrada | Muniz Informática" description="A página procurada não existe." noindex>
+  <section class="grid-bg-light">
+    <div class="container-site py-24 text-center md:py-32">
+      <p class="font-mono text-sm text-link">erro 404</p>
+      <h1 class="mx-auto mt-3 max-w-2xl font-display text-[2.4rem] font-extrabold leading-tight sm:text-[3rem]">Esta página não existe, mas o seu problema tem solução</h1>
+      <p class="mx-auto mt-5 max-w-xl text-lg text-muted">O endereço pode ter mudado. Veja os serviços ou fale direto pelo WhatsApp.</p>
+      <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+        <a href="/servicos/" class="btn btn-ghost">Ver serviços</a>
+        <WhatsAppButton ref="404" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

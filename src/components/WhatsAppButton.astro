@@ -1,0 +1,25 @@
+---
+import Icon from './Icon.astro';
+import { waLink } from '../lib/whatsapp';
+
+interface Props {
+  message?: string;
+  ref: string;
+  label?: string;
+  variant?: 'primary' | 'signal' | 'ghost';
+  class?: string;
+  full?: boolean;
+}
+const { message, ref, label = 'Chamar no WhatsApp', variant = 'primary', class: className = '', full = false } = Astro.props;
+---
+<a
+  href={waLink(message, ref)}
+  target="_blank"
+  rel="noopener"
+  data-wa={ref}
+  class:list={['btn', `btn-${variant}`, full && 'w-full', className]}
+>
+  <Icon name="MessageCircle" size={20} />
+  <span>{label}</span>
+  <Icon name="ArrowRight" size={18} class="btn-arrow" />
+</a>

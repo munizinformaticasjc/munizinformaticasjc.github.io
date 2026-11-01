@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import Diagnostico from '../components/Diagnostico.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../config/site';
+
+const crumbs = [{ name: 'Início', href: '/' }, { name: 'Contato', href: '/contato/' }];
+const dicas = [
+  'Qual é o problema e desde quando ele acontece',
+  'Se é notebook ou computador de mesa, e o modelo, se souber',
+  'A cidade onde você está',
+  'Prints ou fotos de mensagens de erro, se houver',
+  'O melhor dia e horário para o atendimento',
+];
+---
+<BaseLayout
+  title="Contato e Agendamento | Muniz Informática"
+  description="Fale com a Muniz Informática pelo WhatsApp para agendar suporte remoto em todo o Brasil ou atendimento em São José dos Campos."
+  breadcrumbs={crumbs}
+>
+  <section class="grid-bg-light">
+    <div class="container-site grid gap-12 py-12 md:py-16 lg:grid-cols-[1.1fr_1fr] lg:py-20">
+      <div>
+        <Breadcrumbs items={crumbs} />
+        <p class="eyebrow mb-4">Contato</p>
+        <h1 class="font-display text-[2.2rem] font-extrabold leading-[1.05] sm:text-[3rem]">Fale pelo WhatsApp e agende seu atendimento</h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-body">{site.service.schedule} Para agilizar, conte na primeira mensagem:</p>
+        <ul class="mt-5 space-y-3">
+          {dicas.map((d) => <li class="flex items-start gap-3"><Icon name="Check" size={19} class="mt-0.5 shrink-0 text-ok-deep" />{d}</li>)}
+        </ul>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <WhatsAppButton ref="contato" />
+          <a href={`mailto:${site.email}`} class="btn btn-ghost"><Icon name="Mail" size={19} />Enviar e-mail</a>
+        </div>
+        <dl class="mt-10 grid gap-5 sm:grid-cols-2">
+          <div><dt class="font-mono text-xs text-muted">WhatsApp</dt><dd class="mt-1 font-display text-xl font-bold text-ink">{site.phoneDisplay}</dd></div>
+          <div><dt class="font-mono text-xs text-muted">E-mail</dt><dd class="mt-1 break-all font-semibold text-ink">{site.email}</dd></div>
+          <div><dt class="font-mono text-xs text-muted">Remoto</dt><dd class="mt-1 text-body">Qualquer cidade do Brasil</dd></div>
+          <div><dt class="font-mono text-xs text-muted">Físico</dt><dd class="mt-1 text-body">São José dos Campos, com entrega agendada</dd></div>
+        </dl>
+      </div>
+      <div class="mx-auto w-full max-w-[480px] lg:mr-0">
+        <p class="mb-4 font-semibold text-ink">Prefere ir direto ao ponto? Use o diagnóstico rápido:</p>
+        <Diagnostico />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

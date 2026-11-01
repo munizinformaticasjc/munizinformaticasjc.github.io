@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../config/site';
+
+const crumbs = [{ name: 'Início', href: '/' }, { name: 'Sobre', href: '/sobre/' }];
+const valores = [
+  { icon: 'ScanSearch', t: 'Diagnóstico honesto', d: 'O serviço indicado é o que resolve o problema, não o mais caro. Quando um equipamento não vale o investimento, você fica sabendo.' },
+  { icon: 'MessagesSquare', t: 'Linguagem simples', d: 'Explicações claras, sem termos técnicos desnecessários, para você decidir com segurança.' },
+  { icon: 'FolderLock', t: 'Respeito aos seus dados', d: 'Arquivos e informações pessoais são tratados com cuidado e discrição em todos os atendimentos.' },
+  { icon: 'User', t: 'Atendimento direto', d: 'Quem conversa com você pelo WhatsApp é quem faz o atendimento, do começo ao fim.' },
+];
+const schema = [{ '@type': 'AboutPage', name: 'Sobre a Muniz Informática', url: `${site.url}/sobre/`, about: { '@id': `${site.url}/#business` } }];
+---
+<BaseLayout
+  title="Sobre a Muniz Informática | Suporte Técnico Remoto e em SJC"
+  description="Conheça a Muniz Informática: suporte técnico remoto para todo o Brasil e serviços de TI em São José dos Campos, com atendimento direto e diagnóstico honesto."
+  breadcrumbs={crumbs}
+  schema={schema}
+>
+  <section class="grid-bg-light border-b border-mist-200">
+    <div class="container-site py-12 md:py-16 lg:py-20">
+      <Breadcrumbs items={crumbs} />
+      <p class="eyebrow mb-4">Sobre</p>
+      <h1 class="max-w-4xl font-display text-[2.2rem] font-extrabold leading-[1.05] sm:text-[3rem]">Suporte técnico com atendimento direto, do diagnóstico à explicação final</h1>
+      <div class="prose-muniz mt-8 max-w-3xl text-body">
+        <p>A Muniz Informática atua com suporte técnico e infraestrutura de TI para pessoas e pequenas empresas. O atendimento é feito diretamente pelo técnico responsável, sem intermediários e sem repassar o seu computador de mão em mão.</p>
+        <p>O trabalho combina dois formatos. Pela internet, o suporte remoto atende qualquer cidade do Brasil, quando o tipo de problema permite. Em São José dos Campos, a manutenção física é feita com o equipamento entregue em local combinado, e empresas podem solicitar atendimento no próprio estabelecimento, conforme disponibilidade.</p>
+        <p>Não há loja aberta ao público. Todo atendimento é agendado pelo WhatsApp, com possibilidade de horários entre 9h e 22h, todos os dias da semana, inclusive finais de semana e feriados, conforme disponibilidade e confirmação prévia.</p>
+      </div>
+    </div>
+  </section>
+  <section class="container-site pt-16 md:pt-20" data-reveal>
+    <div class="grid gap-5 md:grid-cols-2">
+      <div class="card p-7" data-reveal-item>
+        <h2 class="font-display text-xl font-bold">Para pessoas</h2>
+        <ul class="mt-4 space-y-2.5">
+          {['Suporte técnico Windows', 'Computadores e notebooks lentos', 'Formatação e reinstalação do Windows', 'Remoção de vírus e malware', 'Otimização de computadores', 'Upgrade e manutenção física em São José dos Campos'].map((t) => <li class="flex items-start gap-3"><Icon name="Check" size={19} class="mt-0.5 shrink-0 text-ok-deep" />{t}</li>)}
+        </ul>
+        <a href="/servicos/" class="link-arrow mt-5">Ver serviços <Icon name="ArrowRight" size={16} /></a>
+      </div>
+      <div class="card p-7" data-reveal-item>
+        <h2 class="font-display text-xl font-bold">Para empresas</h2>
+        <ul class="mt-4 space-y-2.5">
+          {['Suporte técnico e manutenção de computadores', 'Redes e Wi-Fi', 'Firewall e antivírus', 'Infraestrutura e organização de TI', 'Suporte remoto para empresas de todo o Brasil', 'Atendimento no local em São José dos Campos'].map((t) => <li class="flex items-start gap-3"><Icon name="Check" size={19} class="mt-0.5 shrink-0 text-ok-deep" />{t}</li>)}
+        </ul>
+        <a href="/empresas/" class="link-arrow mt-5">Atendimento a empresas <Icon name="ArrowRight" size={16} /></a>
+      </div>
+    </div>
+  </section>
+  <section class="container-site py-16 md:py-20" data-reveal>
+    <SectionHeading eyebrow="Como trabalhamos" title="O que você pode esperar" />
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {valores.map((v) => (
+        <div class="card p-6" data-reveal-item>
+          <Icon name={v.icon} size={24} class="text-link" />
+          <h2 class="mt-4 font-display text-lg font-bold">{v.t}</h2>
+          <p class="mt-2 leading-relaxed text-muted">{v.d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+  <CtaBand waRef="cta-final-sobre" />
+</BaseLayout>

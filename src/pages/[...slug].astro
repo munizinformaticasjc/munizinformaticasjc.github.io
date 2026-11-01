@@ -1,0 +1,169 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { services, serviceBySlug, modalityLabel, type ServicePage, type Modality } from '../data/services';
+import { site } from '../config/site';
+
+export const getStaticPaths = (() =>
+  services.map((service) => ({ params: { slug: service.slug }, props: { service } }))) satisfies GetStaticPaths;
+
+const { service: s } = Astro.props as { service: ServicePage };
+const pageUrl = `${site.url}/${s.slug}/`;
+const isEmpresa = s.group === 'empresas';
+
+const crumbs = [
+  { name: 'Início', href: '/' },
+  isEmpresa ? { name: 'Empresas', href: '/empresas/' } : { name: 'Serviços', href: '/servicos/' },
+  { name: s.navLabel, href: `/${s.slug}/` },
+];
+
+const processo: Record<Modality, [string, string][]> = {
+  remoto: [
+    ['Avaliação e orçamento', 'Você descreve o problema pelo WhatsApp, o caso é avaliado e você recebe o orçamento.'],
+    ['Agendamento', 'O horário é combinado pelo WhatsApp, entre 9h e 22h, todos os dias, inclusive fins de semana e feriados, conforme disponibilidade e confirmação prévia.'],
+    ['Atendimento', 'Você autoriza a conexão e acompanha tudo pela tela do computador.'],
+    ['Explicação', 'Você recebe o resumo do que foi feito e orientações para evitar o problema.'],
+  ],
+  misto: [
+    ['Conversa inicial', 'Você descreve o problema pelo WhatsApp e recebe a orientação e o valor.'],
+    ['Verificação remota', 'Quando possível, a causa é investigada a distância, em horário agendado.'],
+    ['Solução', 'Se a causa está no sistema, o atendimento segue pelo remoto. Se exigir manutenção física, o equipamento é entregue em local combinado em São José dos Campos, mediante agendamento.'],
+    ['Explicação', 'Você recebe o resumo do que foi feito e orientações para o dia a dia.'],
+  ],
+  sjc: [
+    ['Conversa inicial', 'Você descreve o caso pelo WhatsApp e confirma a compatibilidade e o valor.'],
+    ['Entrega agendada', 'O dia, o horário e o local de entrega em São José dos Campos são combinados na conversa.'],
+    ['Serviço e testes', 'O serviço é executado e o equipamento é testado antes da devolução.'],
+    ['Devolução', 'Você recebe o equipamento com a explicação do que foi feito.'],
+  ],
+  empresa: [
+    ['Conversa inicial', 'A empresa descreve a necessidade pelo WhatsApp: quantos computadores, onde fica e o que precisa.'],
+    ['Levantamento', 'O ambiente é avaliado remotamente ou, para empresas em São José dos Campos, no próprio estabelecimento, conforme disponibilidade.'],
+    ['Proposta', 'Você recebe o escopo, as prioridades e o valor antes de qualquer execução.'],
+    ['Execução', 'O trabalho é agendado para causar o mínimo de interrupção na rotina.'],
+  ],
+};
+
+const areaServed =
+  s.modality === 'sjc'
+    ? [{ '@type': 'City', name: 'São José dos Campos' }]
+    : [{ '@type': 'Country', name: 'Brasil' }, { '@type': 'City', name: 'São José dos Campos' }];
+
+const schema = [
+  {
+    '@type': 'Service',
+    '@id': `${pageUrl}#service`,
+    name: s.h1,
+    serviceType: s.navLabel,
+    description: s.description,
+    url: pageUrl,
+    provider: { '@id': `${site.url}/#business` },
+    areaServed,
+    audience: { '@type': isEmpresa ? 'BusinessAudience' : 'PeopleAudience' },
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: s.faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+  },
+];
+
+const related = s.related.map((slug) => serviceBySlug[slug]).filter(Boolean);
+---
+<BaseLayout title={s.seoTitle} description={s.description} schema={schema} breadcrumbs={crumbs} waMessage={s.wa} waRef={`barra-mobile-${s.slug}`}>
+  <section class="grid-bg-light border-b border-mist-200">
+    <div class="container-site grid gap-10 py-12 md:py-16 lg:grid-cols-[1.35fr_1fr] lg:gap-14 lg:py-20">
+      <div>
+        <Breadcrumbs items={crumbs} />
+        <p class="eyebrow mb-4">{s.eyebrow}</p>
+        <h1 class="font-display text-[2.2rem] font-extrabold leading-[1.05] sm:text-[3rem]">{s.h1}</h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-body sm:text-xl">{s.intro}</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <WhatsAppButton message={s.wa} ref={`hero-${s.slug}`} label={isEmpresa ? 'Conversar pelo WhatsApp' : 'Chamar no WhatsApp'} />
+          <a href="#como-funciona" class="btn btn-ghost">Como funciona</a>
+        </div>
+      </div>
+      <div class="self-end">
+        <div class="card p-6 shadow-[0_30px_60px_-40px_#0a254080] sm:p-7">
+          <h2 class="font-display text-lg font-bold">O atendimento pode incluir</h2>
+          <ul class="mt-4 space-y-3">
+            {s.includes.map((item) => (
+              <li class="flex items-start gap-3 text-body"><Icon name="Check" size={19} class="mt-0.5 shrink-0 text-ok-deep" />{item}</li>
+            ))}
+          </ul>
+          <div class="mt-6 flex gap-3 rounded-xl bg-mist-50 p-4">
+            <Icon name={s.modality === 'sjc' ? 'MapPin' : s.modality === 'remoto' ? 'MonitorSmartphone' : 'ArrowLeftRight'} size={20} class="mt-0.5 shrink-0 text-link" />
+            <p class="text-[0.95rem] leading-relaxed text-body"><strong class="text-ink">{modalityLabel[s.modality].short}.</strong> {modalityLabel[s.modality].long}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-site py-16 md:py-20" data-reveal>
+    <SectionHeading title={s.signsTitle} />
+    <ul class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {s.signs.map((sign) => (
+        <li class="card flex items-start gap-3 p-5 leading-relaxed" data-reveal-item>
+          <span class="mt-1.5 h-2 w-2 shrink-0 rounded-[2px] bg-link"></span>{sign}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="on-dark grid-bg bg-navy-900 py-16 md:py-20">
+    <div class="container-site grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16" data-reveal>
+      <h2 class="font-display text-[2rem] font-bold leading-tight !text-white sm:text-[2.4rem]">{s.approachTitle}</h2>
+      <div class="space-y-4 text-lg leading-relaxed text-white/80">
+        {s.approach.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section id="como-funciona" class="container-site py-16 md:py-20" data-reveal>
+    <SectionHeading eyebrow="Passo a passo" title="Como funciona o atendimento" />
+    <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {processo[s.modality].map(([t, d], i) => (
+        <li class="card p-6" data-reveal-item>
+          <p class="font-mono text-xs text-link">{String(i + 1).padStart(2, '0')}</p>
+          <h3 class="mt-2 font-display text-lg font-bold">{t}</h3>
+          <p class="mt-2 leading-relaxed text-muted">{d}</p>
+        </li>
+      ))}
+    </ol>
+    {s.modality !== 'sjc' && (
+      <p class="mt-6 text-muted">
+        Primeira vez com suporte remoto? <a href="/como-funciona-o-suporte-remoto/" class="link-arrow">Veja como funciona e quais cuidados são tomados <Icon name="ArrowRight" size={16} /></a>
+      </p>
+    )}
+  </section>
+
+  <section class="border-y border-mist-200 bg-white py-16 md:py-20">
+    <div class="container-site grid gap-10 lg:grid-cols-[0.8fr_1.2fr]" data-reveal>
+      <SectionHeading eyebrow="Dúvidas" title="Perguntas frequentes" />
+      <FaqList faqs={s.faqs} />
+    </div>
+  </section>
+
+  {related.length > 0 && (
+    <section class="container-site pt-16 md:pt-20" data-reveal>
+      <h2 class="font-display text-2xl font-bold">Serviços relacionados</h2>
+      <div class="mt-8 grid gap-4 md:grid-cols-3">
+        {related.map((r) => <ServiceCard service={r} />)}
+      </div>
+    </section>
+  )}
+
+  <CtaBand
+    waRef={`cta-final-${s.slug}`}
+    message={s.wa}
+    title={isEmpresa ? 'Vamos conversar sobre a TI da sua empresa?' : undefined}
+    text={isEmpresa ? 'Conte quantos computadores a empresa tem, onde fica e o que precisa. Você recebe o próximo passo e a proposta antes de qualquer execução.' : undefined}
+  />
+</BaseLayout>

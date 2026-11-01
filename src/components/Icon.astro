@@ -1,0 +1,15 @@
+---
+// Renderiza um ícone Lucide pelo nome. Tudo é gerado no build: nenhum JS vai para o navegador.
+import { icons } from '@lucide/astro';
+
+interface Props {
+  name: string;
+  size?: number;
+  class?: string;
+  strokeWidth?: number;
+}
+const { name, size = 22, class: className, strokeWidth = 1.75 } = Astro.props;
+const Cmp = (icons as Record<string, any>)[name];
+if (!Cmp) throw new Error(`Ícone Lucide inexistente: ${name}`);
+---
+<Cmp size={size} class={className} stroke-width={strokeWidth} aria-hidden="true" />

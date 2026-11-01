@@ -1,0 +1,59 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { site } from '../config/site';
+import { byGroup } from '../data/services';
+import { waLink } from '../lib/whatsapp';
+
+const pessoas = [...byGroup('resolver'), ...byGroup('hardware')];
+const empresas = byGroup('empresas');
+const year = new Date().getFullYear();
+---
+<footer class="on-dark grid-bg relative bg-navy-950 text-white/70">
+  <div class="container-site grid gap-12 py-16 md:grid-cols-12">
+    <div class="md:col-span-4">
+      <Logo dark />
+      <p class="mt-5 max-w-xs leading-relaxed">
+        Suporte técnico e serviços de TI para pessoas e pequenas empresas.
+      </p>
+      <ul class="mt-6 space-y-3 text-[0.95rem]">
+        <li class="flex gap-3"><Icon name="MonitorSmartphone" size={19} class="mt-0.5 shrink-0 text-signal" />Suporte remoto para todo o Brasil</li>
+        <li class="flex gap-3"><Icon name="MapPin" size={19} class="mt-0.5 shrink-0 text-signal" />Serviços físicos em São José dos Campos</li>
+        <li class="flex gap-3"><Icon name="CalendarClock" size={19} class="mt-0.5 shrink-0 text-signal" />Agendamento das 9h às 22h, todos os dias</li>
+      </ul>
+    </div>
+
+    <div class="md:col-span-3">
+      <h2 class="font-mono text-xs font-medium tracking-wide text-white">Para você</h2>
+      <ul class="mt-4 space-y-2.5 text-[0.95rem]">
+        {pessoas.slice(0, 9).map((s) => <li><a href={`/${s.slug}/`} class="hover:text-signal">{s.navLabel}</a></li>)}
+        <li><a href="/servicos/" class="font-semibold text-white hover:text-signal">Todos os serviços</a></li>
+      </ul>
+    </div>
+
+    <div class="md:col-span-2">
+      <h2 class="font-mono text-xs font-medium tracking-wide text-white">Para empresas</h2>
+      <ul class="mt-4 space-y-2.5 text-[0.95rem]">
+        <li><a href="/empresas/" class="hover:text-signal">Visão geral</a></li>
+        {empresas.map((s) => <li><a href={`/${s.slug}/`} class="hover:text-signal">{s.navLabel}</a></li>)}
+      </ul>
+    </div>
+
+    <div class="md:col-span-3">
+      <h2 class="font-mono text-xs font-medium tracking-wide text-white">Contato</h2>
+      <ul class="mt-4 space-y-2.5 text-[0.95rem]">
+        <li><a href={waLink(undefined, 'footer')} target="_blank" rel="noopener" data-wa="footer" class="inline-flex items-center gap-2 font-semibold text-white hover:text-signal"><Icon name="MessageCircle" size={18} />WhatsApp {site.phoneDisplay}</a></li>
+        <li><a href={`mailto:${site.email}`} class="break-all hover:text-signal">{site.email}</a></li>
+        <li><a href="/como-funciona-o-suporte-remoto/" class="hover:text-signal">Como funciona o suporte remoto</a></li>
+        <li><a href="/sobre/" class="hover:text-signal">Sobre a Muniz</a></li>
+        <li><a href="/privacidade/" class="hover:text-signal">Política de privacidade</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="container-site flex flex-col gap-2 py-6 text-sm sm:flex-row sm:justify-between">
+      <p>© {year} {site.legalName}</p>
+      <p>{site.service.scheduleShort}</p>
+    </div>
+  </div>
+</footer>

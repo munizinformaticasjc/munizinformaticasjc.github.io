@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site } from '../config/site';
+const crumbs = [{ name: 'Início', href: '/' }, { name: 'Política de privacidade', href: '/privacidade/' }];
+---
+<BaseLayout title="Política de Privacidade | Muniz Informática" description="Como a Muniz Informática trata os dados de quem visita o site e de quem é atendido: Google Analytics, contato por WhatsApp e e-mail e direitos pela LGPD." breadcrumbs={crumbs}>
+  <section class="container-site max-w-3xl py-12 md:py-16">
+    <Breadcrumbs items={crumbs} />
+    <h1 class="font-display text-[2.2rem] font-extrabold leading-tight">Política de privacidade</h1>
+    <div class="prose-muniz mt-8 text-body [&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:text-xl [&_h2]:font-bold">
+      <p>Esta página explica como a {site.legalName} trata as informações de quem visita este site e de quem entra em contato.</p>
+      <h2>Dados coletados no site</h2>
+      <p>O site usa o Google Analytics 4 para entender, de forma agregada, quantas pessoas visitam as páginas e quais caminhos levam a um contato. Essa ferramenta utiliza cookies e coleta dados de navegação, como páginas visitadas, tipo de dispositivo e região aproximada. Não coletamos nome, telefone ou e-mail pelo site.</p>
+      <p>O Google Analytics também pode usar recursos de publicidade do Google, como o Google Signals, que associam dados de navegação a pessoas conectadas a uma Conta Google para gerar relatórios entre dispositivos, conforme as configurações de anúncios de cada conta.</p>
+      <p>Você pode bloquear cookies nas configurações do seu navegador, usar o <a class="font-semibold text-link underline underline-offset-2 hover:text-ink" href="https://tools.google.com/dlpage/gaoptout?hl=pt-BR" target="_blank" rel="noopener">complemento de desativação do Google Analytics</a> e gerenciar a personalização de anúncios na <a class="font-semibold text-link underline underline-offset-2 hover:text-ink" href="https://myadcenter.google.com/" target="_blank" rel="noopener">Minha Central de Anúncios</a> do Google. Saiba mais em <a class="font-semibold text-link underline underline-offset-2 hover:text-ink" href="https://policies.google.com/technologies/partner-sites?hl=pt-BR" target="_blank" rel="noopener">como o Google usa as informações de sites que usam seus serviços</a>.</p>
+      <h2>Contato pelo WhatsApp e e-mail</h2>
+      <p>Ao entrar em contato, você compartilha as informações que escolher enviar. Elas são usadas apenas para responder, orçar e realizar o atendimento solicitado, e não são vendidas nem repassadas a terceiros.</p>
+      <h2>Dados durante o atendimento</h2>
+      <p>Em atendimentos remotos ou com o equipamento em mãos, arquivos e informações pessoais podem ficar visíveis. Eles são acessados apenas na medida necessária para executar o serviço combinado, com discrição.</p>
+      <h2>Seus direitos</h2>
+      <p>Conforme a Lei Geral de Proteção de Dados (LGPD), você pode pedir informações sobre os seus dados, a correção ou a exclusão deles. Para isso, escreva para <a class="link-arrow" href={`mailto:${site.email}`}>{site.email}</a>.</p>
+      <p class="text-sm text-muted">Última atualização: novembro de 2026.</p>
+    </div>
+  </section>
+</BaseLayout>

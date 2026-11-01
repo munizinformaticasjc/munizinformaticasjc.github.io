@@ -1,0 +1,16 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo-muniz.png';
+
+interface Props { dark?: boolean; class?: string; eager?: boolean }
+const { dark = false, class: className = '', eager = false } = Astro.props;
+---
+<Image
+  src={logo}
+  alt="Muniz Informática"
+  width={132}
+  densities={[1, 2]}
+  loading={eager ? 'eager' : 'lazy'}
+  fetchpriority={eager ? 'high' : undefined}
+  class:list={['h-auto w-[112px] sm:w-[132px]', dark && 'brightness-0 invert', className]}
+/>

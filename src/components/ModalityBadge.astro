@@ -1,0 +1,10 @@
+---
+import Icon from './Icon.astro';
+import { modalityLabel, type Modality } from '../data/services';
+interface Props { modality: Modality; class?: string }
+const { modality, class: className = '' } = Astro.props;
+const icon = { remoto: 'MonitorSmartphone', misto: 'ArrowLeftRight', sjc: 'MapPin', empresa: 'Building' }[modality];
+---
+<span class:list={['inline-flex items-center gap-1.5 rounded-full border border-mist-200 bg-mist-50 px-2.5 py-1 font-mono text-[0.72rem] font-medium text-muted', className]}>
+  <Icon name={icon} size={14} />{modalityLabel[modality].short}
+</span>

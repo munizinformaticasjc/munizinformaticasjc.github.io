@@ -1,0 +1,338 @@
+@import '@fontsource-variable/bricolage-grotesque/wght.css';
+@import '@fontsource-variable/atkinson-hyperlegible-next/wght.css';
+@import 'tailwindcss';
+
+/* JetBrains Mono recortada a partir do @fontsource-variable/jetbrains-mono 5.x (OFL, ver
+   assets/fonts/OFL-JetBrainsMono.txt): Latin + Latin-1 + pontuação comum, peso 400–500
+   (os únicos usados nas etiquetas) e sem ligaduras de código. 16 KB em vez de 40 KB. */
+@font-face {
+  font-family: 'JetBrains Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 500;
+  src: url('../assets/fonts/jetbrains-mono-latin-wght-400-500.woff2') format('woff2-variations');
+  unicode-range: U+0020-007E, U+00A0-00FF, U+2013-2014, U+2018-2019, U+201C-201D, U+2022, U+2026, U+2192;
+}
+
+/*
+  Identidade Muniz Informática
+  - navy (#0A2540): base, textos fortes e seções escuras
+  - signal (#00BFFF): cor de sinal, usada SÓ sobre fundo escuro (contraste baixo no branco)
+  - link (#0069A0): versão escura do ciano para links e botões sobre fundo claro (≥ 5:1)
+*/
+@theme {
+  --color-navy-950: #051629;
+  --color-navy-900: #0a2540;
+  --color-navy-800: #113356;
+  --color-navy-700: #1a4670;
+  --color-signal: #00bfff;
+  --color-signal-soft: #7fdcff;
+  --color-link: #0069a0;
+  --color-link-deep: #00507a;
+  --color-ok: #34d399;
+  --color-ok-deep: #047857;
+  --color-ink: #0a2540;
+  --color-body: #2b3f55;
+  --color-muted: #4d6177;
+  --color-mist-50: #f5f8fb;
+  --color-mist-100: #ebf1f7;
+  --color-mist-200: #dbe5ef;
+
+  --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Atkinson Hyperlegible Next Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@layer base {
+  html {
+    background: var(--color-mist-50);
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-body);
+    background: var(--color-mist-50);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+  p { text-wrap: pretty; }
+  :focus-visible {
+    outline: 3px solid var(--color-link);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .on-dark :focus-visible { outline-color: var(--color-signal); }
+  ::selection { background: #00bfff40; }
+}
+
+@layer components {
+  .container-site {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) { .container-site { padding-inline: 2rem; } }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--color-link);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 2px;
+    background: currentColor;
+  }
+  .on-dark .eyebrow { color: var(--color-signal); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3.25rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.85rem;
+    font-weight: 700;
+    font-size: 1.02rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.25s, transform 0.2s var(--ease-out-quart);
+  }
+  .btn:active { transform: scale(0.98); }
+  .btn-primary {
+    background: var(--color-navy-900);
+    color: #fff;
+    box-shadow: 0 10px 24px -14px #0a2540cc, inset 0 1px 0 #ffffff1f;
+  }
+  .btn-primary:hover { background: var(--color-navy-700); box-shadow: 0 14px 28px -14px #0a2540; }
+  .btn-signal {
+    background: var(--color-signal);
+    color: var(--color-navy-950);
+    box-shadow: 0 10px 30px -12px #00bfff99;
+  }
+  .btn-signal:hover { background: var(--color-signal-soft); }
+  .btn-ghost {
+    border: 1.5px solid var(--color-mist-200);
+    color: var(--color-ink);
+    background: #fff;
+  }
+  .btn-ghost:hover { border-color: var(--color-link); color: var(--color-link); }
+  .on-dark .btn-ghost { background: transparent; color: #fff; border-color: #ffffff33; }
+  .on-dark .btn-ghost:hover { border-color: var(--color-signal); color: var(--color-signal); }
+  .btn .btn-arrow { transition: transform 0.25s var(--ease-out-quart); }
+  .btn:hover .btn-arrow { transform: translateX(3px); }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--color-mist-200);
+    border-radius: 1.25rem;
+  }
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 700;
+    color: var(--color-link);
+  }
+  .link-arrow:hover { color: var(--color-link-deep); text-decoration: underline; text-underline-offset: 4px; }
+
+  /* Grade técnica sutil usada nas seções escuras */
+  .grid-bg {
+    background-image:
+      linear-gradient(#ffffff0a 1px, transparent 1px),
+      linear-gradient(90deg, #ffffff0a 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .grid-bg-light {
+    background-color: var(--color-mist-50);
+    background-image:
+      linear-gradient(#0a25400a 1px, transparent 1px),
+      linear-gradient(90deg, #0a25400a 1px, transparent 1px),
+      linear-gradient(#fff, var(--color-mist-50));
+    background-size: 48px 48px, 48px 48px, 100% 100%;
+  }
+
+  .prose-muniz p { margin-block: 0 1rem; line-height: 1.7; font-size: 1.075rem; }
+}
+
+/* Entrada ao rolar: só esconde quando JS está ativo e o usuário aceita movimento. */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal]:not(.is-in) {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  .js.reveal-fallback [data-reveal] { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* FAQ nativo com <details> */
+details.faq > summary { list-style: none; cursor: pointer; }
+details.faq > summary::-webkit-details-marker { display: none; }
+details.faq .faq-icon { transition: transform 0.3s var(--ease-out-quart); }
+details.faq[open] .faq-icon { transform: rotate(45deg); }
+details.faq::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size 0.35s var(--ease-out-quart), content-visibility 0.35s allow-discrete;
+}
+details.faq[open]::details-content { block-size: auto; }
+@supports (interpolate-size: allow-keywords) {
+  :root { interpolate-size: allow-keywords; }
+}
+
+/* ── Cabeçalho ──────────────────────────────────────────────────────────────
+   Tudo via CSS: só opacity, transform, cor e sombra (nada que mude o layout). */
+.hdr {
+  background-color: rgb(255 255 255 / 0.72);
+  border-bottom-color: rgb(219 229 239 / 0.55);
+  transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.hdr[data-scrolled] {
+  background-color: rgb(255 255 255 / 0.9);
+  border-bottom-color: var(--color-mist-200);
+  box-shadow: 0 12px 32px -22px rgb(10 37 64 / 0.45);
+}
+/* Fio de luz navy → ciano na base: aparece ao rolar e "varre" uma vez na entrada. */
+.hdr::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-link) 25%, var(--color-signal) 55%, transparent);
+  opacity: 0;
+  transform-origin: left;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+.hdr[data-scrolled]::after { opacity: 0.55; }
+
+/* Logo do cabeçalho: única regra de tamanho, sem escalas sobrepostas.
+   Altura automática pela proporção original (132 × 76). */
+.hdr-logo { width: 89.6px; }                                        /* celular  < 640px: 112px → 89,6px (−20%) */
+@media (min-width: 640px) { .hdr-logo { width: 105.6px; } }         /* tablet 640–1023px: 132px → 105,6px (−20%) */
+@media (min-width: 1024px) { .hdr-logo { width: 89.76px; } }        /* desktop 1024–1439px: 112,2px → 89,76px (−20%) */
+@media (min-width: 1440px) { .hdr-logo { width: 98.74px; } }        /* telas grandes ≥ 1440px: 89,76px +10% = 98,74px (88% de 112,2px) */
+
+/* Links do menu: cor suave + sublinhado que entra pela esquerda e sai pela direita */
+.hdr-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+.hdr-link::after {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.2rem;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-link), var(--color-signal));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s var(--ease-out-quart);
+}
+.hdr-link:hover,
+.hdr-link:focus-visible,
+.group:hover > .hdr-link { color: var(--color-link); }
+.hdr-link:hover::after,
+.hdr-link:focus-visible::after,
+.hdr-link[aria-current]::after,
+.group:hover > .hdr-link::after,
+.group:focus-within > .hdr-link::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Botão de WhatsApp: brilho que atravessa uma vez, leve elevação e retorno tátil no clique */
+.hdr-cta {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: background-color 0.25s ease, box-shadow 0.3s ease, transform 0.25s var(--ease-out-quart);
+}
+.hdr-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 0.22) 50%, transparent 70%);
+  transform: translateX(-110%);
+  pointer-events: none;
+}
+.hdr-cta svg { transition: transform 0.35s var(--ease-out-quart); }
+@media (hover: hover) {
+  .hdr-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px -14px rgb(0 191 255 / 0.6), inset 0 1px 0 rgb(255 255 255 / 0.14);
+  }
+  .hdr-cta:hover::before {
+    transform: translateX(110%);
+    transition: transform 0.75s var(--ease-out-quart);
+  }
+  .hdr-cta:hover svg { transform: rotate(-10deg) scale(1.08); }
+}
+.hdr-cta:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 6px 14px -10px rgb(10 37 64 / 0.6);
+  transition-duration: 0.08s;
+}
+.hdr-cta:focus-visible { outline-color: var(--color-signal); }
+
+.hdr-burger { transition: background-color 0.2s ease, transform 0.15s ease; }
+.hdr-burger:active { transform: scale(0.94); }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Entrada: itens descem 6px e aparecem em sequência curta. fill-mode backwards
+     evita que a animação continue presa ao elemento depois de terminar. */
+  .hdr-intro .hdr-item {
+    animation: hdr-in 0.55s var(--ease-out-quart) backwards;
+    animation-delay: calc(var(--i, 0) * 50ms + 60ms);
+  }
+  .hdr-intro .hdr::after {
+    animation: hdr-scan 1.1s cubic-bezier(0.65, 0, 0.35, 1) 0.25s backwards;
+  }
+  /* Menu do celular desliza da direita; o fundo escurece suavemente. */
+  #menu-mobile[open] { animation: menu-in 0.38s var(--ease-out-quart); }
+  #menu-mobile[open]::backdrop { animation: menu-fade 0.3s ease; }
+}
+@keyframes hdr-in {
+  from { opacity: 0; transform: translateY(-6px); }
+}
+@keyframes hdr-scan {
+  0% { transform: scaleX(0); opacity: 0.9; }
+  65% { transform: scaleX(1); opacity: 0.9; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+@keyframes menu-in {
+  from { opacity: 0; transform: translateX(28px); }
+}
+@keyframes menu-fade {
+  from { opacity: 0; }
+}

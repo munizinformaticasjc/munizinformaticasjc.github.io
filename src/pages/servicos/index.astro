@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { byGroup } from '../../data/services';
+
+const crumbs = [{ name: 'Início', href: '/' }, { name: 'Serviços', href: '/servicos/' }];
+const grupos = [
+  { id: 'resolver', eyebrow: 'Remoto · todo o Brasil', title: 'Resolver problemas no computador', lead: 'Problemas de sistema e programas que, conforme o caso, podem ser resolvidos pela internet.', items: byGroup('resolver') },
+  { id: 'hardware', eyebrow: 'Entrega em São José dos Campos', title: 'Upgrade e hardware', lead: 'Serviços que exigem o equipamento em mãos, com entrega combinada na cidade.', items: byGroup('hardware') },
+  { id: 'local', eyebrow: 'São José dos Campos', title: 'Assistência técnica e manutenção', lead: 'Como funciona o atendimento físico na cidade, para notebooks e computadores.', items: byGroup('local') },
+];
+---
+<BaseLayout
+  title="Serviços de Informática e Suporte Técnico | Muniz"
+  description="Todos os serviços da Muniz Informática: suporte remoto para todo o Brasil, remoção de vírus, formatação, backup e upgrade de SSD e memória em São José dos Campos."
+  breadcrumbs={crumbs}
+>
+  <section class="grid-bg-light border-b border-mist-200">
+    <div class="container-site py-12 md:py-16">
+      <Breadcrumbs items={crumbs} />
+      <SectionHeading as="h1" eyebrow="Serviços" title="Como a Muniz Informática pode ajudar" lead="Escolha pelo problema. Cada página explica o que é feito, onde é feito e como pedir o atendimento." />
+      <nav aria-label="Grupos de serviços" class="mt-8 flex flex-wrap gap-2">
+        {grupos.map((g) => <a href={`#${g.id}`} class="rounded-full border border-mist-200 bg-white px-4 py-2 font-semibold text-ink hover:border-link hover:text-link">{g.title}</a>)}
+        <a href="/empresas/" class="inline-flex items-center gap-1.5 rounded-full bg-navy-900 px-4 py-2 font-semibold text-white hover:bg-navy-700"><Icon name="Building" size={16} />Para empresas</a>
+      </nav>
+    </div>
+  </section>
+  {grupos.map((g) => (
+    <section id={g.id} class="container-site py-14 md:py-16" data-reveal>
+      <SectionHeading eyebrow={g.eyebrow} title={g.title} lead={g.lead} />
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {g.items.map((s) => <ServiceCard service={s} />)}
+      </div>
+    </section>
+  ))}
+  <CtaBand waRef="cta-final-servicos" title="Não encontrou o seu problema?" text="Descreva o que está acontecendo pelo WhatsApp. Você recebe a orientação sobre o melhor caminho, mesmo que não esteja nesta lista." />
+</BaseLayout>

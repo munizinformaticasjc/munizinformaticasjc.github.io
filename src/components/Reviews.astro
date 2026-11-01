@@ -1,0 +1,28 @@
+---
+// Só renderiza quando existem avaliações reais em src/data/reviews.ts.
+import Icon from './Icon.astro';
+import { reviews, googleProfileUrl } from '../data/reviews';
+
+const fmt = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+---
+{reviews.length > 0 && (
+  <section class="container-site py-20 md:py-24" data-reveal aria-labelledby="avaliacoes-titulo">
+    <p class="eyebrow mb-4">Avaliações no Google</p>
+    <h2 id="avaliacoes-titulo" class="font-display text-[2rem] font-bold leading-tight sm:text-[2.4rem]">O que dizem os clientes</h2>
+    <ul class="mt-10 grid gap-4 md:grid-cols-3">
+      {reviews.map((r) => (
+        <li class="card flex flex-col p-6" data-reveal-item>
+          <p class="flex gap-0.5 text-amber-500" aria-label={`${r.rating} de 5 estrelas`}>
+            {Array.from({ length: r.rating }).map(() => <Icon name="Star" size={18} class="fill-current" />)}
+          </p>
+          <blockquote class="mt-4 flex-1 leading-relaxed text-body">“{r.text}”</blockquote>
+          <p class="mt-5 font-semibold text-ink">{r.author}</p>
+          <p class="text-sm text-muted">{fmt(r.date)}</p>
+        </li>
+      ))}
+    </ul>
+    {googleProfileUrl && (
+      <a href={googleProfileUrl} target="_blank" rel="noopener" class="link-arrow mt-8">Ver todas as avaliações no Google <Icon name="ArrowRight" size={16} /></a>
+    )}
+  </section>
+)}

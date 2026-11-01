@@ -1,0 +1,142 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../config/site';
+import { waLink } from '../lib/whatsapp';
+
+export interface Crumb { name: string; href: string }
+
+interface Props {
+  title: string;
+  description: string;
+  /** Schema.org extra desta página (Service, FAQPage etc.). O negócio e o site entram sempre. */
+  schema?: Record<string, unknown>[];
+  breadcrumbs?: Crumb[];
+  noindex?: boolean;
+  /** Mensagem e origem do botão fixo de WhatsApp no celular. */
+  waMessage?: string;
+  waRef?: string;
+}
+
+const { title, description, schema = [], breadcrumbs, noindex = false, waMessage, waRef = 'barra-mobile' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const ogImage = new URL('/og-muniz.png', site.url).href;
+
+const business = {
+  '@type': 'ComputerRepair',
+  '@id': `${site.url}/#business`,
+  name: site.legalName,
+  alternateName: site.name,
+  url: `${site.url}/`,
+  logo: `${site.url}/munizlogo.png`,
+  image: ogImage,
+  telephone: `+${site.whatsapp}`,
+  email: site.email,
+  description:
+    'Suporte técnico remoto para computadores em todo o Brasil e serviços de informática em São José dos Campos para pessoas e pequenas empresas.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: site.city,
+    addressRegion: site.state,
+    addressCountry: 'BR',
+  },
+  areaServed: [
+    { '@type': 'Country', name: 'Brasil' },
+    { '@type': 'City', name: 'São José dos Campos' },
+  ],
+  knowsLanguage: 'pt-BR',
+};
+
+const graph: Record<string, unknown>[] = [
+  business,
+  {
+    '@type': 'WebSite',
+    '@id': `${site.url}/#website`,
+    name: site.name,
+    url: `${site.url}/`,
+    inLanguage: 'pt-BR',
+    publisher: { '@id': `${site.url}/#business` },
+  },
+  ...schema,
+];
+if (breadcrumbs?.length) {
+  graph.push({
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.name,
+      item: new URL(c.href, site.url).href,
+    })),
+  });
+}
+const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Ícones quadrados (exigência do Google para o favicon da busca). PNG primeiro como
+         reserva para navegadores sem SVG; o SVG por último tem preferência nos demais. -->
+    <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/munizlogo.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#0a2540" />
+
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <script type="application/ld+json" set:html={jsonLd} />
+
+    <!-- Google Analytics 4 -->
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${site.gaId}`}></script>
+    <script is:inline define:vars={{ gaId: site.gaId }}>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', gaId);
+    </script>
+  </head>
+  <body class="min-h-dvh pb-[76px] lg:pb-0">
+    <a href="#conteudo" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:rounded-lg focus:bg-navy-900 focus:px-4 focus:py-2 focus:text-white">
+      Pular para o conteúdo
+    </a>
+    <Header />
+    <main id="conteudo">
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- Barra fixa de WhatsApp no celular: aparece depois da primeira dobra -->
+    <div
+      data-mobile-cta
+      class="fixed inset-x-0 bottom-0 z-40 translate-y-full border-t border-mist-200 bg-white/95 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-lg transition-transform duration-300 lg:hidden"
+    >
+      <a href={waLink(waMessage, waRef)} target="_blank" rel="noopener" data-wa={waRef} class="btn btn-primary w-full" tabindex="-1">
+        <Icon name="MessageCircle" size={20} /> Chamar no WhatsApp
+      </a>
+    </div>
+
+    <script>
+      import '../scripts/site';
+    </script>
+  </body>
+</html>

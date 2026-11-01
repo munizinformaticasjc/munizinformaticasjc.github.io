@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import FaqList from '../../components/FaqList.astro';
+import Icon from '../../components/Icon.astro';
+import { byGroup, serviceBySlug } from '../../data/services';
+
+const crumbs = [{ name: 'Início', href: '/' }, { name: 'Empresas', href: '/empresas/' }];
+const servicos = [...byGroup('empresas'), serviceBySlug['manutencao-de-computadores']];
+const msg = 'Olá! Vim pelo site da Muniz Informática e gostaria de conversar sobre TI para a minha empresa.\n\nEmpresa:\nCidade:\nQuantidade de computadores:\nO que precisamos:\nMelhor dia e horário:';
+
+const sinais = [
+  { icon: 'TimerOff', t: 'Computador parado é equipe parada', d: 'Muitos chamados podem ser atendidos pelo remoto, sem esperar uma visita.' },
+  { icon: 'ShieldCheck', t: 'Dados do negócio protegidos', d: 'Antivírus, firewall, atualizações e backup tratados como prioridade.' },
+  { icon: 'ListChecks', t: 'Ambiente organizado', d: 'Equipamentos, acessos e senhas documentados, sem depender da memória de ninguém.' },
+  { icon: 'Handshake', t: 'Proposta antes da execução', d: 'Escopo, prioridades e valor combinados antes. A empresa decide o ritmo.' },
+];
+const faqs: [string, string][] = [
+  ['Atendem empresas de qualquer cidade?', 'Por suporte remoto, sim. Atendimento no local é feito apenas para empresas em São José dos Campos, com agendamento.'],
+  ['Qual o tamanho de empresa atendida?', 'O foco são pequenas empresas, escritórios e profissionais autônomos.'],
+  ['Como é definido o valor?', 'Depois de uma conversa inicial e do levantamento da necessidade, a empresa recebe a proposta antes de qualquer execução.'],
+  ['Os atendimentos no local têm horário?', 'São agendados com antecedência, com possibilidade de horários entre 9h e 22h, todos os dias, inclusive fins de semana e feriados, conforme disponibilidade e confirmação prévia.'],
+  ['Como funciona o pagamento?', 'As condições são apresentadas junto com a proposta, antes de qualquer execução.'],
+];
+const faqSchema = { '@type': 'FAQPage', mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
+---
+<BaseLayout
+  title="Suporte de TI para Pequenas Empresas | Muniz Informática"
+  description="Suporte de TI, redes, firewall, antivírus e infraestrutura para pequenas empresas. Atendimento remoto para todo o Brasil e no local em São José dos Campos."
+  breadcrumbs={crumbs}
+  schema={[faqSchema]}
+  waMessage={msg}
+  waRef="barra-mobile-empresas"
+>
+  <section class="on-dark grid-bg relative overflow-hidden bg-navy-900">
+    <div aria-hidden="true" class="pointer-events-none absolute -right-32 -top-32 h-[28rem] w-[28rem] rounded-full bg-signal/15 blur-3xl"></div>
+    <div class="container-site relative py-14 md:py-20 lg:py-24">
+      <nav aria-label="Você está em" class="mb-6 text-sm text-white/60"><a href="/" class="hover:text-signal">Início</a> / <span aria-current="page" class="text-white">Empresas</span></nav>
+      <p class="eyebrow mb-5">Para empresas</p>
+      <h1 class="max-w-4xl font-display text-[2.3rem] font-extrabold leading-[1.04] !text-white sm:text-[3.3rem]">
+        Suporte de TI para pequenas empresas que não podem parar
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl">
+        Suporte técnico, redes, segurança e organização do ambiente de TI. Remoto para empresas de todo o Brasil e, exclusivamente em São José dos Campos, atendimento no próprio estabelecimento, conforme disponibilidade.
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <WhatsAppButton variant="signal" message={msg} ref="hero-empresas" label="Conversar pelo WhatsApp" />
+        <a href="#servicos-empresas" class="btn btn-ghost">Ver serviços</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-site py-16 md:py-20" data-reveal>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {sinais.map((s) => (
+        <div class="card p-6" data-reveal-item>
+          <Icon name={s.icon} size={24} class="text-link" />
+          <h2 class="mt-4 font-display text-lg font-bold">{s.t}</h2>
+          <p class="mt-2 leading-relaxed text-muted">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="servicos-empresas" class="container-site pb-16 md:pb-20" data-reveal>
+    <SectionHeading eyebrow="Serviços" title="O que pode ser feito pela sua empresa" />
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {servicos.map((s) => <ServiceCard service={s} />)}
+    </div>
+  </section>
+
+  <section class="border-y border-mist-200 bg-white py-16 md:py-20">
+    <div class="container-site grid gap-10 lg:grid-cols-2" data-reveal>
+      <div>
+        <SectionHeading eyebrow="Onde é o atendimento" title="Remoto em todo o Brasil, no local em São José dos Campos" />
+        <p class="mt-5 text-lg leading-relaxed text-muted">A maior parte das demandas é resolvida remotamente. Quando é preciso estar no local, o atendimento presencial é feito apenas para empresas sediadas em São José dos Campos, mediante agendamento e disponibilidade.</p>
+      </div>
+      <FaqList faqs={faqs} />
+    </div>
+  </section>
+
+  <CtaBand
+    waRef="cta-final-empresas"
+    message={msg}
+    title="Conte como está a TI da sua empresa hoje"
+    text="A mensagem já vem com um roteiro: nome da empresa, cidade, quantos computadores e o que precisa. Você recebe o próximo passo e a proposta antes de qualquer execução."
+  />
+</BaseLayout>

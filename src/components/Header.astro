@@ -1,0 +1,161 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { serviceBySlug } from '../data/services';
+import { waLink } from '../lib/whatsapp';
+
+const menuResolver = ['suporte-remoto', 'suporte-tecnico-windows', 'computador-lento', 'remocao-de-virus', 'formatacao-de-notebook', 'backup-de-arquivos'].map((s) => serviceBySlug[s]);
+const menuHardware = ['upgrade-ssd', 'upgrade-memoria-ram', 'limpeza-de-notebook', 'notebook-esquentando'].map((s) => serviceBySlug[s]);
+
+const mainLinks = [
+  { label: 'Suporte remoto', href: '/como-funciona-o-suporte-remoto/' },
+  { label: 'Para empresas', href: '/empresas/' },
+  { label: 'Sobre', href: '/sobre/' },
+  { label: 'Contato', href: '/contato/' },
+];
+const path = Astro.url.pathname;
+const isActive = (href: string) => path === href || (href !== '/' && path.startsWith(href));
+// 'page' só na página exata; 'true' quando a página pertence à seção (ex.: /empresas/redes-e-wi-fi/).
+const current = (href: string) => (path === href ? 'page' : isActive(href) ? 'true' : undefined);
+---
+<!-- Entrada do cabeçalho só em visitas diretas, recarregamentos ou vindas de fora.
+     Navegando entre páginas do próprio site, o cabeçalho aparece estático. -->
+<script is:inline>
+  try {
+    var nav = performance.getEntriesByType('navigation')[0];
+    var internal = document.referrer && new URL(document.referrer).origin === location.origin && (!nav || nav.type === 'navigate');
+    if (!internal) document.documentElement.classList.add('hdr-intro');
+  } catch (e) {}
+</script>
+<header class="hdr sticky top-0 z-50 border-b backdrop-blur-xl" data-header>
+  <div class="container-site flex h-[68px] items-center justify-between gap-6 md:h-[76px]">
+    <a href="/" class="hdr-item shrink-0" style="--i:0" aria-label="Muniz Informática, página inicial">
+      <!-- Tamanho responsivo definido em .hdr-logo (global.css): 20% menor em cada faixa. -->
+      <Logo eager class="hdr-logo" />
+    </a>
+
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Principal">
+      <div class="hdr-item group relative" style="--i:1">
+        <a
+          href="/servicos/"
+          class:list={['hdr-link inline-flex items-center gap-1 rounded-lg px-3 py-2 font-semibold text-ink', isActive('/servicos/') && 'text-link']}
+          aria-current={current('/servicos/')}
+          aria-haspopup="true"
+        >
+          Serviços <Icon name="ChevronDown" size={16} class="transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
+        </a>
+        <div class="invisible absolute left-1/2 top-full w-[620px] -translate-x-1/2 translate-y-2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+          <div class="card grid grid-cols-2 gap-6 p-6 shadow-[0_30px_60px_-30px_#0a254066]">
+            <div>
+              <p class="mb-3 font-mono text-xs text-muted">Remoto · todo o Brasil</p>
+              <ul class="space-y-1">
+                {menuResolver.map((s) => (
+                  <li><a href={`/${s.slug}/`} class="flex items-center gap-3 rounded-lg px-2 py-2 text-[0.95rem] font-semibold text-ink hover:bg-mist-100 hover:text-link"><Icon name={s.icon} size={18} class="text-link" />{s.navLabel}</a></li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p class="mb-3 font-mono text-xs text-muted">Upgrade e hardware · SJC</p>
+              <ul class="space-y-1">
+                {menuHardware.map((s) => (
+                  <li><a href={`/${s.slug}/`} class="flex items-center gap-3 rounded-lg px-2 py-2 text-[0.95rem] font-semibold text-ink hover:bg-mist-100 hover:text-link"><Icon name={s.icon} size={18} class="text-link" />{s.navLabel}</a></li>
+                ))}
+              </ul>
+              <a href="/servicos/" class="link-arrow mt-4 px-2 text-sm">Ver todos os serviços <Icon name="ArrowRight" size={16} /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {mainLinks.map((l, i) => (
+        <a
+          href={l.href}
+          class:list={['hdr-item hdr-link rounded-lg px-3 py-2 font-semibold text-ink', isActive(l.href) && 'text-link']}
+          style={`--i:${i + 2}`}
+          aria-current={current(l.href)}
+        >{l.label}</a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a
+        href={waLink(undefined, 'header')}
+        target="_blank"
+        rel="noopener"
+        data-wa="header"
+        class="hdr-item hdr-cta btn btn-primary hidden !min-h-11 !px-4 !text-[0.95rem] sm:inline-flex"
+        style="--i:6"
+      >
+        <Icon name="MessageCircle" size={18} /> WhatsApp
+      </a>
+      <button
+        type="button"
+        class="hdr-item hdr-burger inline-flex h-11 w-11 items-center justify-center rounded-xl text-ink hover:bg-mist-100 lg:hidden"
+        style="--i:2"
+        aria-label="Abrir menu"
+        aria-controls="menu-mobile"
+        data-menu-open
+      >
+        <Icon name="Menu" size={26} />
+      </button>
+    </div>
+  </div>
+</header>
+
+<dialog
+  id="menu-mobile"
+  class="m-0 ml-auto h-dvh max-h-dvh w-[min(88vw,380px)] max-w-none bg-white p-0 shadow-2xl backdrop:bg-navy-950/60 backdrop:backdrop-blur-sm"
+  aria-label="Menu"
+>
+  <div class="flex h-full flex-col">
+    <div class="flex h-[68px] items-center justify-between border-b border-mist-200 px-5">
+      <Logo />
+      <button type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-xl hover:bg-mist-100" aria-label="Fechar menu" data-menu-close>
+        <Icon name="X" size={24} />
+      </button>
+    </div>
+    <nav class="flex-1 overflow-y-auto px-4 py-5" aria-label="Menu móvel">
+      <p class="px-3 pb-2 font-mono text-xs text-muted">Resolver um problema</p>
+      {menuResolver.map((s) => (
+        <a href={`/${s.slug}/`} class="flex items-center gap-3 rounded-xl px-3 py-3 font-semibold text-ink hover:bg-mist-100"><Icon name={s.icon} size={19} class="text-link" />{s.navLabel}</a>
+      ))}
+      <p class="mt-4 px-3 pb-2 font-mono text-xs text-muted">Upgrade e hardware · SJC</p>
+      {menuHardware.map((s) => (
+        <a href={`/${s.slug}/`} class="flex items-center gap-3 rounded-xl px-3 py-3 font-semibold text-ink hover:bg-mist-100"><Icon name={s.icon} size={19} class="text-link" />{s.navLabel}</a>
+      ))}
+      <div class="my-4 border-t border-mist-200"></div>
+      <a href="/servicos/" class="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-mist-100">Todos os serviços</a>
+      {mainLinks.map((l) => (
+        <a href={l.href} class="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-mist-100">{l.label}</a>
+      ))}
+    </nav>
+    <div class="border-t border-mist-200 p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+      <a href={waLink(undefined, 'menu-mobile')} target="_blank" rel="noopener" data-wa="menu-mobile" class="btn btn-primary w-full">
+        <Icon name="MessageCircle" size={20} /> Chamar no WhatsApp
+      </a>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  // <dialog> nativo: prende o foco, fecha com Esc e devolve o foco ao botão.
+  const dialog = document.getElementById('menu-mobile') as HTMLDialogElement | null;
+  document.querySelector('[data-menu-open]')?.addEventListener('click', () => dialog?.showModal());
+  dialog?.querySelector('[data-menu-close]')?.addEventListener('click', () => dialog.close());
+  dialog?.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+  dialog?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => dialog.close()));
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => e.matches && dialog?.close());
+
+  // Estado "rolado": reforça fundo, borda e sombra do cabeçalho sem mudar a altura (sem salto de layout).
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  if (header) {
+    let scrolled: boolean | undefined;
+    const update = () => {
+      const next = window.scrollY > 8;
+      if (next !== scrolled) header.toggleAttribute('data-scrolled', (scrolled = next));
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  }
+</script>
