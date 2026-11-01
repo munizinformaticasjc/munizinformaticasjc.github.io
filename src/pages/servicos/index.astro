@@ -8,10 +8,11 @@ import Icon from '../../components/Icon.astro';
 import { byGroup } from '../../data/services';
 
 const crumbs = [{ name: 'Início', href: '/' }, { name: 'Serviços', href: '/servicos/' }];
+// Manutenção e upgrade em SJC primeiro (foco do site); remoto em seguida.
 const grupos = [
-  { id: 'resolver', eyebrow: 'Remoto · todo o Brasil', title: 'Resolver problemas no computador', lead: 'Problemas de sistema e programas que, conforme o caso, podem ser resolvidos pela internet.', items: byGroup('resolver') },
   { id: 'hardware', eyebrow: 'Entrega em São José dos Campos', title: 'Upgrade e hardware', lead: 'Serviços que exigem o equipamento em mãos, com entrega combinada na cidade.', items: byGroup('hardware') },
   { id: 'local', eyebrow: 'São José dos Campos', title: 'Assistência técnica e manutenção', lead: 'Como funciona o atendimento físico na cidade, para notebooks e computadores.', items: byGroup('local') },
+  { id: 'resolver', eyebrow: 'Remoto · todo o Brasil', title: 'Resolver problemas no computador', lead: 'Problemas de sistema e programas que, conforme o caso, podem ser resolvidos pela internet.', items: byGroup('resolver') },
 ];
 ---
 <BaseLayout

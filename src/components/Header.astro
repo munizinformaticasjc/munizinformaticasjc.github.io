@@ -5,7 +5,7 @@ import { serviceBySlug } from '../data/services';
 import { waLink } from '../lib/whatsapp';
 
 const menuResolver = ['suporte-remoto', 'suporte-tecnico-windows', 'computador-lento', 'remocao-de-virus', 'formatacao-de-notebook', 'backup-de-arquivos'].map((s) => serviceBySlug[s]);
-const menuHardware = ['upgrade-ssd', 'upgrade-memoria-ram', 'limpeza-de-notebook', 'notebook-esquentando'].map((s) => serviceBySlug[s]);
+const menuHardware = ['manutencao-de-computadores', 'upgrade-ssd', 'upgrade-memoria-ram', 'limpeza-de-notebook', 'notebook-esquentando'].map((s) => serviceBySlug[s]);
 
 const mainLinks = [
   { label: 'Suporte remoto', href: '/como-funciona-o-suporte-remoto/' },
@@ -47,17 +47,17 @@ const current = (href: string) => (path === href ? 'page' : isActive(href) ? 'tr
         <div class="invisible absolute left-1/2 top-full w-[620px] -translate-x-1/2 translate-y-2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
           <div class="card grid grid-cols-2 gap-6 p-6 shadow-[0_30px_60px_-30px_#0a254066]">
             <div>
-              <p class="mb-3 font-mono text-xs text-muted">Remoto · todo o Brasil</p>
+              <p class="mb-3 font-mono text-xs text-muted">Manutenção e upgrade · SJC</p>
               <ul class="space-y-1">
-                {menuResolver.map((s) => (
+                {menuHardware.map((s) => (
                   <li><a href={`/${s.slug}/`} class="flex items-center gap-3 rounded-lg px-2 py-2 text-[0.95rem] font-semibold text-ink hover:bg-mist-100 hover:text-link"><Icon name={s.icon} size={18} class="text-link" />{s.navLabel}</a></li>
                 ))}
               </ul>
             </div>
             <div>
-              <p class="mb-3 font-mono text-xs text-muted">Upgrade e hardware · SJC</p>
+              <p class="mb-3 font-mono text-xs text-muted">Remoto · todo o Brasil</p>
               <ul class="space-y-1">
-                {menuHardware.map((s) => (
+                {menuResolver.map((s) => (
                   <li><a href={`/${s.slug}/`} class="flex items-center gap-3 rounded-lg px-2 py-2 text-[0.95rem] font-semibold text-ink hover:bg-mist-100 hover:text-link"><Icon name={s.icon} size={18} class="text-link" />{s.navLabel}</a></li>
                 ))}
               </ul>
@@ -114,12 +114,12 @@ const current = (href: string) => (path === href ? 'page' : isActive(href) ? 'tr
       </button>
     </div>
     <nav class="flex-1 overflow-y-auto px-4 py-5" aria-label="Menu móvel">
-      <p class="px-3 pb-2 font-mono text-xs text-muted">Resolver um problema</p>
-      {menuResolver.map((s) => (
+      <p class="px-3 pb-2 font-mono text-xs text-muted">Manutenção e upgrade · SJC</p>
+      {menuHardware.map((s) => (
         <a href={`/${s.slug}/`} class="flex items-center gap-3 rounded-xl px-3 py-3 font-semibold text-ink hover:bg-mist-100"><Icon name={s.icon} size={19} class="text-link" />{s.navLabel}</a>
       ))}
-      <p class="mt-4 px-3 pb-2 font-mono text-xs text-muted">Upgrade e hardware · SJC</p>
-      {menuHardware.map((s) => (
+      <p class="mt-4 px-3 pb-2 font-mono text-xs text-muted">Remoto · todo o Brasil</p>
+      {menuResolver.map((s) => (
         <a href={`/${s.slug}/`} class="flex items-center gap-3 rounded-xl px-3 py-3 font-semibold text-ink hover:bg-mist-100"><Icon name={s.icon} size={19} class="text-link" />{s.navLabel}</a>
       ))}
       <div class="my-4 border-t border-mist-200"></div>

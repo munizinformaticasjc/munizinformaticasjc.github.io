@@ -9,17 +9,18 @@ import CtaBand from '../components/CtaBand.astro';
 import Icon from '../components/Icon.astro';
 import Reviews from '../components/Reviews.astro';
 import { serviceBySlug, byGroup } from '../data/services';
-import { site } from '../config/site';
+import { site, UPGRADE_WA_MESSAGE } from '../config/site';
 
-const destaque = ['suporte-remoto', 'computador-lento', 'remocao-de-virus', 'formatacao-de-notebook', 'suporte-tecnico-windows', 'backup-de-arquivos'].map((s) => serviceBySlug[s]);
-const hardware = byGroup('hardware');
+// Foco da página inicial: manutenção e upgrade em São José dos Campos; o remoto vem em seguida.
+const manutencao = ['upgrade-ssd', 'upgrade-memoria-ram', 'limpeza-de-notebook', 'formatacao-de-notebook', 'notebook-esquentando', 'manutencao-de-computadores'].map((s) => serviceBySlug[s]);
+const remoto = ['suporte-remoto', 'computador-lento', 'remocao-de-virus', 'suporte-tecnico-windows', 'backup-de-arquivos', 'instalacao-do-windows'].map((s) => serviceBySlug[s]);
 const empresas = byGroup('empresas');
 
 const passos = [
-  { icon: 'MessageCircle', title: 'Você conta o problema', text: 'Pelo WhatsApp, com suas palavras. Fotos de mensagens de erro ajudam.' },
-  { icon: 'ClipboardCheck', title: 'Recebe orientação e valor', text: 'Você fica sabendo o que deve ser feito e quanto custa antes de começar.' },
-  { icon: 'CalendarClock', title: 'Marca o horário', text: 'Entre 9h e 22h, inclusive fins de semana e feriados, conforme disponibilidade e confirmação.' },
-  { icon: 'Eye', title: 'Acompanha o atendimento', text: 'No remoto, você autoriza a conexão e vê cada passo na tela. Ao final, recebe a explicação do que foi feito.' },
+  { icon: 'MessageCircle', title: 'Você conta o que precisa', text: 'Pelo WhatsApp, com suas palavras. O modelo do equipamento e fotos de mensagens de erro ajudam.' },
+  { icon: 'ClipboardCheck', title: 'Recebe orientação e valor', text: 'Você fica sabendo o que deve ser feito e quanto custa antes de começar. Peças só depois de confirmar a compatibilidade.' },
+  { icon: 'CalendarClock', title: 'Combina dia e horário', text: 'Para a entrega do equipamento ou para o remoto, entre 9h e 22h, inclusive fins de semana e feriados, conforme disponibilidade.' },
+  { icon: 'Eye', title: 'Recebe com explicação', text: 'O equipamento é testado antes da devolução. No remoto, você acompanha cada passo na tela.' },
 ];
 
 const principios = [
@@ -30,9 +31,10 @@ const principios = [
 ];
 
 const faqs: [string, string][] = [
-  ['O suporte remoto é seguro?', 'A conexão só acontece com a sua autorização, no horário combinado. Você vê tudo na tela e pode encerrar quando quiser. Depois do atendimento, o acesso não fica liberado.'],
-  ['Atendem em qualquer cidade?', 'Por suporte remoto, sim, quando o tipo de problema permite: qualquer cidade do Brasil. Manutenção física é feita apenas em São José dos Campos.'],
   ['Preciso levar o computador a algum lugar?', 'Só quando o serviço exige manutenção física, como upgrade de SSD ou limpeza interna. Nesse caso, o equipamento é entregue em local combinado em São José dos Campos, mediante agendamento. Não há loja aberta ao público nem atendimento em domicílio.'],
+  ['Vale mais a pena fazer upgrade ou comprar um computador novo?', 'Depende da idade do equipamento e do seu uso. Antes de comprar qualquer peça, a compatibilidade e o custo-benefício são avaliados. Quando o investimento não compensa, você também recebe essa orientação.'],
+  ['Atendem em qualquer cidade?', 'Por suporte remoto, sim, quando o tipo de problema permite: qualquer cidade do Brasil. Manutenção física é feita apenas em São José dos Campos.'],
+  ['O suporte remoto é seguro?', 'A conexão só acontece com a sua autorização, no horário combinado. Você vê tudo na tela e pode encerrar quando quiser. Depois do atendimento, o acesso não fica liberado.'],
   ['Como sei quanto vai custar?', 'Cada caso é avaliado antes do orçamento, conforme o problema e o serviço necessário. O valor e as condições de pagamento são informados antes de começar, e o atendimento só acontece depois da sua aprovação.'],
   ['Quando posso ser atendido?', `${site.service.schedule} O dia e o horário são confirmados pelo WhatsApp.`],
   ['Atendem empresas?', 'Sim. Pequenas empresas de todo o Brasil têm suporte remoto. Empresas em São José dos Campos também podem solicitar atendimento presencial no próprio estabelecimento, conforme disponibilidade.'],
@@ -44,8 +46,8 @@ const faqSchema = {
 };
 ---
 <BaseLayout
-  title="Suporte Técnico Remoto e em São José dos Campos | Muniz"
-  description="Computador lento, vírus ou erro no Windows? Suporte remoto em todo o Brasil, conforme o problema, e manutenção em São José dos Campos. Agende das 9h às 22h."
+  title="Manutenção e Upgrade de Computadores em São José dos Campos"
+  description="Upgrade de SSD e memória, limpeza interna e formatação em São José dos Campos, e suporte remoto para todo o Brasil. Das 9h às 22h, com agendamento."
   schema={[faqSchema]}
   waRef="barra-mobile-home"
 >
@@ -58,21 +60,21 @@ const faqSchema = {
     </svg>
     <div class="container-site relative grid items-center gap-12 py-14 md:py-20 lg:grid-cols-[1.08fr_1fr] lg:gap-16 lg:py-24">
       <div>
-        <p class="eyebrow mb-5">Suporte técnico · remoto e em São José dos Campos</p>
+        <p class="eyebrow mb-5">Manutenção e upgrade · São José dos Campos</p>
         <h1 class="font-display text-[2.15rem] min-[400px]:text-[2.45rem] font-extrabold leading-[1.02] sm:text-[3.4rem] lg:text-[3.9rem]">
-          Suporte técnico para o seu computador, <span class="relative whitespace-nowrap text-link">com hora marcada<svg aria-hidden="true" class="absolute -bottom-2 left-0 h-3 w-full text-signal" viewBox="0 0 300 12" preserveAspectRatio="none" fill="none"><path d="M2 9 C 80 2, 220 2, 298 7" stroke="currentColor" stroke-width="4" stroke-linecap="round" /></svg></span>.
+          Manutenção e <span class="relative whitespace-nowrap text-link">upgrade<svg aria-hidden="true" class="absolute -bottom-2 left-0 h-3 w-full text-signal" viewBox="0 0 300 12" preserveAspectRatio="none" fill="none"><path d="M2 9 C 80 2, 220 2, 298 7" stroke="currentColor" stroke-width="4" stroke-linecap="round" /></svg></span> para o seu computador e notebook.
         </h1>
         <p class="mt-7 max-w-xl text-lg leading-relaxed text-body sm:text-xl">
-          Lentidão, vírus e erros no Windows muitas vezes podem ser resolvidos pela internet, de qualquer cidade do Brasil. Quando é preciso manutenção física, o equipamento é entregue em local combinado em São José dos Campos. Empresas da cidade também podem pedir atendimento no local.
+          Em São José dos Campos: troca de HD por SSD, mais memória, limpeza interna e formatação, com entrega do equipamento em local combinado. Para todo o Brasil: suporte remoto para Windows, vírus e lentidão, conforme o problema. Empresas da cidade também podem pedir atendimento no local.
         </p>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <WhatsAppButton ref="hero" label="Chamar no WhatsApp" />
-          <a href="/como-funciona-o-suporte-remoto/" class="btn btn-ghost">Como funciona o remoto</a>
+          <WhatsAppButton ref="hero" message={UPGRADE_WA_MESSAGE} label="Pedir orçamento" />
+          <a href="/manutencao-de-computadores/" class="btn btn-ghost">Ver manutenção e upgrade</a>
         </div>
-        <p class="mt-4 flex items-start gap-2 text-[0.95rem] text-muted"><Icon name="CalendarClock" size={18} class="shrink-0 text-link" /><span><strong class="text-ink">Das 9h às 22h, todos os dias</strong>, inclusive fins de semana e feriados, conforme disponibilidade.</span></p>
+        <p class="mt-4 flex items-start gap-2 text-[0.95rem] text-muted"><Icon name="CalendarClock" size={18} class="shrink-0 text-link" /><span><strong class="text-ink">Também à noite e nos fins de semana:</strong> das 9h às 22h, todos os dias, inclusive feriados, conforme disponibilidade.</span></p>
         <ul class="mt-7 grid gap-3 text-[0.97rem] text-body sm:grid-cols-3 sm:gap-4">
           <li class="flex items-center gap-2"><Icon name="BadgeCheck" size={19} class="shrink-0 text-ok-deep" />Orçamento antes de começar</li>
-          <li class="flex items-center gap-2"><Icon name="Eye" size={19} class="shrink-0 text-ok-deep" />No remoto, você acompanha na tela</li>
+          <li class="flex items-center gap-2"><Icon name="ScanSearch" size={19} class="shrink-0 text-ok-deep" />Peça só com compatibilidade confirmada</li>
           <li class="flex items-center gap-2"><Icon name="FolderLock" size={19} class="shrink-0 text-ok-deep" />Backup combinado antes de formatar</li>
         </ul>
       </div>
@@ -83,34 +85,35 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- SERVIÇOS PF -->
+  <!-- MANUTENÇÃO E UPGRADE (foco) + REMOTO -->
   <section class="container-site py-20 md:py-24" data-reveal>
     <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
       <SectionHeading
-        eyebrow="Para você"
-        title="Muitos problemas podem ser resolvidos a distância"
-        lead="Problemas de sistema e de programas muitas vezes podem ser tratados pela internet, de qualquer cidade. A viabilidade é confirmada na conversa inicial."
+        eyebrow="Para o seu computador"
+        title="Manutenção e upgrade em São José dos Campos"
+        lead="Para ganhar velocidade e reduzir o aquecimento sem trocar de computador antes da hora. O equipamento é entregue em local combinado na cidade, e o custo-benefício é avaliado antes de qualquer peça."
       />
-      <a href="/servicos/" class="link-arrow shrink-0">Ver todos os serviços <Icon name="ArrowRight" size={17} /></a>
+      <a href="/manutencao-de-computadores/" class="link-arrow shrink-0">Ver manutenção e upgrade <Icon name="ArrowRight" size={17} /></a>
     </div>
     <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {destaque.map((s) => <ServiceCard service={s} />)}
+      {manutencao.map((s) => <ServiceCard service={s} />)}
     </div>
 
     <div class="mt-6 flex flex-col gap-5 rounded-[1.25rem] border border-dashed border-link/35 bg-white p-6 md:flex-row md:items-center md:justify-between" data-reveal-item>
       <div class="flex items-start gap-4">
-        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-mist-100 text-link"><Icon name="MapPin" size={21} /></span>
+        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-mist-100 text-link"><Icon name="MonitorSmartphone" size={21} /></span>
         <div>
-          <p class="font-display text-lg font-bold text-ink">Upgrade e hardware em São José dos Campos</p>
-          <p class="text-muted">Com entrega do equipamento combinada na cidade, com agendamento.</p>
+          <p class="font-display text-lg font-bold text-ink">Suporte remoto para todo o Brasil</p>
+          <p class="text-muted">Problemas de sistema e de programas, pela internet, conforme o tipo de problema.</p>
         </div>
       </div>
-      <ul class="flex flex-wrap gap-2">
-        {hardware.map((s) => (
+      <ul class="flex flex-wrap gap-2 md:max-w-[52%] md:justify-end">
+        {remoto.map((s) => (
           <li><a href={`/${s.slug}/`} class="inline-flex items-center gap-1.5 rounded-full border border-mist-200 px-3.5 py-2 text-[0.93rem] font-semibold text-ink transition-colors hover:border-link hover:text-link"><Icon name={s.icon} size={16} />{s.navLabel}</a></li>
         ))}
       </ul>
     </div>
+    <a href="/servicos/" class="link-arrow mt-6">Ver todos os serviços <Icon name="ArrowRight" size={17} /></a>
   </section>
 
   <!-- COMO FUNCIONA -->
@@ -151,13 +154,30 @@ const faqSchema = {
   <section class="container-site py-20 md:py-24" data-reveal>
     <SectionHeading
       eyebrow="Onde é o atendimento"
-      title="Remoto para todo o Brasil. Físico só em São José dos Campos."
-      lead="Para não haver surpresa, veja o que é feito a distância e o que precisa do equipamento em mãos."
+      title="Manutenção física em São José dos Campos. Remoto para todo o Brasil."
+      lead="Para não haver surpresa, veja o que precisa do equipamento em mãos e o que é feito a distância."
     />
     <div class="mt-12 grid gap-5 lg:grid-cols-2">
       <div class="card p-7 sm:p-8" data-reveal-item>
         <div class="flex items-center gap-3">
-          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-navy-900 text-signal"><Icon name="MonitorSmartphone" size={21} /></span>
+          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-navy-900 text-signal"><Icon name="MapPin" size={21} /></span>
+          <div>
+            <h3 class="font-display text-xl font-bold">São José dos Campos</h3>
+            <p class="font-mono text-xs text-muted">entrega em local combinado</p>
+          </div>
+        </div>
+        <ul class="mt-6 space-y-3">
+          {['Upgrade de SSD e memória RAM', 'Limpeza interna e aquecimento', 'Manutenção preventiva e formatação', 'Computador que não liga ou não inicia', 'Atendimento no estabelecimento para empresas'].map((t) => (
+            <li class="flex items-start gap-3"><Icon name="Check" size={19} class="mt-0.5 shrink-0 text-ok-deep" />{t}</li>
+          ))}
+        </ul>
+        <p class="mt-6 rounded-xl bg-mist-50 p-4 text-[0.95rem] leading-relaxed text-muted">
+          Para pessoas físicas, o equipamento é entregue em um local combinado na cidade. Não há loja aberta ao público nem atendimento em domicílio.
+        </p>
+      </div>
+      <div class="card p-7 sm:p-8" data-reveal-item>
+        <div class="flex items-center gap-3">
+          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-mist-100 text-link"><Icon name="MonitorSmartphone" size={21} /></span>
           <div>
             <h3 class="font-display text-xl font-bold">Suporte remoto</h3>
             <p class="font-mono text-xs text-muted">qualquer cidade do Brasil</p>
@@ -168,23 +188,6 @@ const faqSchema = {
             <li class="flex items-start gap-3"><Icon name="Check" size={19} class="mt-0.5 shrink-0 text-ok-deep" />{t}</li>
           ))}
         </ul>
-      </div>
-      <div class="card p-7 sm:p-8" data-reveal-item>
-        <div class="flex items-center gap-3">
-          <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-mist-100 text-link"><Icon name="MapPin" size={21} /></span>
-          <div>
-            <h3 class="font-display text-xl font-bold">São José dos Campos</h3>
-            <p class="font-mono text-xs text-muted">com agendamento</p>
-          </div>
-        </div>
-        <ul class="mt-6 space-y-3">
-          {['Upgrade de SSD e memória RAM', 'Limpeza interna e aquecimento', 'Computador que não liga ou não inicia', 'Atendimento no estabelecimento para empresas'].map((t) => (
-            <li class="flex items-start gap-3"><Icon name="Check" size={19} class="mt-0.5 shrink-0 text-ok-deep" />{t}</li>
-          ))}
-        </ul>
-        <p class="mt-6 rounded-xl bg-mist-50 p-4 text-[0.95rem] leading-relaxed text-muted">
-          Para pessoas físicas, o equipamento é entregue em um local combinado na cidade. Não há loja aberta ao público nem atendimento em domicílio.
-        </p>
       </div>
     </div>
   </section>
@@ -220,7 +223,8 @@ const faqSchema = {
         <p class="mt-4 text-lg leading-relaxed text-muted">
           Suporte, redes, segurança e infraestrutura para pequenas empresas. Remoto em todo o Brasil e, exclusivamente em São José dos Campos, atendimento no próprio estabelecimento, conforme disponibilidade.
         </p>
-        <a href="/empresas/" class="btn btn-primary mt-8">Conhecer o atendimento a empresas <Icon name="ArrowRight" size={18} class="btn-arrow" /></a>
+        <!-- Rótulo longo: pode quebrar linha no celular para não alargar a coluna. -->
+        <a href="/empresas/" class="btn btn-primary mt-8 !whitespace-normal">Conhecer o atendimento a empresas <Icon name="ArrowRight" size={18} class="btn-arrow shrink-0" /></a>
       </div>
       <ul class="grid content-center gap-px bg-mist-200 sm:grid-cols-2">
         {empresas.map((s) => (

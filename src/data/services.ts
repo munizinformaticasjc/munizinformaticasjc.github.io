@@ -29,6 +29,8 @@ export interface ServicePage {
   approach: string[];
   faqs: [string, string][];
   related: string[];
+  /** Página central: lista estes serviços logo abaixo do topo. */
+  hub?: string[];
   wa: string;
 }
 
@@ -87,7 +89,7 @@ export const services: ServicePage[] = [
     cardText: 'Erros, atualizações travadas, configurações e programas que não funcionam.',
     seoTitle: 'Suporte Técnico Windows 10 e 11 | Atendimento Remoto',
     description:
-      'Suporte técnico para Windows 10 e 11: erros, atualizações travadas, tela azul, programas e configurações. Atendimento remoto com hora marcada para todo o Brasil.',
+      'Suporte técnico para Windows 10 e 11: erros, atualizações travadas, tela azul, programas e configurações. Atendimento remoto para todo o Brasil.',
     eyebrow: 'Windows 10 e Windows 11',
     h1: 'Suporte técnico para Windows 10 e 11',
     intro:
@@ -215,7 +217,7 @@ export const services: ServicePage[] = [
     cardText: 'Vírus, propagandas e programas suspeitos removidos, com proteção revisada.',
     seoTitle: 'Remoção de Vírus e Malware | Suporte Remoto em Todo o Brasil',
     description:
-      'Remoção de vírus, malware, propagandas e programas indesejados do computador, com revisão da proteção. Atendimento remoto para todo o Brasil, com hora marcada.',
+      'Remoção de vírus, malware, propagandas e programas indesejados do computador, com revisão da proteção. Atendimento remoto para todo o Brasil.',
     eyebrow: 'Vírus, malware e programas indesejados',
     h1: 'Remoção de vírus e programas indesejados do computador',
     intro:
@@ -415,7 +417,7 @@ export const services: ServicePage[] = [
       ['Onde entrego o equipamento?', 'A entrega é combinada pelo WhatsApp em um local em São José dos Campos, com agendamento. Não há atendimento em loja aberta ao público.'],
     ],
     related: ['upgrade-memoria-ram', 'computador-lento', 'assistencia-tecnica-em-sao-jose-dos-campos'],
-    wa: 'Olá! Gostaria de avaliar um upgrade de SSD no meu computador/notebook em São José dos Campos.',
+    wa: 'Olá! Gostaria de um orçamento de upgrade de SSD em São José dos Campos.\nModelo do computador/notebook:',
   },
   {
     slug: 'upgrade-memoria-ram',
@@ -452,7 +454,7 @@ export const services: ServicePage[] = [
       ['Memória ou SSD: qual primeiro?', 'Se o computador ainda usa HD, o SSD costuma trazer mais diferença. A análise indica qual faz mais sentido no seu caso.'],
     ],
     related: ['upgrade-ssd', 'computador-lento', 'assistencia-tecnica-notebook'],
-    wa: 'Olá! Gostaria de avaliar um upgrade de memória RAM em São José dos Campos.',
+    wa: 'Olá! Gostaria de um orçamento de upgrade de memória RAM em São José dos Campos.\nModelo do computador/notebook:',
   },
   {
     slug: 'limpeza-de-notebook',
@@ -491,7 +493,7 @@ export const services: ServicePage[] = [
       ['De quanto em quanto tempo limpar?', 'Depende do ambiente e do uso. Em locais com poeira ou animais, a limpeza tende a ser necessária com mais frequência.'],
     ],
     related: ['notebook-esquentando', 'manutencao-de-computadores', 'assistencia-tecnica-notebook'],
-    wa: 'Olá! Gostaria de agendar uma limpeza interna do meu notebook em São José dos Campos.',
+    wa: 'Olá! Gostaria de um orçamento de limpeza interna do meu notebook em São José dos Campos.\nModelo do notebook:',
   },
   {
     slug: 'notebook-esquentando',
@@ -530,7 +532,7 @@ export const services: ServicePage[] = [
       ['É perigoso usar o notebook quente?', 'O aquecimento constante força os componentes e pode causar desligamentos. Vale investigar antes que vire um defeito.'],
     ],
     related: ['limpeza-de-notebook', 'computador-travando', 'assistencia-tecnica-notebook'],
-    wa: 'Olá! Meu notebook está esquentando muito. Gostaria de uma avaliação.',
+    wa: 'Olá! Meu notebook está esquentando muito. Gostaria de uma avaliação.\nModelo do notebook:',
   },
   {
     slug: 'notebook-demora-para-ligar',
@@ -588,7 +590,7 @@ export const services: ServicePage[] = [
     intro:
       'Para quem está em São José dos Campos, o atendimento combina o melhor dos dois formatos: o que dá para resolver pela internet é feito remotamente, e o que exige mexer no equipamento é feito com entrega agendada em um local combinado na cidade.',
     includes: [
-      'Suporte remoto com hora marcada',
+      'Suporte remoto para problemas de sistema',
       'Upgrade de SSD e memória',
       'Limpeza interna e manutenção',
       'Atendimento no local para empresas',
@@ -697,39 +699,43 @@ export const services: ServicePage[] = [
     group: 'local',
     modality: 'sjc',
     icon: 'Wrench',
-    navLabel: 'Manutenção de computadores',
-    cardText: 'Manutenção preventiva para casa e para empresas em São José dos Campos.',
-    seoTitle: 'Manutenção de Computadores em São José dos Campos | Muniz',
+    navLabel: 'Manutenção e upgrade',
+    cardText: 'Manutenção preventiva e corretiva, upgrade e limpeza, para casa e para empresas.',
+    seoTitle: 'Manutenção de Computadores e Notebooks em São José dos Campos',
     description:
-      'Manutenção preventiva e corretiva de computadores e notebooks em São José dos Campos, para pessoas e empresas. Atendimento no local para empresas, com agendamento.',
-    eyebrow: 'Manutenção preventiva e corretiva',
-    h1: 'Manutenção de computadores em São José dos Campos',
+      'Manutenção e upgrade de computadores e notebooks em São José dos Campos: SSD, memória, limpeza e formatação, com entrega agendada. Empresas, no local.',
+    eyebrow: 'Manutenção e upgrade · São José dos Campos',
+    h1: 'Manutenção e upgrade de computadores em São José dos Campos',
     intro:
-      'Manutenção preventiva é mais barata que conserto. Uma revisão periódica de limpeza, atualizações, disco e backup reduz paradas inesperadas, tanto no computador de casa quanto nas máquinas de uma empresa.',
+      'Um computador lento ou esquentando nem sempre precisa ser trocado. Manutenção e upgrade, como a troca do HD por SSD ou mais memória, costumam prolongar a vida útil e melhorar o desempenho no dia a dia. Antes de qualquer serviço, o caso é avaliado e você recebe o orçamento.',
     includes: [
-      'Limpeza interna e refrigeração',
-      'Atualizações e revisão de segurança',
-      'Verificação de disco e de backup',
-      'Relatório do que foi encontrado',
+      'Upgrade de SSD e memória RAM',
+      'Limpeza interna e revisão da refrigeração',
+      'Formatação e instalação do Windows',
+      'Verificação de disco, atualizações e backup',
     ],
-    signsTitle: 'Para quem é',
+    signsTitle: 'Quando vale procurar',
     signs: [
-      'Computadores usados todos os dias para trabalho ou estudo.',
-      'Empresas com vários equipamentos e nenhuma rotina de revisão.',
-      'Equipamentos que ficam em ambientes com poeira.',
-      'Quem quer evitar ser pego de surpresa por uma falha.',
+      'O computador ficou lento ou demora para ligar.',
+      'O notebook esquenta, faz barulho ou desliga sozinho.',
+      'Faz tempo que o equipamento não passa por limpeza ou revisão.',
+      'Você quer evitar ser pego de surpresa por uma falha.',
+      'A empresa tem vários computadores e nenhuma rotina de revisão.',
     ],
-    approachTitle: 'Pessoas e empresas',
+    approachTitle: 'Avaliar antes de trocar peça',
     approach: [
+      'Antes de comprar qualquer peça, o modelo compatível e o custo-benefício são verificados. Quando o upgrade não compensa, você também recebe essa orientação.',
       'Para pessoas físicas, a manutenção física é feita com entrega do equipamento agendada em São José dos Campos. A parte de sistema e atualizações pode ser feita remotamente.',
       'Para empresas em São José dos Campos, a manutenção pode ser feita no próprio local, com agendamento e conforme disponibilidade.',
     ],
     faqs: [
+      ['Vale mais a pena fazer upgrade ou comprar um computador novo?', 'Depende da idade do equipamento e do seu uso. A avaliação mostra o custo-benefício de cada opção antes de qualquer compra.'],
       ['Com que frequência fazer manutenção?', 'Depende do uso e do ambiente. A recomendação é definida depois da primeira revisão.'],
       ['Atendem empresas no local?', 'Sim, empresas em São José dos Campos, com agendamento e conforme disponibilidade.'],
     ],
-    related: ['limpeza-de-notebook', 'suporte-informatica-pequenas-empresas', 'backup-de-arquivos'],
-    wa: 'Olá! Gostaria de agendar uma manutenção preventiva em São José dos Campos.',
+    hub: ['upgrade-ssd', 'upgrade-memoria-ram', 'limpeza-de-notebook', 'formatacao-de-notebook', 'notebook-esquentando', 'notebook-demora-para-ligar'],
+    related: ['assistencia-tecnica-notebook', 'assistencia-tecnica-computador', 'suporte-informatica-pequenas-empresas'],
+    wa: 'Olá! Gostaria de um orçamento de manutenção ou upgrade em São José dos Campos.\nModelo do computador/notebook:',
   },
 
   // ───────────────────────── EMPRESAS ─────────────────────────
@@ -899,7 +905,7 @@ export const byGroup = (group: Group) => services.filter((s) => s.group === grou
 export const modalityLabel: Record<Modality, { short: string; long: string }> = {
   remoto: {
     short: 'Remoto · todo o Brasil',
-    long: 'Atendimento remoto para qualquer cidade do Brasil, com hora marcada.',
+    long: 'Atendimento remoto para qualquer cidade do Brasil, conforme o tipo de problema.',
   },
   misto: {
     short: 'Remoto + entrega em SJC',

@@ -3,15 +3,16 @@ import Icon from './Icon.astro';
 import { waLink } from '../lib/whatsapp';
 
 // kind: 'remoto' resolve a distância · 'misto' começa remoto · 'fisico' exige o equipamento
+// Ordem: manutenção e upgrade primeiro (foco do site), depois os problemas de sistema.
 const problems = [
+  { id: 'upgrade', label: 'Upgrade de SSD ou memória', icon: 'HardDrive', kind: 'fisico', page: '/upgrade-ssd/' },
   { id: 'lento', label: 'Está lento', icon: 'Gauge', kind: 'misto', page: '/computador-lento/' },
+  { id: 'esquentando', label: 'Esquenta muito', icon: 'Thermometer', kind: 'fisico', page: '/notebook-esquentando/' },
+  { id: 'formatar', label: 'Quero formatar', icon: 'RefreshCw', kind: 'misto', page: '/formatacao-de-notebook/' },
+  { id: 'travando', label: 'Trava ou reinicia', icon: 'RotateCcw', kind: 'misto', page: '/computador-travando/' },
   { id: 'virus', label: 'Vírus ou propagandas', icon: 'ShieldAlert', kind: 'remoto', page: '/remocao-de-virus/' },
   { id: 'windows', label: 'Erro no Windows', icon: 'AppWindow', kind: 'remoto', page: '/suporte-tecnico-windows/' },
-  { id: 'travando', label: 'Trava ou reinicia', icon: 'RotateCcw', kind: 'misto', page: '/computador-travando/' },
-  { id: 'formatar', label: 'Quero formatar', icon: 'RefreshCw', kind: 'misto', page: '/formatacao-de-notebook/' },
   { id: 'programa', label: 'Programa ou impressora', icon: 'Printer', kind: 'remoto', page: '/suporte-remoto/' },
-  { id: 'esquentando', label: 'Esquenta muito', icon: 'Thermometer', kind: 'fisico', page: '/notebook-esquentando/' },
-  { id: 'upgrade', label: 'Upgrade de SSD ou memória', icon: 'HardDrive', kind: 'fisico', page: '/upgrade-ssd/' },
 ] as const;
 
 const data = JSON.stringify(problems.map(({ id, label, kind, page }) => ({ id, label, kind, page })));

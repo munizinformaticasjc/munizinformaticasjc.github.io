@@ -26,3 +26,7 @@ export const site = {
 
 export const DEFAULT_WA_MESSAGE =
   'Olá! Vim pelo site da Muniz Informática e gostaria de agendar um atendimento.\nMelhor dia e horário para mim:';
+
+// Pedido de orçamento de manutenção/upgrade: o modelo do equipamento já ajuda a orçar.
+export const UPGRADE_WA_MESSAGE =
+  'Olá! Vim pelo site da Muniz Informática e gostaria de um orçamento de manutenção ou upgrade.\nModelo do computador/notebook:\nO que está acontecendo:';

@@ -5,7 +5,7 @@ import { site } from '../config/site';
 import { byGroup } from '../data/services';
 import { waLink } from '../lib/whatsapp';
 
-const pessoas = [...byGroup('resolver'), ...byGroup('hardware')];
+const pessoas = [...byGroup('hardware'), ...byGroup('resolver')];
 const empresas = byGroup('empresas');
 const year = new Date().getFullYear();
 ---
