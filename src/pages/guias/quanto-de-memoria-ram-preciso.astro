@@ -1,0 +1,75 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import { guideBySlug } from '../../data/guides';
+
+const guide = guideBySlug['quanto-de-memoria-ram-preciso'];
+
+const faqs: [string, string][] = [
+  ['8 GB de memória é suficiente para o Windows 11?', 'Para uso comum, como navegação, Office, vídeos e chamadas, em geral sim. Para muitas abas e programas pesados abertos ao mesmo tempo, 16 GB dão mais folga.'],
+  ['Posso misturar memórias de marcas diferentes?', 'Muitas vezes funciona, desde que o tipo e o formato sejam compatíveis. Ainda assim, o ideal é usar módulos com as mesmas características: combinações diferentes podem reduzir a velocidade ou causar instabilidade.'],
+  ['Mais memória deixa a internet mais rápida?', 'Não. A velocidade da internet depende da conexão. Mais memória ajuda o computador a manter muitas abas e programas abertos sem travar.'],
+  ['Meu notebook aceita mais memória?', 'Depende do modelo. É preciso verificar o tipo de memória, os slots livres e o limite suportado. Alguns notebooks têm a memória soldada na placa e não permitem upgrade.'],
+];
+---
+<GuideLayout guide={guide} faqs={faqs}>
+  <div class="resumo">
+    <p>Resumo rápido</p>
+    <ul>
+      <li>Para navegação, Office e vídeos, 8 GB costumam bastar. Para muitas abas, planilhas grandes, edição de fotos e jogos, 16 GB dão folga.</li>
+      <li>O Gerenciador de Tarefas mostra quanta memória o computador tem, quanto usa e quantos slots estão livres.</li>
+      <li>Antes de comprar, confira o tipo (DDR3, DDR4 ou DDR5), o formato e se a memória do notebook não é soldada.</li>
+    </ul>
+  </div>
+
+  <h2>Quanta memória para cada tipo de uso</h2>
+  <p>São referências gerais para Windows 10 e 11. O seu uso real é o que define:</p>
+  <table>
+    <thead>
+      <tr><th scope="col">Memória</th><th scope="col">Para que costuma servir</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>4 GB</td><td>É o mínimo exigido pelo Windows 11. Na prática, fica no limite com o navegador e outros programas abertos ao mesmo tempo.</td></tr>
+      <tr><td>8 GB</td><td>Navegação, e-mail, Office, vídeos e chamadas, com algumas abas abertas.</td></tr>
+      <tr><td>16 GB</td><td>Muitas abas e programas juntos, planilhas grandes, edição de fotos e jogos.</td></tr>
+      <tr><td>32 GB ou mais</td><td>Edição de vídeo, máquinas virtuais e programas profissionais pesados.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Como ver quanta memória o computador tem e quanto usa</h2>
+  <ol>
+    <li>Aperte <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Esc</kbd> para abrir o Gerenciador de Tarefas.</li>
+    <li>Clique em <strong>Desempenho</strong> e depois em <strong>Memória</strong>.</li>
+    <li>No topo aparece o total instalado, por exemplo "8,0 GB". Logo abaixo do gráfico ficam a memória <strong>em uso</strong>, os <strong>slots usados</strong> (por exemplo, "1 de 2") e o formato do pente: SODIMM, em notebooks, ou DIMM, em computadores de mesa.</li>
+  </ol>
+  <p>Um teste prático: abra tudo o que você costuma usar ao mesmo tempo e observe a porcentagem. Se a memória em uso passa de 80% com frequência, mais memória tende a ajudar.</p>
+
+  <h2>Antes de comprar: o que verificar</h2>
+  <ul>
+    <li><strong>Tipo.</strong> DDR3, DDR4 e DDR5 não são compatíveis entre si. O pente precisa ser do tipo que a placa aceita.</li>
+    <li><strong>Formato.</strong> Notebooks usam SODIMM, e computadores de mesa usam DIMM, que é maior.</li>
+    <li><strong>Slots livres e limite.</strong> Veja quantos encaixes estão livres e qual é a quantidade máxima que o equipamento suporta.</li>
+    <li><strong>Memória soldada.</strong> Muitos notebooks finos têm parte ou toda a memória soldada na placa. Nesses casos, o upgrade pode ser limitado ou impossível.</li>
+    <li><strong>Pentes iguais.</strong> Em muitos computadores, usar dois módulos iguais ativa o modo de canal duplo (dual channel), que melhora o desempenho.</li>
+    <li><strong>Velocidade.</strong> Se forem misturadas memórias de velocidades diferentes, todas passam a funcionar na velocidade da mais lenta.</li>
+  </ul>
+
+  <h2>Memória ou SSD: qual primeiro?</h2>
+  <p>Se o computador ainda usa HD, o SSD costuma trazer mais diferença, porque acelera tudo o que depende do disco: ligar, abrir programas e atualizar o Windows. Veja <a href="/guias/vale-a-pena-trocar-hd-por-ssd/">se vale a pena trocar o HD por SSD</a>.</p>
+  <p>Se o computador já tem SSD e a memória vive acima de 80%, aí a memória é a próxima da fila. Em notebooks com 4 GB e HD, muitas vezes os dois upgrades juntos fazem sentido.</p>
+
+  <h2>Quando mais memória não resolve</h2>
+  <ul>
+    <li><strong>A lentidão vem do disco.</strong> Com HD, o computador continua demorando para ligar e abrir programas, mesmo com muita memória.</li>
+    <li><strong>O problema é o sistema.</strong> Vírus, programas demais iniciando com o Windows e atualizações travadas pedem um <a href="/computador-lento/">diagnóstico da lentidão</a> antes de qualquer peça.</li>
+    <li><strong>O processador está no limite.</strong> Se o uso do processador fica perto de 100% enquanto a memória sobra, mais memória não muda muita coisa.</li>
+    <li><strong>O notebook esquenta.</strong> O aquecimento faz o processador reduzir o ritmo. A solução passa pela <a href="/limpeza-de-notebook/">limpeza interna</a>.</li>
+  </ul>
+
+  <h2>Como funciona o upgrade de memória na Muniz Informática</h2>
+  <ol>
+    <li>Você manda o modelo do computador ou notebook pelo WhatsApp. A análise do uso real de memória pode ser feita pelo suporte remoto, para confirmar se o upgrade vai resolver.</li>
+    <li>São verificados o tipo de memória aceito, os slots livres e o limite do equipamento, e você recebe o orçamento.</li>
+    <li>A instalação é feita com o equipamento entregue em um local combinado em São José dos Campos, com agendamento.</li>
+    <li>O computador passa por testes de estabilidade antes da devolução.</li>
+  </ol>
+</GuideLayout>

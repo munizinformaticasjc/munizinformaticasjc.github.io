@@ -1,0 +1,83 @@
+---
+import GuideLayout from '../../layouts/GuideLayout.astro';
+import { guideBySlug } from '../../data/guides';
+
+const guide = guideBySlug['vale-a-pena-trocar-hd-por-ssd'];
+
+const faqs: [string, string][] = [
+  ['Preciso reinstalar o Windows para trocar para SSD?', 'Não necessariamente. O sistema e os arquivos podem ser transferidos do HD para o SSD. A instalação limpa é indicada quando o Windows já está com problemas.'],
+  ['Dá para colocar SSD em notebook antigo?', 'Na maioria dos casos, sim, desde que exista um encaixe compatível. Em equipamentos muito antigos, a verificação mostra antes se o investimento compensa.'],
+  ['Posso manter o HD junto com o SSD?', 'Em muitos computadores de mesa e em alguns notebooks, sim: o SSD fica com o sistema e os programas, e o HD guarda arquivos. Em notebooks com um só encaixe, o HD antigo pode virar armazenamento externo com um case USB.'],
+  ['Quanto tempo dura um SSD?', 'No uso doméstico e de escritório, os SSDs atuais costumam durar muitos anos. Como em qualquer disco, manter um backup dos arquivos importantes continua sendo essencial.'],
+];
+---
+<GuideLayout guide={guide} faqs={faqs}>
+  <div class="resumo">
+    <p>Resumo rápido</p>
+    <ul>
+      <li>Se o computador ainda usa HD e demora para ligar e abrir programas, o SSD costuma ser o upgrade com a maior diferença no dia a dia.</li>
+      <li>Ele não resolve tudo: pouca memória, vírus, programas demais iniciando com o Windows e aquecimento também deixam o computador lento.</li>
+      <li>O modelo de SSD depende do equipamento. Verifique a compatibilidade antes de comprar.</li>
+    </ul>
+  </div>
+
+  <h2>Por que o SSD faz tanta diferença</h2>
+  <p>O HD guarda os dados em discos que giram, lidos por uma cabeça de leitura que precisa se mover até o lugar certo. O SSD guarda os dados em chips de memória, sem nenhuma parte móvel.</p>
+  <p>Na hora de ligar o computador, abrir um programa ou instalar uma atualização, o Windows lê milhares de arquivos pequenos espalhados pelo disco. É justamente aí que o HD sofre: cada arquivo exige um novo movimento da cabeça de leitura. No SSD, esse acesso leva uma pequena fração do tempo.</p>
+  <p>Por isso a diferença aparece principalmente em:</p>
+  <ul>
+    <li>tempo para ligar e chegar à área de trabalho;</li>
+    <li>abertura de programas, como navegador, Office e sistemas de trabalho;</li>
+    <li>atualizações do Windows e buscas por arquivos.</li>
+  </ul>
+  <p>De quebra, o SSD é silencioso, esquenta menos e resiste melhor a pancadas, o que conta bastante em notebooks.</p>
+
+  <h2>Como saber se o seu computador usa HD ou SSD</h2>
+  <p>Leva menos de um minuto, sem instalar nada:</p>
+  <ol>
+    <li>Aperte <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Esc</kbd> para abrir o Gerenciador de Tarefas.</li>
+    <li>Clique em <strong>Desempenho</strong>.</li>
+    <li>Clique em <strong>Disco 0</strong>. Logo abaixo do nome aparece o tipo: <strong>HDD</strong> (HD) ou <strong>SSD</strong>.</li>
+  </ol>
+  <p>Outro caminho é pesquisar por <strong>Desfragmentar e Otimizar Unidades</strong> no menu Iniciar: a coluna "Tipo de mídia" mostra "Unidade de disco rígido" (HD) ou "Unidade de estado sólido" (SSD).</p>
+  <p>Uma pista comum de HD no limite: no Gerenciador de Tarefas, o disco fica em 100% de uso por muito tempo, mesmo sem você estar fazendo nada pesado.</p>
+
+  <h2>Quando a troca vale a pena</h2>
+  <ul>
+    <li>O computador usa HD e a maior queixa é a espera: para ligar, para abrir programas, para responder.</li>
+    <li>O restante do equipamento ainda dá conta do que você faz. O problema é a lentidão, não a falta de recursos.</li>
+    <li>Você prefere prolongar a vida do equipamento a comprar outro agora.</li>
+  </ul>
+
+  <h2>Quando o SSD sozinho não resolve</h2>
+  <ul>
+    <li><strong>Pouca memória RAM.</strong> Com 4 GB ou menos, o Windows 10 ou 11 continua lento mesmo com SSD. Muitas vezes o ideal é SSD e memória juntos. Veja <a href="/guias/quanto-de-memoria-ram-preciso/">quanto de memória RAM você precisa</a>.</li>
+    <li><strong>Problemas no sistema.</strong> Vírus, programas demais iniciando com o Windows ou atualizações travadas deixam qualquer computador lento. O SSD acelera, mas não corrige a causa. Nesses casos, o primeiro passo é o <a href="/computador-lento/">diagnóstico da lentidão</a>.</li>
+    <li><strong>Aquecimento.</strong> Notebook que esquenta perde desempenho para se proteger. Aí a solução passa pela <a href="/limpeza-de-notebook/">limpeza interna</a>.</li>
+    <li><strong>Equipamento muito antigo.</strong> Quando o processador é o limite ou o computador não roda bem as versões atuais do Windows, a troca pode não compensar. Nesse caso, você recebe essa orientação antes de comprar qualquer peça.</li>
+  </ul>
+
+  <h2>Qual SSD é compatível com o seu computador</h2>
+  <p>Existem formatos diferentes, e o certo depende do encaixe disponível no equipamento:</p>
+  <ul>
+    <li><strong>SSD SATA de 2,5 polegadas:</strong> tem o mesmo formato do HD de notebook e serve na maioria dos equipamentos que usam esse tipo de HD. Em computadores de mesa, também é instalado com facilidade.</li>
+    <li><strong>SSD M.2:</strong> parece um pente pequeno e encaixa direto na placa. Existe em duas versões, SATA e NVMe. O NVMe é mais rápido, mas só funciona se o encaixe do equipamento for compatível com ele.</li>
+  </ul>
+  <p>Sobre a capacidade: o Windows, os programas e as atualizações ocupam bastante espaço. Em geral, modelos de 480 GB ou 512 GB dão folga para o sistema e os arquivos do dia a dia. Modelos de 240 GB ou 256 GB podem servir para uso leve, com fotos e vídeos guardados em outro lugar.</p>
+
+  <h2>E os meus arquivos?</h2>
+  <p>Existem dois caminhos, e a escolha depende do estado do sistema:</p>
+  <ul>
+    <li><strong>Transferência:</strong> o Windows, os programas e os arquivos são copiados do HD para o SSD, e o computador volta do jeito que estava, só que mais rápido.</li>
+    <li><strong>Instalação limpa:</strong> o Windows é instalado do zero no SSD, e os arquivos são copiados antes e devolvidos depois. É o caminho indicado quando o sistema já está com problemas.</li>
+  </ul>
+  <p>Nos dois casos, o que precisa ser preservado é combinado antes da troca. O HD antigo pode ser reaproveitado como armazenamento externo, com um case USB.</p>
+
+  <h2>Como funciona o upgrade de SSD na Muniz Informática</h2>
+  <ol>
+    <li>Você manda o modelo do computador ou notebook pelo WhatsApp. A verificação do SSD compatível e de se o upgrade resolve a lentidão pode começar pelo suporte remoto, de qualquer cidade.</li>
+    <li>Você recebe a orientação e o orçamento. A compra e a garantia da peça são combinadas em cada caso.</li>
+    <li>A instalação é feita com o equipamento entregue em um local combinado em São José dos Campos, com agendamento.</li>
+    <li>O computador é testado antes da devolução, e você recebe a explicação do que foi feito.</li>
+  </ol>
+</GuideLayout>

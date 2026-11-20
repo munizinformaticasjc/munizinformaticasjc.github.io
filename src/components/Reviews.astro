@@ -17,7 +17,7 @@ const fmt = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString('pt-BR',
           </p>
           <blockquote class="mt-4 flex-1 leading-relaxed text-body">“{r.text}”</blockquote>
           <p class="mt-5 font-semibold text-ink">{r.author}</p>
-          <p class="text-sm text-muted">{fmt(r.date)}</p>
+          {r.date && <p class="text-sm text-muted">{fmt(r.date)}</p>}
         </li>
       ))}
     </ul>

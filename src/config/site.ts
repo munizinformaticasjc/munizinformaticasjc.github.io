@@ -2,7 +2,7 @@
 // Só inclua informações confirmadas pelo responsável da empresa.
 export const site = {
   name: 'Muniz Informática',
-  legalName: 'Muniz Informática & Tecnologia',
+  legalName: 'Muniz Informática e Tecnologia', // igual ao Perfil da Empresa no Google
   url: 'https://munizinformatica.com.br',
   email: 'muniztecnologia.sjc@gmail.com',
   whatsapp: '5512991069682',
@@ -10,6 +10,12 @@ export const site = {
   city: 'São José dos Campos',
   state: 'SP',
   gaId: 'G-GGM5N78WS7',
+  // Perfis oficiais, conferidos em 20/11/2026. Entram no Schema.org como sameAs.
+  profiles: {
+    google: 'https://www.google.com/maps?cid=3855939904909531632',
+    instagram: 'https://www.instagram.com/munizinformaticasjc/',
+    facebook: 'https://www.facebook.com/p/Muniz-Inform%C3%A1tica-61593355943595/',
+  },
   // Modelo de atendimento confirmado em 31/10/2026.
   service: {
     remote: 'Suporte remoto para todo o Brasil, conforme o tipo de problema',

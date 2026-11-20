@@ -18,9 +18,11 @@ interface Props {
   /** Mensagem e origem do botão fixo de WhatsApp no celular. */
   waMessage?: string;
   waRef?: string;
+  /** "article" nos guias; o resto do site é "website". */
+  ogType?: 'website' | 'article';
 }
 
-const { title, description, schema = [], breadcrumbs, noindex = false, waMessage, waRef = 'barra-mobile' } = Astro.props;
+const { title, description, schema = [], breadcrumbs, noindex = false, waMessage, waRef = 'barra-mobile', ogType = 'website' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const ogImage = new URL('/og-muniz.png', site.url).href;
 
@@ -47,6 +49,7 @@ const business = {
     { '@type': 'City', name: 'São José dos Campos' },
   ],
   knowsLanguage: 'pt-BR',
+  sameAs: Object.values(site.profiles),
 };
 
 const graph: Record<string, unknown>[] = [
@@ -84,7 +87,7 @@ const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': grap
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex, follow" />}
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={title} />

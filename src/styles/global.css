@@ -171,6 +171,50 @@
   }
 
   .prose-muniz p { margin-block: 0 1rem; line-height: 1.7; font-size: 1.075rem; }
+
+  /* Texto longo dos guias (/guias/) */
+  .prose-guia { color: var(--color-body); font-size: 1.075rem; line-height: 1.75; }
+  .prose-guia > * + * { margin-top: 1.1rem; }
+  .prose-guia h2 {
+    margin-top: 2.75rem;
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-ink);
+  }
+  .prose-guia h3 { margin-top: 1.8rem; font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--color-ink); }
+  .prose-guia ul, .prose-guia ol { padding-left: 1.3rem; }
+  .prose-guia ul { list-style: disc; }
+  .prose-guia ol { list-style: decimal; }
+  .prose-guia li + li { margin-top: 0.45rem; }
+  .prose-guia li::marker { color: var(--color-link); font-weight: 700; }
+  .prose-guia strong { color: var(--color-ink); font-weight: 700; }
+  .prose-guia a { color: var(--color-link); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+  .prose-guia a:hover { color: var(--color-link-deep); }
+  .prose-guia kbd {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    padding: 0.05rem 0.4rem;
+    border: 1px solid var(--color-mist-200);
+    border-bottom-width: 2px;
+    border-radius: 0.35rem;
+    background: #fff;
+    white-space: nowrap;
+  }
+  .prose-guia table { width: 100%; border-collapse: collapse; font-size: 1rem; line-height: 1.5; }
+  .prose-guia th, .prose-guia td { padding: 0.75rem 0.85rem; border-bottom: 1px solid var(--color-mist-200); text-align: left; vertical-align: top; }
+  .prose-guia thead th { font-weight: 700; color: var(--color-ink); background: var(--color-mist-50); }
+  .prose-guia td:first-child { font-weight: 700; color: var(--color-ink); white-space: nowrap; }
+  /* Caixa de resumo / destaque dentro do texto */
+  .prose-guia .resumo {
+    padding: 1.25rem 1.4rem;
+    border-left: 4px solid var(--color-link);
+    border-radius: 0 1rem 1rem 0;
+    background: var(--color-mist-50);
+  }
+  .prose-guia .resumo > p:first-child { margin: 0 0 0.5rem; font-family: var(--font-display); font-weight: 700; color: var(--color-ink); }
+  .prose-guia .resumo ul { margin: 0; }
 }
 
 /* Entrada ao rolar: só esconde quando JS está ativo e o usuário aceita movimento. */

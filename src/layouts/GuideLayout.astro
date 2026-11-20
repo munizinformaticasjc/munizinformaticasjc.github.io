@@ -1,0 +1,113 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { serviceBySlug } from '../data/services';
+import type { Guide } from '../data/guides';
+import { site } from '../config/site';
+
+interface Props { guide: Guide; faqs: [string, string][] }
+const { guide: g, faqs } = Astro.props;
+
+const pageUrl = `${site.url}/guias/${g.slug}/`;
+const service = serviceBySlug[g.service];
+const related = g.related.map((slug) => serviceBySlug[slug]).filter(Boolean);
+// "Upgrade de SSD" → "upgrade de SSD": só a primeira letra, para não estragar siglas.
+const serviceName = service ? service.navLabel.charAt(0).toLowerCase() + service.navLabel.slice(1) : '';
+
+// Tempo de leitura calculado a partir do próprio texto (cerca de 200 palavras por minuto).
+const body = await Astro.slots.render('default');
+const words = body.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+const minutes = Math.max(1, Math.round(words / 200));
+const updated = new Intl.DateTimeFormat('pt-BR', { month: 'long', year: 'numeric' }).format(new Date(`${g.updated}T12:00:00`));
+
+const crumbs = [
+  { name: 'Início', href: '/' },
+  { name: 'Guias', href: '/guias/' },
+  { name: g.title, href: `/guias/${g.slug}/` },
+];
+
+const schema = [
+  {
+    '@type': 'Article',
+    '@id': `${pageUrl}#article`,
+    headline: g.title,
+    description: g.description,
+    url: pageUrl,
+    mainEntityOfPage: pageUrl,
+    inLanguage: 'pt-BR',
+    datePublished: g.published,
+    dateModified: g.updated,
+    image: `${site.url}/og-muniz.png`,
+    author: { '@id': `${site.url}/#business` },
+    publisher: { '@id': `${site.url}/#business` },
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+  },
+];
+---
+<BaseLayout title={g.seoTitle} description={g.description} schema={schema} breadcrumbs={crumbs} waMessage={g.wa} waRef={`barra-mobile-guia-${g.slug}`} ogType="article">
+  <section class="grid-bg-light border-b border-mist-200">
+    <div class="container-site py-12 md:py-16 lg:py-20">
+      <Breadcrumbs items={crumbs} />
+      <p class="eyebrow mb-4">{g.eyebrow}</p>
+      <h1 class="max-w-3xl font-display text-[2.2rem] font-extrabold leading-[1.05] sm:text-[3rem]">{g.title}</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-body sm:text-xl">{g.lead}</p>
+      <p class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-xs text-muted">
+        <span class="inline-flex items-center gap-1.5"><Icon name="Clock" size={14} />Leitura de {minutes} min</span>
+        <span>Atualizado em {updated}</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="container-site grid gap-12 py-14 md:py-16 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16">
+    <article class="prose-guia max-w-[70ch]">
+      <Fragment set:html={body} />
+    </article>
+
+    <!-- Cartão de contato: ao lado do texto no desktop, depois do texto no celular. -->
+    <div class="lg:sticky lg:top-28 lg:self-start">
+      <div class="card p-6 shadow-[0_30px_60px_-40px_#0a254080]">
+        <p class="font-display text-lg font-bold text-ink">Quer saber se compensa no seu equipamento?</p>
+        <p class="mt-2 leading-relaxed text-muted">Mande o modelo pelo WhatsApp. A compatibilidade e o custo-benefício são avaliados antes de qualquer compra.</p>
+        <WhatsAppButton message={g.wa} ref={`guia-${g.slug}`} label="Pedir orçamento" full class="mt-5" />
+        {service && (
+          <a href={`/${service.slug}/`} class="link-arrow mt-4 text-[0.95rem]">Ver o serviço de {serviceName} <Icon name="ArrowRight" size={16} /></a>
+        )}
+        <p class="mt-4 flex gap-2 rounded-xl bg-mist-50 p-3 text-sm leading-relaxed text-muted">
+          <Icon name="MapPin" size={16} class="mt-0.5 shrink-0 text-link" />Instalação com entrega do equipamento em São José dos Campos, com agendamento.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <section class="border-y border-mist-200 bg-white py-16 md:py-20">
+    <div class="container-site grid gap-10 lg:grid-cols-[0.8fr_1.2fr]" data-reveal>
+      <SectionHeading eyebrow="Dúvidas" title="Perguntas frequentes" />
+      <FaqList faqs={faqs} />
+    </div>
+  </section>
+
+  {related.length > 0 && (
+    <section class="container-site pt-16 md:pt-20" data-reveal>
+      <h2 class="font-display text-2xl font-bold">Serviços relacionados</h2>
+      <div class="mt-8 grid gap-4 md:grid-cols-3">
+        {related.map((r) => <ServiceCard service={r} />)}
+      </div>
+    </section>
+  )}
+
+  <CtaBand
+    waRef={`cta-final-guia-${g.slug}`}
+    message={g.wa}
+    title="Ficou com dúvida sobre o seu equipamento?"
+    text="Mande o modelo e o que está acontecendo pelo WhatsApp. Você recebe a orientação e o orçamento antes de qualquer compra ou serviço."
+  />
+</BaseLayout>
